@@ -1,0 +1,1 @@
+/Users/Takanori/dotfiles/.vim
