@@ -1,5 +1,6 @@
-syntax enable "シンタックスハイライトを有効にする
-colorscheme solarized "/usr/share/vim/vim72/colors or ~/.vim/colors
+syntax enable
+set background=dark
+colorscheme solarized
 
 set nobackup "バックアップファイルを作らない設定にする
 set encoding=utf-8 "デフォルトの文字コード
