@@ -1,0 +1,15 @@
+# 全てignore
+/*
+/.*
+
+# 管理対象をignoreから除外
+!/.gitignore
+!/.gvimrc
+!/.vim
+!/.vimrc
+!/dotfilesLink.sh
+
+# 管理対象ディレクトリ内で除外したいものを追加
+.DS_Store
+.netrwhist
+/.vim/undo
