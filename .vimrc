@@ -38,12 +38,3 @@ endif
 
 "ESC連打でサーチハイライトを解除
 nmap <Esc><Esc> :nohlsearch<LF>
-
-"カーソルを自動的に()の中へ
-imap {} {}<Left>
-imap [] []<Left>
-imap () ()<Left>
-imap "" ""<Left>
-imap '' ''<Left>
-imap <> <><Left>
-imap // //<left>
