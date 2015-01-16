@@ -32,8 +32,8 @@ match ZenkakuSpace /　/
 
 "undofileの設定
 if has('persistent_undo')
-	set undodir=~/.vim/undo
-	set undofile
+  set undodir=~/.vim/undo
+  set undofile
 endif
 
 "ESC連打でサーチハイライトを解除
