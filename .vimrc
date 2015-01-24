@@ -1,9 +1,10 @@
+"_/_/_/_/ Common settings _/_/_/_/
 syntax enable
 set background=dark
 colorscheme solarized
 
 set encoding=utf-8 "デフォルト文字コード
-set fileencodings=iso-2022-jp,euc-jp,utf-8,ucs-2,cp932,sjis "自動判別用文字コード
+set fileencodings=utf-8 "自動判別用文字コード
 set fileformats=unix,dos,mac "自動判別用改行コード
 
 set nobackup "バックアップファイルを作らない
@@ -20,7 +21,8 @@ set shiftwidth=2 "自動インデントでずれる幅
 set softtabstop=2 "連続した空白に対してタブキーやバックスペースキーでカーソルが動く幅
 set autoindent "改行時に前の行のインデントを継続する
 set smartindent "改行時に入力された行の末尾に合わせて次の行のインデントを増減
-set clipboard+=unnamed "ヤンク時にクリップボードにコピー
+set clipboard=unnamed "ヤンク時にクリップボードにコピー
+set mouse=a "マウスを有効化
 
 "不可視文字の表示
 set list
@@ -38,3 +40,6 @@ endif
 
 "ESC連打でサーチハイライトを解除
 nmap <Esc><Esc> :nohlsearch<LF>
+
+"_/_/_/_/ For each language _/_/_/_/
+"Under construction...
