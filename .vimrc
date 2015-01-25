@@ -59,10 +59,10 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 " My Bundles here:
-
+NeoBundle 'scrooloose/nerdtree'
 
 call neobundle#end()
+NeoBundleCheck
 
 " _/_/_/_/ Finalization _/_/_/_/
 filetype plugin indent on " ファイルタイプ関連を再度有効化
-NeoBundleCheck " 未インストールのバンドルがないかチェック
