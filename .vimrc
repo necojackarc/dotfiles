@@ -50,8 +50,19 @@ nmap <Esc><Esc> :nohlsearch<LF>
 " 改行時にコメントしない
 autocmd FileType * setlocal formatoptions-=ro
 
-" _/_/_/_/ For each language _/_/_/_/
-" Under construction...
+" _/_/_/_/ Neo Bundle _/_/_/_/
+if has('vim_starting')
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
+
+call neobundle#begin(expand('~/.vim/bundle/'))
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+" My Bundles here:
+
+
+call neobundle#end()
 
 " _/_/_/_/ Finalization _/_/_/_/
 filetype plugin indent on " ファイルタイプ関連を再度有効化
+NeoBundleCheck " 未インストールのバンドルがないかチェック
