@@ -58,8 +58,9 @@ endif
 call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-" My Bundles here:
-NeoBundle 'scrooloose/nerdtree'
+" >>>> My Bundles >>>>
+NeoBundle 'scrooloose/nerdtree' " カレントディレクトリをツリー表示
+" <<<< My Bundles <<<<
 
 call neobundle#end()
 NeoBundleCheck
