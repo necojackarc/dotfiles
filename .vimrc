@@ -1,3 +1,4 @@
+" _/_/_/_/ Initialization  _/_/_/_/
 filetype off " 一時的にファイルタイプ関連を無効化
 
 " _/_/_/_/ Common settings _/_/_/_/
@@ -52,4 +53,5 @@ autocmd FileType * setlocal formatoptions-=ro
 " _/_/_/_/ For each language _/_/_/_/
 " Under construction...
 
-filetype plugin indent on " ファイルタイプ関連を有効化
+" _/_/_/_/ Finalization _/_/_/_/
+filetype plugin indent on " ファイルタイプ関連を再度有効化
