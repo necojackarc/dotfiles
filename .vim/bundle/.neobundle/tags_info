@@ -1,2 +1,4 @@
 neobundle.vim
 nerdtree
+vim-smartinput
+vim-smartinput-endwise

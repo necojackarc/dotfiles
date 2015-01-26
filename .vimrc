@@ -59,10 +59,17 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 " >>>> My Bundles >>>>
-NeoBundle 'scrooloose/nerdtree' " カレントディレクトリをツリー表示
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'kana/vim-smartinput'
+NeoBundle 'cohama/vim-smartinput-endwise'
 " <<<< My Bundles <<<<
 
 call neobundle#end()
+
+" >>>> Settings for my Bundles >>>>
+call smartinput_endwise#define_default_rules() " vim-smartinput-endwise
+" <<<< Settings for my Bundles <<<<
+
 NeoBundleCheck
 
 " _/_/_/_/ Finalization _/_/_/_/
