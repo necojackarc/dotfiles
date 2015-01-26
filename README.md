@@ -1,7 +1,7 @@
 # Installation
 
 ```sh
-$ git clone https://github.com/necojackarc/dotfiles.vim ~/dotfiles
+$ git clone https://github.com/necojackarc/dotfiles ~/dotfiles
 $ ~/dotfiles/dotfilesLink.sh
 $ git clone https://github.com/Shougo/neobundle.vim ~/dotfiles/.vim/bundle/neobundle.vim
 ```
