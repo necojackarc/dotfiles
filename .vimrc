@@ -47,9 +47,6 @@ endif
 " ESC連打でサーチハイライトを解除
 nmap <Esc><Esc> :nohlsearch<LF>
 
-" 改行時にコメントしない
-autocmd FileType * setlocal formatoptions-=ro
-
 " _/_/_/_/ Neo Bundle _/_/_/_/
 if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim/
@@ -62,12 +59,18 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'kana/vim-smartinput'
 NeoBundle 'cohama/vim-smartinput-endwise'
+NeoBundle 'scrooloose/syntastic'
 " <<<< My Bundles <<<<
 
 call neobundle#end()
 
 " >>>> Settings for my Bundles >>>>
-call smartinput_endwise#define_default_rules() " vim-smartinput-endwise
+" vim-smartinput-endwise
+call smartinput_endwise#define_default_rules()
+
+" syntastic
+let g:syntastic_mode_map = { 'mode': 'passive' }
+let g:syntastic_ruby_checkers = ['rubocop']
 " <<<< Settings for my Bundles <<<<
 
 NeoBundleCheck
