@@ -65,10 +65,28 @@ NeoBundle 'scrooloose/syntastic'
 call neobundle#end()
 
 " >>>> Settings for my Bundles >>>>
-" vim-smartinput-endwise
+" # nerdtree
+let NERDTreeShowHidden = 1 " 隠しファイルの表示
+
+" # vim-smartimput
+" 括弧内のスペース処理を快適化
+call smartinput#map_to_trigger('i', '<Space>', '<Space>', '<Space>')
+call smartinput#define_rule({ 'at'    : '(\%#)',
+                            \ 'char'  : '<Space>',
+                            \ 'input' : '<Space><Space><Left>' })
+call smartinput#define_rule({ 'at'    : '( \%# )',
+                            \ 'char'  : '<BS>',
+                            \ 'input' : '<Del><BS>' })
+
+" 改行時に行末スペースを除去
+call smartinput#define_rule({ 'at'    : '\s\+\%#',
+                            \ 'char'  : '<CR>',
+                            \ 'input' : "<C-o>:call setline('.', substitute(getline('.'), '\\s\\+$', '', ''))<CR><CR>" })
+
+" # vim-smartinput-endwise
 call smartinput_endwise#define_default_rules()
 
-" syntastic
+" # syntastic
 let g:syntastic_mode_map = { 'mode': 'passive' }
 let g:syntastic_ruby_checkers = ['rubocop']
 " <<<< Settings for my Bundles <<<<
