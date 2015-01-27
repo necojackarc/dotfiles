@@ -71,10 +71,20 @@ let NERDTreeShowHidden = 1 " 隠しファイルの表示
 " # vim-smartimput
 " 括弧内のスペース処理を快適化
 call smartinput#map_to_trigger('i', '<Space>', '<Space>', '<Space>')
+
+" "()"へのスペース挿入と除去の快適化
 call smartinput#define_rule({ 'at'    : '(\%#)',
                             \ 'char'  : '<Space>',
                             \ 'input' : '<Space><Space><Left>' })
+call smartinput#define_rule({ 'at'    : '{\%#}',
+                            \ 'char'  : '<Space>',
+                            \ 'input' : '<Space><Space><Left>' })
+
+" "{}"へのスペース挿入と除去の快適化
 call smartinput#define_rule({ 'at'    : '( \%# )',
+                            \ 'char'  : '<BS>',
+                            \ 'input' : '<Del><BS>' })
+call smartinput#define_rule({ 'at'    : '{ \%# }',
                             \ 'char'  : '<BS>',
                             \ 'input' : '<Del><BS>' })
 
