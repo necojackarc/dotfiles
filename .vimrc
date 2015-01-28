@@ -47,6 +47,12 @@ endif
 " ESC連打でサーチハイライトを解除
 nmap <Esc><Esc> :nohlsearch<LF>
 
+" 入力補完を常に有効化
+set completeopt=menuone
+for k in split("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_",'\zs')
+  exec "imap " . k . " " . k . "<C-N><C-P>"
+endfor
+
 " _/_/_/_/ Neo Bundle _/_/_/_/
 if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim/
