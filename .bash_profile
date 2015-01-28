@@ -14,6 +14,7 @@ alias ls='ls -FG'
 alias la='ls -a'
 alias ll='ls -l'
 alias vi='vim'
+alias be='bundle exec'
 
 export PATH=$HOME/.rbenv/bin:$PATH
 eval "$(rbenv init -)"
