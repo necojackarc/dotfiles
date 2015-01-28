@@ -10,7 +10,7 @@ set encoding=utf-8
 set fileencodings=utf-8
 set fileformats=unix,dos,mac
 
-set nobackup " バックアップファイルを作らない
+set nobackup " バックアップを無効化
 set number " 行番号を表示
 set incsearch " インクリメンタルサーチ
 set ignorecase " 検索時に大文字小文字を無視
@@ -20,7 +20,7 @@ set title " 編集中のファイル名を表示
 set ruler " ルーラーを表示
 set expandtab " タブ入力を複数の空白入力に置き換え
 set tabstop=2 " 画面上でタブ文字が占める幅
-set shiftwidth=2 " 自動インデントでずれる幅
+set shiftwidth=2 " 自動インデントの幅
 set softtabstop=2 " 連続した空白に対してタブキーやバックスペースキーでカーソルが動く幅
 set autoindent " 改行時に前の行のインデントを継続する
 set smartindent " 改行時に入力された行の末尾に合わせて次の行のインデントを増減
@@ -44,11 +44,18 @@ if has('persistent_undo')
   set undofile
 endif
 
-" 入力補完を常に有効化
+" キーワード補完を常時起動 (HTML, CSS, SCSSではオムニ補完)
 set completeopt=menuone
 for k in split("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_",'\zs')
   exec "imap " . k . " " . k . "<C-N><C-P>"
+  exec "au Filetype html imap " . k . " " . k . "<C-X><C-O><C-P>"
+  exec "au Filetype css imap " . k . " " . k . "<C-X><C-O><C-P>"
+  exec "au Filetype scss imap " . k . " " . k . "<C-X><C-O><C-P>"
 endfor
+
+" ピリオド入力時にオムニ補完を起動 (Ruby, Javascript)
+au Filetype ruby imap <expr> . pumvisible() ? "\<C-E>.\<C-X>\<C-O>\<C-P>" : ".\<C-X>\<C-O>\<C-P>"
+au Filetype javascript imap <expr> . pumvisible() ? "\<C-E>.\<C-X>\<C-O>\<C-P>" : ".\<C-X>\<C-O>\<C-P>"
 
 " キーマッピング
 nmap <silent> <Esc><Esc> :nohlsearch<LF> " ESC連打でサーチハイライトを解除
@@ -79,7 +86,7 @@ let NERDTreeShowHidden = 1 " 隠しファイルの表示
 " 括弧内のスペース処理を快適化
 call smartinput#map_to_trigger('i', '<Space>', '<Space>', '<Space>')
 
-" "()"へのスペース挿入と除去の快適化
+" 括弧内へのスペース挿入の快適化
 call smartinput#define_rule({ 'at'    : '(\%#)',
                             \ 'char'  : '<Space>',
                             \ 'input' : '<Space><Space><Left>' })
@@ -87,7 +94,7 @@ call smartinput#define_rule({ 'at'    : '{\%#}',
                             \ 'char'  : '<Space>',
                             \ 'input' : '<Space><Space><Left>' })
 
-" "{}"へのスペース挿入と除去の快適化
+" 括弧内のスペース除去の快適化
 call smartinput#define_rule({ 'at'    : '( \%# )',
                             \ 'char'  : '<BS>',
                             \ 'input' : '<Del><BS>' })
