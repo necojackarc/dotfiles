@@ -20,7 +20,7 @@ First of all, please ``clone`` my ``git`` repository as follows.
 $ git clone https://github.com/necojackarc/dotfiles ~/dotfiles
 ```
 
-Before next steps, If you don't want to overwrite your some ``dotfiles``, please modify the ``dotfilesLink.sh``. It create some simple symbolic links at your home directory.
+Before next steps, if you don't want to overwrite your some ``dotfiles``, please modify the ``dotfilesLink.sh``. It create some simple symbolic links at your home directory.
 
 When you are ready, execute the following commands.
 
