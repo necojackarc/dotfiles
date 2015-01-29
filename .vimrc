@@ -53,10 +53,6 @@ for k in split("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_",'\zs')
   exec "au Filetype scss imap " . k . " " . k . "<C-X><C-O><C-P>"
 endfor
 
-" ピリオド入力時にオムニ補完を起動 (Ruby, Javascript)
-au Filetype ruby imap <expr> . pumvisible() ? "\<C-E>.\<C-X>\<C-O>\<C-P>" : ".\<C-X>\<C-O>\<C-P>"
-au Filetype javascript imap <expr> . pumvisible() ? "\<C-E>.\<C-X>\<C-O>\<C-P>" : ".\<C-X>\<C-O>\<C-P>"
-
 " キーマッピング
 nmap <silent> <Esc><Esc> :nohlsearch<LF> " ESC連打でサーチハイライトを解除
 nmap <silent> <C-p> "0p " Ctrl+pで常にヤンクしたものを貼り付け
