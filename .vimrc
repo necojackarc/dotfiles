@@ -44,13 +44,10 @@ if has('persistent_undo')
   set undofile
 endif
 
-" キーワード補完を常時起動 (HTML, CSS, SCSSではオムニ補完)
+" キーワード補完を常時起動
 set completeopt=menuone
 for k in split("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_",'\zs')
   exec "imap " . k . " " . k . "<C-N><C-P>"
-  exec "au Filetype html imap " . k . " " . k . "<C-X><C-O><C-P>"
-  exec "au Filetype css imap " . k . " " . k . "<C-X><C-O><C-P>"
-  exec "au Filetype scss imap " . k . " " . k . "<C-X><C-O><C-P>"
 endfor
 
 " キーマッピング
