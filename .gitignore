@@ -3,5 +3,7 @@
 *.swp
 .DS_Store
 .netrwhist
-/.vim/undo
-/.vim/bundle
+/.vim/undo/*
+/.vim/bundle/*
+!/.vim/undo/.keep
+!/.vim/bundle/.keep
