@@ -7,7 +7,7 @@ set background=dark
 colorscheme solarized
 
 set encoding=utf-8
-set fileencodings=utf-8
+set fileencodings=utf-8,sjis,euc
 set fileformats=unix,dos,mac
 
 set nobackup " バックアップを無効化
