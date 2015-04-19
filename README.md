@@ -9,7 +9,7 @@ There are my ``dotfiles``. It is as bellow.
 # Features
 My dotfiles are mediocre except ``.vimrc``.
 
-My ``.vimrc``'s concept is using as few plugins as possible. For example, I tried to set ``auto-complete`` without any plugins. It's likely that I have realized most of my purpose along with my concept.
+My ``.vimrc``'s concept is using as few plugins as possible. 
 
 If you are interested in my concept, please check my ``.vimrc``.
 
