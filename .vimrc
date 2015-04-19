@@ -25,7 +25,8 @@ set softtabstop=2 " 連続した空白に対してタブキーやバックスペ
 set autoindent " 改行時に前の行のインデントを継続する
 set smartindent " 改行時に入力された行の末尾に合わせて次の行のインデントを増減
 set whichwrap+=hl<>[] " 行頭行末から次の行へ移動
-set backspace=indent,eol,start "バックスペース有効化
+set backspace=indent,eol,start " バックスペース有効化
+set nofoldenable " 折りたたみ無効化
 set clipboard=unnamed " ヤンク時にクリップボードにコピー
 set mouse=a " マウス有効化
 set vb t_vb= "ビープ音無効化
@@ -69,6 +70,7 @@ NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'kana/vim-smartinput'
 NeoBundle 'cohama/vim-smartinput-endwise'
+NeoBundle 'dag/vim2hs'
 NeoBundle 'scrooloose/syntastic'
 " <<<< My Bundles <<<<
 
@@ -113,6 +115,9 @@ call smartinput#define_rule({ 'at'    : '\s\+\%#',
 
 " # vim-smartinput-endwise
 call smartinput_endwise#define_default_rules()
+
+" # vim2hs
+let g:haskell_conceal = 0
 
 " # syntastic
 let g:syntastic_mode_map = { 'mode': 'passive' }
