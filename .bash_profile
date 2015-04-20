@@ -10,6 +10,7 @@ fi
 
 alias rm='rm -i'
 alias mv='mv -i'
+alias cp='cp -i'
 alias ls='ls -FG'
 alias la='ls -a'
 alias ll='ls -l'
