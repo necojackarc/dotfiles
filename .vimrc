@@ -26,6 +26,7 @@ set autoindent " 改行時に前の行のインデントを継続する
 set smartindent " 改行時に入力された行の末尾に合わせて次の行のインデントを増減
 set whichwrap+=hl<>[] " 行頭行末から次の行へ移動
 set backspace=indent,eol,start " バックスペース有効化
+set ambiwidth=double " 曖昧幅の文字幅をダブルにする
 set nofoldenable " 折りたたみ無効化
 set clipboard=unnamed " ヤンク時にクリップボードにコピー
 set mouse=a " マウス有効化
