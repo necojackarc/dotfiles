@@ -3,16 +3,10 @@ There are my `dotfiles`. It is as bellow.
 
 - `.vimrc`
 - `.gvimrc`
+- `.ideavimrc`
+- `.tumx.conf`
 - `.bash_profile`
 - `.inputrc`
-- `.tumx.conf`
-
-# Features
-My dotfiles are mediocre except `.vimrc`.
-
-My `.vimrc`'s concept is using as few plugins as possible.
-
-If you are interested in my concept, please check my `.vimrc`.
 
 # Installation
 First of all, please `clone` my `git` repository as follows.
@@ -21,13 +15,13 @@ First of all, please `clone` my `git` repository as follows.
 $ git clone https://github.com/necojackarc/dotfiles ~/dotfiles
 ```
 
-Before next steps, if you don't want to overwrite your some `dotfiles`, please modify the `makeDotfilesLink.sh`. It create some simple symbolic links at your home directory.
+Before next steps, if you don't want to overwrite your some `dotfiles`, please modify the `makeDotfileLinks.sh`. It create some simple symbolic links at your home directory.
 
 When you are ready, execute the following commands.
 
 ```sh
-$ chmod +x ~/dotfiles/makeDotfilesLink.sh
-$ ~/dotfiles/makeDotfilesLink.sh
+$ chmod +x ~/dotfiles/makeDotfileLinks.sh
+$ ~/dotfiles/makeDotfileLinks.sh
 $ git clone https://github.com/Shougo/neobundle.vim ~/dotfiles/.vim/bundle/neobundle.vim
 ```
 
