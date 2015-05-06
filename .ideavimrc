@@ -1,0 +1,18 @@
+set incsearch " インクリメンタルサーチ
+set hlsearch " サーチ対象をハイライト
+set ignorecase smartcase " 小文字のみの検索時に大文字小文字を無視
+set scrolloff=10 " スクロール時に表示を10行確保
+" IdeaVimが対応後設定
+" set whichwrap+=hl<>[] " 行頭行末から次の行へ移動
+set vb t_vb= "ビープ音無効化
+set clipboard=unnamed " ヤンク時にクリップボードにコピー
+
+" ESC連打でサーチハイライトを解除
+nmap <silent> <Esc><Esc> :nohlsearch<CR>
+
+" Code navigation
+nmap <C-]> :action GotoImplementation<CR>
+nmap \r :action RunClass<CR>
+nmap \d :action Debug<CR>
+nmap [m :action MethodUp<CR>
+nmap ]m :action MethodDown<CR>

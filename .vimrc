@@ -13,7 +13,7 @@ set fileformats=unix,dos,mac
 set nobackup " バックアップを無効化
 set number " 行番号を表示
 set incsearch " インクリメンタルサーチ
-set ignorecase " 検索時に大文字小文字を無視
+set ignorecase smartcase " 小文字のみの検索時に大文字小文字を無視
 set showmatch " 対応する括弧のハイライト表示
 set showmode " モード表示
 set title " 編集中のファイル名を表示
@@ -24,6 +24,7 @@ set shiftwidth=2 " 自動インデントの幅
 set softtabstop=2 " 連続した空白に対してタブキーやバックスペースキーでカーソルが動く幅
 set autoindent " 改行時に前の行のインデントを継続する
 set smartindent " 改行時に入力された行の末尾に合わせて次の行のインデントを増減
+set scrolloff=10 " スクロール時に表示を10行確保
 set whichwrap+=hl<>[] " 行頭行末から次の行へ移動
 set backspace=indent,eol,start " バックスペース有効化
 set ambiwidth=double " 曖昧幅の文字幅をダブルにする
@@ -52,10 +53,13 @@ for k in split("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_",'\zs')
   exec "imap " . k . " " . k . "<C-N><C-P>"
 endfor
 
-" キーマッピング
-nmap <silent> <Esc><Esc> :nohlsearch<LF> " ESC連打でサーチハイライトを解除
-nmap <silent> <C-p> "0p " Ctrl+pで常にヤンクしたものを貼り付け
-nmap <C-]> g<c-]> " タグジャンプ先が複数ある場合は一覧を表示
+" # キーマッピング
+" ESC連打でサーチハイライトを解除
+nmap <silent> <Esc><Esc> :nohlsearch<LF>
+" Ctrl+pで常にヤンクしたものを貼り付け
+nmap <silent> <C-p> "0p 
+" タグジャンプ先が複数ある場合は一覧を表示
+nmap <C-]> g<c-]> 
 
 " _/_/_/_/ Neo Bundle _/_/_/_/
 if has('vim_starting')
