@@ -76,6 +76,7 @@ NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'kana/vim-smartinput'
 NeoBundle 'cohama/vim-smartinput-endwise'
 NeoBundle 'dag/vim2hs'
+NeoBundle 'derekwyatt/vim-scala'
 NeoBundle 'scrooloose/syntastic'
 " <<<< My Bundles <<<<
 
