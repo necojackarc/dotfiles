@@ -45,6 +45,8 @@ match ZenkakuSpace /　/
 if has('persistent_undo')
   set undodir=~/.vim/undo
   set undofile
+  set undolevels=1000
+  set undoreload=10000
 endif
 
 " キーワード補完を常時起動
