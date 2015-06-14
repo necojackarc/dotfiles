@@ -33,6 +33,12 @@ set clipboard=unnamed " ヤンク時にクリップボードにコピー
 set mouse=a " マウス有効化
 set vb t_vb= "ビープ音無効化
 
+" 言語別インデント幅の設定
+augroup vimrc
+autocmd! FileType haskell setlocal tabstop=4 shiftwidth=4 softtabstop=4
+autocmd! FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4
+augroup END
+
 " 不可視文字の表示
 set list
 set listchars=tab:»-,trail:-,eol:¬,extends:»,precedes:«,nbsp:%
