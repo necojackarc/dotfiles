@@ -2,7 +2,7 @@ if [ -f ~/.bashrc ]; then
   . ~/.bashrc
 fi
 
-# Git branch
+# Prompt
 source ~/dotfiles/git-prompt.sh
 source ~/dotfiles/git-completion.bash
 
