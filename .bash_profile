@@ -25,8 +25,10 @@ else
   export PS1_GIT_BRANCH=
 fi
 
-export PS1="\[\e[32;1m\]\u@\H \[\e[33;1m\]\w $PS1_GIT_BRANCH\n\[\e[36;1m\]\t \[\e[0m\]\$ "
+#export PS1="\[\e[32;1m\]\u@\H \[\e[33;1m\]\w $PS1_GIT_BRANCH\n\[\e[36;1m\]\t \[\e[0m\]\$ "
+export PS1="\[\033[32m\]\u@\h\[\033[00m\]: \[\033[34m\]\w\[\033[31m\]$(__git_ps1)\[\033[00m\]\n\[\e[36;1m\]\t \[\e[0m\]\$ "
 
+# alias
 alias rm='rm -i'
 alias mv='mv -i'
 alias cp='cp -i'
@@ -47,22 +49,22 @@ fi
 # rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 export RBENV_ROOT="$HOME/.rbenv"
-if which rbenv 2> /dev/null > /dev/null; then eval "$(rbenv init -)"; fi
+if which rbenv 2>/dev/null >/dev/null; then eval "$(rbenv init -)"; fi
 
 # pyenv
 export PATH="$HOME/.pyenv/bin:$PATH"
 export PYENV_ROOT="$HOME/.pyenv"
-if which pyenv 2> /dev/null > /dev/null; then eval "$(pyenv init -)"; fi
+if which pyenv 2>/dev/null >/dev/null; then eval "$(pyenv init -)"; fi
 
 # scalaenv
 export PATH="${HOME}/.scalaenv/bin:${PATH}"
 export SCALAENV_ROOT="$HOME/.scalaenv"
-if which scalaenv 2> /dev/null > /dev/null; then eval "$(scalaenv init -)"; fi
+if which scalaenv 2>/dev/null >/dev/null; then eval "$(scalaenv init -)"; fi
 
 # ndenv
 export PATH="$HOME/.ndenv/bin:$PATH"
 export NDENV_ROOT="$HOME/.ndenv"
-if which ndenv 2> /dev/null > /dev/null; then eval "$(ndenv init -)"; fi
+if which ndenv 2>/dev/null >/dev/null; then eval "$(ndenv init -)"; fi
 
 # Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
