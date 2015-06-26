@@ -3,30 +3,14 @@ if [ -f ~/.bashrc ]; then
 fi
 
 # Git branch
-function length()
-{
-  echo -n ${#1}
-}
-
-function init-prompt-git-branch()
-{
-  git symbolic-ref HEAD 2>/dev/null >/dev/null &&
-  echo "($(git symbolic-ref HEAD 2>/dev/null | sed 's/^refs\/heads\///'))"
-}
-
-GIT_PS1_SHOWDIRTYSTATE=true
 source ~/dotfiles/git-prompt.sh
 source ~/dotfiles/git-completion.bash
 
-if which git 2>/dev/null >/dev/null
-then
-  export PS1_GIT_BRANCH='\[ \e[ $[COLUMNS]D \] \[ \e[1;31m\] \[\e[$[COLUMNS-$(length $(init-prompt-git-branch)) ] C\]$(init-prompt-git-branch)\[\e[$[COLUMNS]D\]\[\e[0m\]'
-else
-  export PS1_GIT_BRANCH=
-fi
-
-#export PS1="\[\e[32;1m\]\u@\H \[\e[33;1m\]\w $PS1_GIT_BRANCH\n\[\e[36;1m\]\t \[\e[0m\]\$ "
-export PS1="\[\033[32m\]\u@\h\[\033[00m\]: \[\033[34m\]\w\[\033[31m\]$(__git_ps1)\[\033[00m\]\n\[\e[36;1m\]\t \[\e[0m\]\$ "
+GIT_PS1_SHOWDIRTYSTATE=true
+GIT_PS1_SHOWSTASHSTATE=true
+GIT_PS1_SHOWUNTRACKEDFILES=true
+GIT_PS1_SHOWUPSTREAM=auto
+export PS1='\[\033[32m\]\u@\h\[\033[00m\]: \[\033[34m\]\w\[\033[31m\]$(__git_ps1)\[\033[00m\]\n\[\e[36;1m\]\t \[\e[0m\]\$ '
 
 # alias
 alias rm='rm -i'
