@@ -15,8 +15,8 @@ function init-prompt-git-branch()
 }
 
 GIT_PS1_SHOWDIRTYSTATE=true
-source /etc/git-prompt.sh
-source /etc/git-completion.bash
+source ~/dotfiles/git-prompt.sh
+source ~/dotfiles/git-completion.bash
 
 if which git 2>/dev/null >/dev/null
 then
