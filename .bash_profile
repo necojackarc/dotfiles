@@ -1,3 +1,7 @@
+if [ -f ~/.bashrc ]; then
+  . ~/.bashrc
+fi
+
 PS1='\w $ '
 
 alias rm='rm -i'
