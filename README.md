@@ -22,7 +22,7 @@ When you are ready, execute the following commands.
 ```sh
 $ chmod +x ~/dotfiles/makeDotfileLinks.sh
 $ ~/dotfiles/makeDotfileLinks.sh
-$ git clone https://github.com/Shougo/neobundle.vim ~/dotfiles/.vim/bundle/neobundle.vim
+$ git clone https://github.com/Shougo/neobundle.vim ~/dotfiles/vim/bundle/neobundle.vim
 ```
 
 If you have not yet installed the `Rubocop`, execute the following statement.
