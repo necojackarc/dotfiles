@@ -33,6 +33,9 @@ set clipboard=unnamed " ヤンク時にクリップボードにコピー
 set mouse=a " マウス有効化
 set vb t_vb= "ビープ音無効化
 
+"81-100文字目の範囲の色を変更
+execute "set colorcolumn=" . join(range(81,100), ',')
+
 " 言語別インデント幅の設定
 augroup vimrc
 autocmd! FileType java setlocal tabstop=4 shiftwidth=4 softtabstop=4
