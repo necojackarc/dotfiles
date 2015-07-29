@@ -56,10 +56,5 @@ export PATH="${HOME}/.scalaenv/bin:${PATH}"
 export SCALAENV_ROOT="$HOME/.scalaenv"
 if which scalaenv 2>/dev/null >/dev/null; then eval "$(scalaenv init -)"; fi
 
-# ndenv
-export PATH="$HOME/.ndenv/bin:$PATH"
-export NDENV_ROOT="$HOME/.ndenv"
-if which ndenv 2>/dev/null >/dev/null; then eval "$(ndenv init -)"; fi
-
 # Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
