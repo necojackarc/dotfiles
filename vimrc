@@ -88,6 +88,7 @@ NeoBundle 'kana/vim-smartinput'
 NeoBundle 'cohama/vim-smartinput-endwise'
 NeoBundle 'dag/vim2hs'
 NeoBundle 'derekwyatt/vim-scala'
+NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'scrooloose/syntastic'
 " <<<< My Bundles <<<<
 
