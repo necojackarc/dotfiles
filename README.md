@@ -4,9 +4,10 @@ There are my `dotfiles` as bellow:
 - `.vimrc`
 - `.gvimrc`
 - `.ideavimrc`
-- `.tumx.conf`
 - `.bash_profile`
 - `.inputrc`
+- `.tumx.conf`
+- `.pryrc`
 
 # Installation
 First of all, please `clone` my `git` repository as the following:
