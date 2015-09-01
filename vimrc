@@ -58,6 +58,11 @@ if has('persistent_undo')
   set undoreload=10000
 endif
 
+" matchitの有効化
+if !exists('loaded_matchit')
+  runtime macros/matchit.vim
+endif
+
 " キーワード補完を常時起動
 set completeopt=menuone
 for k in split("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_",'\zs')
