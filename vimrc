@@ -75,9 +75,9 @@ endfor
 " ESC連打でサーチハイライトを解除
 nmap <silent> <Esc><Esc> :nohlsearch<LF>
 " Ctrl+pで常にヤンクしたものを貼り付け
-nmap <silent> <C-p> "0p 
+nmap <silent> <C-p> "0p
 " タグジャンプ先が複数ある場合は一覧を表示
-nmap <C-]> g<c-]> 
+nmap <C-]> g<c-]>
 
 " _/_/_/_/ Neo Bundle _/_/_/_/
 if has('vim_starting')
