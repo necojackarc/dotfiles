@@ -4,6 +4,8 @@
 .DS_Store
 .netrwhist
 /vim/undo/*
+/vim/swap/*
 /vim/bundle/*
 !/vim/undo/.keep
+!/vim/swap/.keep
 !/vim/bundle/.keep

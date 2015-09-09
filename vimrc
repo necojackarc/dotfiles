@@ -10,6 +10,7 @@ set encoding=utf-8
 set fileencodings=utf-8,sjis,euc
 set fileformats=unix,dos,mac
 
+set directory=~/.vim/swap " スワップファイルディレクトリ
 set nobackup " バックアップを無効化
 set number " 行番号を表示
 set incsearch " インクリメンタルサーチ
