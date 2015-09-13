@@ -131,9 +131,9 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " >>>> My Bundles >>>>
 NeoBundle 'vim-scripts/sudo.vim'
+NeoBundle 'tpope/vim-surround'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'nathanaelkane/vim-indent-guides'
-NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'kana/vim-smartinput'
 NeoBundle 'cohama/vim-smartinput-endwise'
 NeoBundle 'dag/vim2hs'
@@ -148,10 +148,6 @@ call neobundle#end()
 " # nerdtree
 let NERDTreeShowHidden = 1 " 隠しファイルの表示
 
-" # vim-smartimput
-" 括弧内のスペース処理を快適化
-call smartinput#map_to_trigger('i', '<Space>', '<Space>', '<Space>')
-
 " # vim-indent-guides
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_guide_size = 1
@@ -159,6 +155,10 @@ let g:indent_guides_start_level = 2
 let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#444433 ctermbg=235
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#333344 ctermbg=236
+
+" # vim-smartimput
+" 括弧内のスペース処理を快適化
+call smartinput#map_to_trigger('i', '<Space>', '<Space>', '<Space>')
 
 " 括弧内へのスペース挿入の快適化
 call smartinput#define_rule({ 'at'    : '(\%#)',
