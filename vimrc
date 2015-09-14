@@ -78,6 +78,10 @@ nmap <silent> <Esc><Esc> :nohlsearch<LF>
 nmap <silent> <C-p> "0p
 " タグジャンプ先が複数ある場合は一覧を表示
 nmap <C-]> g<c-]>
+" tjでダグジャンプ
+nmap tj <C-]>
+" tkでタグジャンプから復帰
+nmap tk <C-t>
 
 " # タブ関連を快適化
 " Anywhere SID
