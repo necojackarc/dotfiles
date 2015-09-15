@@ -33,6 +33,7 @@ alias ls='ls -FG'
 alias la='ls -a'
 alias ll='ls -l'
 alias be='bundle exec'
+alias ctags-r='ctags --langmap=RUBY:.rb --exclude="*.js"  --exclude=".git*" -R .'
 
 # MacVim
 if [ `uname` = "Darwin" ]; then
