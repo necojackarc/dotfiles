@@ -32,6 +32,8 @@ set virtualedit=block " 矩形選択でカーソル位置の制限を解除
 set ambiwidth=double " 曖昧幅の文字幅をダブルにする
 set nofoldenable " 折りたたみ無効化
 set clipboard=unnamed " ヤンク時にクリップボードにコピー
+set spelllang+=cjk " スペルチェックから日本語を除外
+set spell " スペルチェック有効化
 set mouse=a " マウス有効化
 set vb t_vb= "ビープ音無効化
 
