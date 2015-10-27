@@ -38,10 +38,13 @@ alias ctags-r='ctags --langmap=RUBY:.rb --exclude="*.js"  --exclude=".git*" -R .
 # MacVim
 if [ `uname` = "Darwin" ]; then
     if [[ -d /Applications/MacVim.app ]]; then # If "MacVim" is existed
-      export PATH="/Applications/MacVim.app/Contents/MacOS/:$PATH"
+      export PATH="/Applications/MacVim.app/Contents/MacOS:$PATH"
       alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
     fi
 fi
+
+# Homebrew
+export PATH="/usr/local/sbin:$PATH"
 
 # rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
@@ -52,6 +55,9 @@ if which rbenv 2>/dev/null >/dev/null; then eval "$(rbenv init -)"; fi
 export PATH="$HOME/.pyenv/bin:$PATH"
 export PYENV_ROOT="$HOME/.pyenv"
 if which pyenv 2>/dev/null >/dev/null; then eval "$(pyenv init -)"; fi
+
+# Suppress brew waring caused by pyenv
+alias brew="env PATH=${PATH/\/Users\/${USER}\/\.pyenv\/shims:?/} brew"
 
 # scalaenv
 export PATH="${HOME}/.scalaenv/bin:${PATH}"
