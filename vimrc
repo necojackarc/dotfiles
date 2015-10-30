@@ -14,6 +14,7 @@ set directory=~/.vim/swap " スワップファイルディレクトリ
 set nobackup " バックアップを無効化
 set number " 行番号を表示
 set incsearch " インクリメンタルサーチ
+set hlsearch " サーチ対象をハイライト表示
 set ignorecase smartcase " 小文字のみの検索時に大文字小文字を無視
 set showmatch " 対応する括弧のハイライト表示
 set showmode " モード表示
