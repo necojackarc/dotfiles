@@ -146,6 +146,7 @@ NeoBundle 'cohama/vim-smartinput-endwise'
 NeoBundle 'dag/vim2hs'
 NeoBundle 'derekwyatt/vim-scala'
 NeoBundle 'kchmck/vim-coffee-script'
+NeoBundle 'slim-template/vim-slim'
 NeoBundle 'scrooloose/syntastic'
 " <<<< My Bundles <<<<
 
