@@ -10,7 +10,7 @@ nmap <silent> <Esc><Esc> :nohlsearch<CR>
 
 " Code navigation
 nmap <C-]> :action GotoImplementation<CR>
-nmap ;r :action RunClass<CR>
-nmap ;d :action Debug<CR>
+nmap ,r :action RunClass<CR>
+nmap ,d :action Debug<CR>
 nmap [m :action MethodUp<CR>
 nmap ]m :action MethodDown<CR>
