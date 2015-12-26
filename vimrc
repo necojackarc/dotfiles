@@ -138,17 +138,26 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 " >>>> My Bundles >>>>
+NeoBundle 'Shougo/vimproc', {
+\  'build' : {
+\    'windows' : 'make -f make_mingw32.mak',
+\    'cygwin' : 'make -f make_cygwin.mak',
+\    'mac' : 'make -f make_mac.mak',
+\    'unix' : 'make -f make_unix.mak',
+\  }
+\}
 NeoBundle 'vim-scripts/sudo.vim'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'kana/vim-smartinput'
 NeoBundle 'cohama/vim-smartinput-endwise'
+NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'scrooloose/syntastic'
 NeoBundle 'dag/vim2hs'
 NeoBundle 'derekwyatt/vim-scala'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'slim-template/vim-slim'
-NeoBundle 'scrooloose/syntastic'
 " <<<< My Bundles <<<<
 
 call neobundle#end()
@@ -193,12 +202,39 @@ call smartinput#define_rule({ 'at'    : '\s\+\%#',
 " # vim-smartinput-endwise
 call smartinput_endwise#define_default_rules()
 
-" # vim2hs
-let g:haskell_conceal = 0
+" # thinca/vim-quickrun
+let g:quickrun_config = {
+\  "_" : {
+\    "runner" : "vimproc",
+\    "runner/vimproc/updatetime" : 60,
+\    "outputter" : "error",
+\    "outputter/error/success" : "buffer",
+\    "outputter/error/error"   : "quickfix",
+\    "outputter/buffer/split" : ":botright 8sp",
+\    "hook/time/enable" : 1
+\  },
+\  "cpp" : {
+\    "type" : "cpp/g++"
+\  },
+\  "cpp/g++" : {
+\    "cmdopt" : "-std=c++11",
+\  }
+\}
+
+" :r で QuickFix を閉じて QuickVim を実行
+let g:quickrun_no_default_key_mappings = 1
+nnoremap ,r :cclose<CR>:QuickRun -mode n<CR>
+xnoremap ,r :<C-U>cclose<CR>gv:QuickRun -mode v<CR>
+
+" QuickVim 実行時に <C-c> で強制終了
+nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
 
 " # syntastic
 let g:syntastic_mode_map = { 'mode': 'passive' }
 let g:syntastic_ruby_checkers = ['rubocop']
+
+" # vim2hs
+let g:haskell_conceal = 0
 " <<<< Settings for my Bundles <<<<
 
 NeoBundleCheck
