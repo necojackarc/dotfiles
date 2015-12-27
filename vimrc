@@ -11,7 +11,7 @@ set fileencodings=utf-8,sjis,euc
 set fileformats=unix,dos,mac
 
 set directory=~/.vim/swap " スワップファイルディレクトリ
-set nobackup " バックアップを無効化
+set backupdir=~/.vim/backup " バックアップファイルディレクトリ
 set number " 行番号を表示
 set incsearch " インクリメンタルサーチ
 set hlsearch " サーチ対象をハイライト表示
