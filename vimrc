@@ -153,11 +153,15 @@ NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'kana/vim-smartinput'
 NeoBundle 'cohama/vim-smartinput-endwise'
 NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'scrooloose/syntastic'
 NeoBundle 'dag/vim2hs'
 NeoBundle 'derekwyatt/vim-scala'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'slim-template/vim-slim'
+NeoBundleLazy 'scrooloose/syntastic', {
+\  'autoload' : {
+\    'commands' : 'SyntasticCheck'
+\  }
+\}
 " <<<< My Bundles <<<<
 
 call neobundle#end()
@@ -229,12 +233,12 @@ xnoremap ,r :<C-U>cclose<CR>gv:QuickRun -mode v<CR>
 " QuickVim 実行時に <C-c> で強制終了
 nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
 
+" # vim2hs
+let g:haskell_conceal = 0
+
 " # syntastic
 let g:syntastic_mode_map = { 'mode': 'passive' }
 let g:syntastic_ruby_checkers = ['rubocop']
-
-" # vim2hs
-let g:haskell_conceal = 0
 " <<<< Settings for my Bundles <<<<
 
 NeoBundleCheck
