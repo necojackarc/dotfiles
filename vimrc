@@ -217,7 +217,7 @@ let g:quickrun_config = {
 \    "type" : "cpp/g++"
 \  },
 \  "cpp/g++" : {
-\    "cmdopt" : "-std=c++11",
+\    "cmdopt" : "-std=c++11 -Wall",
 \  }
 \}
 
