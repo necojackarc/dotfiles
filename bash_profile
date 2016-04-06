@@ -62,6 +62,10 @@ if which pyenv 2>/dev/null >/dev/null; then eval "$(pyenv init -)"; fi
 # Suppress brew waring caused by pyenv
 alias brew="env PATH=${PATH/\/Users\/${USER}\/\.pyenv\/shims:?/} brew"
 
+# nodebrew
+export PATH=$HOME/.nodebrew/current/bin:$PATH
+export NODEBREW_ROOT="$HOME/.nodebrew"
+
 # scalaenv
 export PATH="${HOME}/.scalaenv/bin:${PATH}"
 export SCALAENV_ROOT="$HOME/.scalaenv"
