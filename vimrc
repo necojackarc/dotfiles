@@ -239,6 +239,7 @@ let g:haskell_conceal = 0
 " # syntastic
 let g:syntastic_mode_map = { 'mode': 'passive' }
 let g:syntastic_ruby_checkers = ['rubocop']
+let g:syntastic_javascript_checkers = ['eslint']
 " <<<< Settings for my Bundles <<<<
 
 NeoBundleCheck
