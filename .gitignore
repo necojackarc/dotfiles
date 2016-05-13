@@ -2,10 +2,12 @@
 *.swp
 .DS_Store
 .netrwhist
+/tmux/*
 /vim/backup/*
 /vim/dein/*
 /vim/swap/*
 /vim/undo/*
+!/tmux/plugins/tpm
 !/vim/backup/.keep
 !/vim/dein/repos/github.com/Shougo/dein.vim
 !/vim/swap/.keep
