@@ -1,13 +1,12 @@
-# 管理対象ディレクトリ内で除外したいものを追加
 *~
 *.swp
 .DS_Store
 .netrwhist
 /vim/backup/*
-/vim/bundle/*
+/vim/dein/*
 /vim/swap/*
 /vim/undo/*
 !/vim/backup/.keep
-!/vim/bundle/.keep
+!/vim/dein/repos/github.com/Shougo/dein.vim
 !/vim/swap/.keep
 !/vim/undo/.keep

@@ -129,44 +129,42 @@ map <silent> [Tag]x :tabclose<CR>
 map <silent> [Tag]n :tabnext<CR>
 map <silent> [Tag]p :tabprevious<CR>
 
-" _/_/_/_/ Neo Bundle _/_/_/_/
-if has('vim_starting')
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
+" _/_/_/_/ Dein _/_/_/_/
+if &compatible
+  set nocompatible
 endif
 
-call neobundle#begin(expand('~/.vim/bundle/'))
-NeoBundleFetch 'Shougo/neobundle.vim'
+set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim
 
-" >>>> My Bundles >>>>
-NeoBundle 'Shougo/vimproc', {
-\  'build' : {
-\    'windows' : 'make -f make_mingw32.mak',
-\    'cygwin' : 'make -f make_cygwin.mak',
-\    'mac' : 'make -f make_mac.mak',
-\    'unix' : 'make -f make_unix.mak',
-\  }
-\}
-NeoBundle 'vim-scripts/sudo.vim'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'nathanaelkane/vim-indent-guides'
-NeoBundle 'kana/vim-smartinput'
-NeoBundle 'cohama/vim-smartinput-endwise'
-NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'dag/vim2hs'
-NeoBundle 'derekwyatt/vim-scala'
-NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'slim-template/vim-slim'
-NeoBundleLazy 'scrooloose/syntastic', {
-\  'autoload' : {
-\    'commands' : 'SyntasticCheck'
-\  }
-\}
-" <<<< My Bundles <<<<
+call dein#begin(expand('~/.vim/dein'))
+call dein#add('Shougo/dein.vim')
 
-call neobundle#end()
+" >>>> My plug-ins >>>>
+call dein#add('Shougo/vimproc', {
+\ 'build' : {
+\   'windows' : 'make -f make_mingw32.mak',
+\   'cygwin' : 'make -f make_cygwin.mak',
+\   'mac' : 'make -f make_mac.mak',
+\   'unix' : 'make -f make_unix.mak',
+\ }
+\})
+call dein#add('vim-scripts/sudo.vim')
+call dein#add('tpope/vim-surround')
+call dein#add('scrooloose/nerdtree')
+call dein#add('nathanaelkane/vim-indent-guides')
+call dein#add('kana/vim-smartinput')
+call dein#add('cohama/vim-smartinput-endwise')
+call dein#add('thinca/vim-quickrun')
+call dein#add('dag/vim2hs')
+call dein#add('derekwyatt/vim-scala')
+call dein#add('kchmck/vim-coffee-script')
+call dein#add('slim-template/vim-slim')
+call dein#add('scrooloose/syntastic')
+" <<<< My plug-ins <<<<
 
-" >>>> Settings for my Bundles >>>>
+call dein#end()
+
+" >>>> Settings for my plug-ins >>>>
 " # nerdtree
 let NERDTreeShowHidden = 1 " 隠しファイルの表示
 
@@ -183,46 +181,56 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#333344 ctermbg=236
 call smartinput#map_to_trigger('i', '<Space>', '<Space>', '<Space>')
 
 " 括弧内へのスペース挿入の快適化
-call smartinput#define_rule({ 'at'    : '(\%#)',
-                            \ 'char'  : '<Space>',
-                            \ 'input' : '<Space><Space><Left>' })
-call smartinput#define_rule({ 'at'    : '{\%#}',
-                            \ 'char'  : '<Space>',
-                            \ 'input' : '<Space><Space><Left>' })
+call smartinput#define_rule({
+\ 'at'    : '(\%#)',
+\ 'char'  : '<Space>',
+\ 'input' : '<Space><Space><Left>'
+\})
+call smartinput#define_rule({
+\ 'at'    : '{\%#}',
+\ 'char'  : '<Space>',
+\ 'input' : '<Space><Space><Left>'
+\})
 
 " 括弧内のスペース除去の快適化
-call smartinput#define_rule({ 'at'    : '( \%# )',
-                            \ 'char'  : '<BS>',
-                            \ 'input' : '<Del><BS>' })
-call smartinput#define_rule({ 'at'    : '{ \%# }',
-                            \ 'char'  : '<BS>',
-                            \ 'input' : '<Del><BS>' })
+call smartinput#define_rule({
+\ 'at'    : '( \%# )',
+\ 'char'  : '<BS>',
+\ 'input' : '<Del><BS>'
+\})
+call smartinput#define_rule({
+\ 'at'    : '{ \%# }',
+\ 'char'  : '<BS>',
+\ 'input' : '<Del><BS>'
+\})
 
 " 改行時に行末スペースを除去
-call smartinput#define_rule({ 'at'    : '\s\+\%#',
-                            \ 'char'  : '<CR>',
-                            \ 'input' : "<C-o>:call setline('.', substitute(getline('.'), '\\s\\+$', '', ''))<CR><CR>" })
+call smartinput#define_rule({
+\ 'at'    : '\s\+\%#',
+\ 'char'  : '<CR>',
+\ 'input' : "<C-o>:call setline('.', substitute(getline('.'), '\\s\\+$', '', ''))<CR><CR>"
+\})
 
 " # vim-smartinput-endwise
 call smartinput_endwise#define_default_rules()
 
 " # thinca/vim-quickrun
 let g:quickrun_config = {
-\  "_" : {
-\    "runner" : "vimproc",
-\    "runner/vimproc/updatetime" : 60,
-\    "outputter" : "error",
-\    "outputter/error/success" : "buffer",
-\    "outputter/error/error"   : "quickfix",
-\    "outputter/buffer/split" : ":botright 8sp",
-\    "hook/time/enable" : 1
-\  },
-\  "cpp" : {
-\    "type" : "cpp/g++"
-\  },
-\  "cpp/g++" : {
-\    "cmdopt" : "-std=c++11 -Wall",
-\  }
+\ "_" : {
+\   "runner" : "vimproc",
+\   "runner/vimproc/updatetime" : 60,
+\   "outputter" : "error",
+\   "outputter/error/success" : "buffer",
+\   "outputter/error/error"   : "quickfix",
+\   "outputter/buffer/split" : ":botright 8sp",
+\   "hook/time/enable" : 1
+\ },
+\ "cpp" : {
+\   "type" : "cpp/g++"
+\ },
+\ "cpp/g++" : {
+\   "cmdopt" : "-std=c++11 -Wall",
+\ }
 \}
 
 " :r で QuickFix を閉じて QuickVim を実行
@@ -237,12 +245,14 @@ nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() 
 let g:haskell_conceal = 0
 
 " # syntastic
-let g:syntastic_mode_map = { 'mode': 'passive' }
+let g:syntastic_mode_map = { 'mode' : 'passive' }
 let g:syntastic_ruby_checkers = ['rubocop']
 let g:syntastic_javascript_checkers = ['eslint']
-" <<<< Settings for my Bundles <<<<
+" <<<< Settings for my plug-ins <<<<
 
-NeoBundleCheck
+if dein#check_install()
+  call dein#install()
+endif
 
 " _/_/_/_/ Finalization _/_/_/_/
 filetype plugin indent on " ファイルタイプ関連を再度有効化
