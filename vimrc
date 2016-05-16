@@ -140,14 +140,7 @@ call dein#begin(expand('~/.vim/dein'))
 call dein#add('Shougo/dein.vim')
 
 " >>>> My plug-ins >>>>
-call dein#add('Shougo/vimproc', {
-\ 'build' : {
-\   'windows' : 'make -f make_mingw32.mak',
-\   'cygwin' : 'make -f make_cygwin.mak',
-\   'mac' : 'make -f make_mac.mak',
-\   'unix' : 'make -f make_unix.mak',
-\ }
-\})
+call dein#add('Shougo/vimproc.vim', { 'build' : 'make' })
 call dein#add('vim-scripts/sudo.vim')
 call dein#add('tpope/vim-surround')
 call dein#add('scrooloose/nerdtree')
