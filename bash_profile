@@ -46,13 +46,15 @@ fi
 # Homebrew
 export PATH="/usr/local/sbin:$PATH"
 
-# Nokogiri
-export NOKOGIRI_USE_SYSTEM_LIBRARIES=1
-
 # rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 export RBENV_ROOT="$HOME/.rbenv"
 if which rbenv 2>/dev/null >/dev/null; then eval "$(rbenv init -)"; fi
+
+# ndenv
+export PATH="$HOME/.ndenv/bin:$PATH"
+export NDENV_ROOT="$HOME/.ndenv"
+if which rbenv 2>/dev/null >/dev/null; then eval "$(ndenv init -)"; fi
 
 # pyenv
 export PATH="$HOME/.pyenv/bin:$PATH"
@@ -62,10 +64,6 @@ if which pyenv 2>/dev/null >/dev/null; then eval "$(pyenv init -)"; fi
 # Suppress brew waring caused by pyenv
 alias brew="env PATH=${PATH/\/Users\/${USER}\/\.pyenv\/shims:?/} brew"
 
-# nodebrew
-export PATH=$HOME/.nodebrew/current/bin:$PATH
-export NODEBREW_ROOT="$HOME/.nodebrew"
-
 # scalaenv
 export PATH="${HOME}/.scalaenv/bin:${PATH}"
 export SCALAENV_ROOT="$HOME/.scalaenv"
@@ -73,3 +71,6 @@ if which scalaenv 2>/dev/null >/dev/null; then eval "$(scalaenv init -)"; fi
 
 # Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+# Nokogiri
+export NOKOGIRI_USE_SYSTEM_LIBRARIES=1
