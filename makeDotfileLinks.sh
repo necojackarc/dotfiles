@@ -9,3 +9,4 @@ ln -sfn ~/dotfiles/tmux ~/.tmux
 ln -sf ~/dotfiles/tmux.conf ~/.tmux.conf
 ln -sf ~/dotfiles/pryrc ~/.pryrc
 ln -sf ~/dotfiles/eslint ~/.eslint
+ln -sf ~/dotfiles/gemrc ~/.gemrc
