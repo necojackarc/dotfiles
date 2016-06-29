@@ -152,6 +152,7 @@ call dein#add('dag/vim2hs')
 call dein#add('derekwyatt/vim-scala')
 call dein#add('kchmck/vim-coffee-script')
 call dein#add('slim-template/vim-slim')
+call dein#add('mxw/vim-jsx')
 call dein#add('scrooloose/syntastic')
 " <<<< My plug-ins <<<<
 
@@ -236,6 +237,9 @@ nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() 
 
 " # vim2hs
 let g:haskell_conceal = 0
+
+" # vim-jsx
+let g:jsx_ext_required = 0
 
 " # syntastic
 let g:syntastic_mode_map = { 'mode' : 'passive' }
