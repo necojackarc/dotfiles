@@ -34,5 +34,5 @@ They require some external libraries and you can install them like this:
 
 ```sh
 $ gem install rubocop
-$ npm install -g eslint eslint-plugin-import eslint-config-airbnb-base
+$ npm install -g eslint-config-airbnb eslint-plugin-import eslint-plugin-react eslint-plugin-jsx-a11y eslint
 ```
