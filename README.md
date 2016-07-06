@@ -10,6 +10,7 @@ These are my `dotfiles`:
 * `.tumx.conf`
 * `.pryrc`
 * `.eslint`
+* `.rspec`
 
 ## Installation
 
