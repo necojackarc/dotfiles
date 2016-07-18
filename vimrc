@@ -72,20 +72,16 @@ endif
 " キーワード補完を常時起動
 set completeopt=menuone
 for k in split("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_",'\zs')
-  exec "imap " . k . " " . k . "<C-N><C-P>"
+  exec "inoremap " . k . " " . k . "<C-N><C-P>"
 endfor
 
 " # キーマッピング
 " ESC連打でサーチハイライトを解除
-nmap <silent> <Esc><Esc> :nohlsearch<LF>
+nnoremap <silent> <Esc><Esc> :nohlsearch<LF>
 " Ctrl+pで常にヤンクしたものを貼り付け
-nmap <silent> <C-p> "0p
+nnoremap <silent> <C-p> "0p
 " タグジャンプ先が複数ある場合は一覧を表示
-nmap <C-]> g<c-]>
-" tjでダグジャンプ
-nmap tj <C-]>
-" tkでタグジャンプから復帰
-nmap tk <C-t>
+nnoremap <C-]> g<c-]>
 
 " # タブ関連を快適化
 " Anywhere SID
@@ -124,10 +120,10 @@ for n in range(1, 9)
 endfor
 
 set showtabline=2 " 常にタブラインを表示
-map <silent> [Tag]c :tablast <bar> tabnew<CR>
-map <silent> [Tag]x :tabclose<CR>
-map <silent> [Tag]n :tabnext<CR>
-map <silent> [Tag]p :tabprevious<CR>
+noremap <silent> [Tag]c :tablast <bar> tabnew<CR>
+noremap <silent> [Tag]x :tabclose<CR>
+noremap <silent> [Tag]n :tabnext<CR>
+noremap <silent> [Tag]p :tabprevious<CR>
 
 " _/_/_/_/ Dein _/_/_/_/
 if &compatible
@@ -160,6 +156,10 @@ call dein#add('scrooloose/syntastic')
 call dein#end()
 
 " >>>> Settings for my plug-ins >>>>
+" # sudo.vim
+command SudoE :e sudo:%
+command SudoW :w sudo:%
+
 " # nerdtree
 let NERDTreeShowHidden = 1 " 隠しファイルの表示
 
