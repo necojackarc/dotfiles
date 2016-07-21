@@ -54,7 +54,7 @@ if which rbenv 2>/dev/null >/dev/null; then eval "$(rbenv init -)"; fi
 # ndenv
 export PATH="$HOME/.ndenv/bin:$PATH"
 export NDENV_ROOT="$HOME/.ndenv"
-if which rbenv 2>/dev/null >/dev/null; then eval "$(ndenv init -)"; fi
+if which ndenv 2>/dev/null >/dev/null; then eval "$(ndenv init -)"; fi
 
 # pyenv
 export PATH="$HOME/.pyenv/bin:$PATH"
