@@ -17,7 +17,7 @@ These are my `dotfiles`:
 First you need to `clone` the repository:
 
 ```sh
-$ git clone --recursive https://github.com/necojackarc/dotfiles ~/dotfiles
+$ git clone --recursive git@github.com:necojackarc/dotfiles.git ~/dotfiles
 ```
 
 If you don't want to overwrite your `dotfiles`, you need to modify the `makeDotfileLinks.sh` which creates symbolic links like `.*` at your home directory.
