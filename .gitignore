@@ -8,6 +8,7 @@
 /vim/swap/*
 /vim/undo/*
 !/tmux/plugins/tpm
+!/tmux/plugins/tmux-resurrect
 !/vim/backup/.keep
 !/vim/dein/repos/github.com/Shougo/dein.vim
 !/vim/swap/.keep
