@@ -25,8 +25,8 @@ If you don't want to overwrite your `dotfiles`, you need to modify the `makeDotf
 When you are ready, execute the following commands:
 
 ```sh
-$ chmod +x ~/dotfiles/makeDotfileLinks.sh
-$ ~/dotfiles/makeDotfileLinks.sh
+$ chmod +x ~/dotfiles/setup.sh
+$ ~/dotfiles/setup.sh
 ```
 
 ### Syntastic
