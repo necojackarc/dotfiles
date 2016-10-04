@@ -82,6 +82,9 @@ nnoremap <silent> <Esc><Esc> :nohlsearch<LF>
 nnoremap <silent> <C-p> "0p
 " タグジャンプ先が複数ある場合は一覧を表示
 nnoremap <C-]> g<c-]>
+" ノーマルモードとヴィジュアルモードではセミコロンをコロンとして扱う
+nnoremap ; :
+vnoremap ; :
 
 " # タブ関連を快適化
 " Anywhere SID
