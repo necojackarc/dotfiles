@@ -7,6 +7,7 @@ ln -sf ~/dotfiles/bash_profile ~/.bash_profile
 ln -sf ~/dotfiles/inputrc ~/.inputrc
 ln -sfn ~/dotfiles/tmux ~/.tmux
 ln -sf ~/dotfiles/tmux.conf ~/.tmux.conf
+ln -sf ~/dotfiles/gitconfig ~/.gitconfig
 ln -sf ~/dotfiles/pryrc ~/.pryrc
 ln -sf ~/dotfiles/eslintrc ~/.eslintrc
 ln -sf ~/dotfiles/gemrc ~/.gemrc

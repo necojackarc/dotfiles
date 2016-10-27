@@ -1,0 +1,12 @@
+[user]
+	name = necojackarc
+	email = necojackarc@gmail.com
+[core]
+	editor = vim
+[merge]
+	tool = vimdiff
+[push]
+	default = simple
+[alias]
+	co = checkout
+	st = status
