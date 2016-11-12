@@ -2,8 +2,6 @@
 filetype off " 一時的にファイルタイプ関連を無効化
 
 " _/_/_/_/ Common settings _/_/_/_/
-syntax enable
-
 set encoding=utf-8
 set fileencodings=utf-8,sjis,euc
 set fileformats=unix,dos,mac
@@ -255,6 +253,7 @@ if dein#check_install()
 endif
 
 " _/_/_/_/ Finalization _/_/_/_/
+syntax enable
 set background=dark
 colorscheme solarized
 
