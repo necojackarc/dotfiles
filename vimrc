@@ -254,6 +254,7 @@ endif
 
 " _/_/_/_/ Finalization _/_/_/_/
 syntax enable
+
 set background=dark
 colorscheme solarized
 
