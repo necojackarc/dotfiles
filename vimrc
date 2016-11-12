@@ -3,8 +3,6 @@ filetype off " 一時的にファイルタイプ関連を無効化
 
 " _/_/_/_/ Common settings _/_/_/_/
 syntax enable
-set background=dark
-colorscheme solarized
 
 set encoding=utf-8
 set fileencodings=utf-8,sjis,euc
@@ -140,6 +138,7 @@ call dein#add('Shougo/dein.vim')
 
 " >>>> My plug-ins >>>>
 call dein#add('Shougo/vimproc.vim', { 'build' : 'make' })
+call dein#add('altercation/vim-colors-solarized')
 call dein#add('vim-scripts/sudo.vim')
 call dein#add('tpope/vim-surround')
 call dein#add('scrooloose/nerdtree')
@@ -256,4 +255,7 @@ if dein#check_install()
 endif
 
 " _/_/_/_/ Finalization _/_/_/_/
+set background=dark
+colorscheme solarized
+
 filetype plugin indent on " ファイルタイプ関連を再度有効化
