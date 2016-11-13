@@ -1,6 +1,4 @@
-## About
-
-These are my `dotfiles`:
+My `dotfiles`:
 
 * `.vimrc`
 * `.gvimrc`
@@ -13,14 +11,13 @@ These are my `dotfiles`:
 * `.rspec`
 
 ## Installation
-
-First you need to `clone` the repository:
+First, `clone` the repository:
 
 ```sh
 $ git clone --recursive git@github.com:necojackarc/dotfiles.git ~/dotfiles
 ```
 
-If you don't want to overwrite your `dotfiles`, you need to modify the `makeDotfileLinks.sh` which creates symbolic links like `.*` at your home directory.
+If you don't want to overwrite `dotfiles` on your home directory, modify `setup.sh`.
 
 When you are ready, execute the following commands:
 
@@ -29,8 +26,11 @@ $ chmod +x ~/dotfiles/setup.sh
 $ ~/dotfiles/setup.sh
 ```
 
+If you are on Windows, execute `setup.bat` on administrative PowerShell or Command Prompt.
+It creates symbolic links to not all dotfiles, see the file if you want to learn which files are included.
+
 ### Syntastic
-My `.vimrc` includes some settings of `scrooloose/syntastic`.
+My `.vimrc` includes settings of `scrooloose/syntastic`.
 They require some external libraries and you can install them like this:
 
 ```sh
