@@ -1,23 +1,23 @@
-My `dotfiles`:
+My dotfiles:
 
-* `.vimrc`
-* `.gvimrc`
-* `.ideavimrc`
-* `.bash_profile`
-* `.inputrc`
-* `.tumx.conf`
-* `.pryrc`
-* `.eslint`
-* `.rspec`
+* .vimrc
+* .gvimrc
+* .ideavimrc
+* .bash_profile
+* .inputrc
+* .tumx.conf
+* .pryrc
+* .eslint
+* .rspec
 
 ## Installation
-First, `clone` the repository:
+First, clone the repository:
 
 ```sh
 $ git clone --recursive git@github.com:necojackarc/dotfiles.git ~/dotfiles
 ```
 
-If you don't want to overwrite `dotfiles` on your home directory, modify `setup.sh`.
+If you don't want to overwrite dotfiles on your home directory, modify `setup.sh`.
 
 When you are ready, execute the following commands:
 
@@ -27,7 +27,7 @@ $ ~/dotfiles/setup.sh
 ```
 
 If you are on Windows, execute `setup.bat` on administrative PowerShell or Command Prompt.
-It creates symbolic links to not all dotfiles, see the file if you want to learn which files are included.
+It doesn't create symbolic links to all dotfiles, see the file if you want to learn which files are included.
 
 ### Syntastic
 My `.vimrc` includes settings of `scrooloose/syntastic`.
