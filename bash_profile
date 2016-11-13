@@ -40,8 +40,14 @@ alias ctags-r='ctags --langmap=RUBY:.rb --exclude="*.js"  --exclude=".git*" -R .
 # MacVim
 if [ `uname` = "Darwin" ]; then
     if [[ -d /Applications/MacVim.app ]]; then # If "MacVim" is existed
-      export PATH="/Applications/MacVim.app/Contents/MacOS:$PATH"
       alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
+    fi
+fi
+
+# KaoriYa Vim
+if [ "$(expr substr $(uname -s) 1 5)" = "MINGW" ]; then
+    if [[ -d /c/vim ]]; then # If "KaoriYa Vim" is existed
+      alias vim='/c/vim/vim'
     fi
 fi
 
