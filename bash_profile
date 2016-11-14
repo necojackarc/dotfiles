@@ -45,7 +45,7 @@ if [ `uname` = "Darwin" ]; then
 fi
 
 # KaoriYa Vim
-if [ "$(expr substr $(uname -s) 1 5)" = "MINGW" ]; then
+if [ `uname` = "MINGW64_NT-10.0" ]; then
     if [[ -d /c/vim ]]; then # If "KaoriYa Vim" is existed
       alias vim='/c/vim/vim'
     fi
