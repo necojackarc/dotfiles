@@ -21,34 +21,31 @@ GIT_PS1_SHOWDIRTYSTATE=true
 GIT_PS1_SHOWSTASHSTATE=true
 GIT_PS1_SHOWUNTRACKEDFILES=true
 GIT_PS1_SHOWUPSTREAM=auto
+
+export PROMPT_COMMAND=""
+
 export PS1='\[\033[32m\]\u@\h\[\033[00m\]: \[\033[34m\]\w\[\033[31m\]$(__git_ps1)\[\033[00m\]'
 export PS1+=$'\n'
 export PS1+='\[\e[36;1m\]\t \[\e[0m\]\$ '
 
-# alias
+# aliases
 alias sudo='sudo -E'
 alias vi='vim'
 alias rm='rm -i'
 alias mv='mv -i'
 alias cp='cp -i'
-alias ls='ls -FG'
+alias ls='ls -F'
 alias la='ls -a'
 alias ll='ls -l'
 alias be='bundle exec'
 alias ctags-r='ctags --langmap=RUBY:.rb --exclude="*.js"  --exclude=".git*" -R .'
 
+
 # MacVim
 if [ `uname` = "Darwin" ]; then
-    if [[ -d /Applications/MacVim.app ]]; then # If "MacVim" is existed
-      alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
-    fi
-fi
-
-# KaoriYa Vim
-if [ `uname` = "MINGW64_NT-10.0" ]; then
-    if [[ -d /c/vim ]]; then # If "KaoriYa Vim" is existed
-      alias vim='/c/vim/vim'
-    fi
+  if [[ -d /Applications/MacVim.app ]]; then
+    alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
+  fi
 fi
 
 # Homebrew

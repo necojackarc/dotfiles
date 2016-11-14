@@ -1,4 +1,4 @@
-My dotfiles
+This repository has my dotfiles.
 
 ## Installation
 First, clone the repository:
@@ -15,7 +15,6 @@ When you are ready, execute the following commands:
 $ chmod +x ~/dotfiles/setup.sh
 $ ~/dotfiles/setup.sh
 ```
-
 
 ### Syntastic
 My `.vimrc` includes settings of `scrooloose/syntastic`.
