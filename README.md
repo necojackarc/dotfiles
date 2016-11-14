@@ -1,14 +1,4 @@
-My dotfiles:
-
-* .vimrc
-* .gvimrc
-* .ideavimrc
-* .bash_profile
-* .inputrc
-* .tumx.conf
-* .pryrc
-* .eslint
-* .rspec
+My dotfiles
 
 ## Installation
 First, clone the repository:
@@ -26,8 +16,6 @@ $ chmod +x ~/dotfiles/setup.sh
 $ ~/dotfiles/setup.sh
 ```
 
-If you are on Windows, execute `setup.bat` on administrative PowerShell or Command Prompt.
-It doesn't create symbolic links to all dotfiles, see the file if you want to learn which files are included.
 
 ### Syntastic
 My `.vimrc` includes settings of `scrooloose/syntastic`.
