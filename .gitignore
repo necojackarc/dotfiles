@@ -10,7 +10,6 @@
 !/tmux/before_2.0.conf
 !/tmux/after_2.1.conf
 !/tmux/plugins/tpm
-!/tmux/plugins/tmux-resurrect
 !/vim/backup/.keep
 !/vim/dein/repos/github.com/Shougo/dein.vim
 !/vim/swap/.keep
