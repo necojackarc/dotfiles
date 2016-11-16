@@ -1,5 +1,15 @@
 This repository has my dotfiles.
 
+## Requirements
+* gcc (vimproc)
+* make (vimproc)
+
+### Linux
+* xsel (tmux-yank)
+
+### macOS
+* reattach-to-user-namespace (tmux-yank)
+
 ## Installation
 First, clone the repository:
 
