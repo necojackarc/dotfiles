@@ -28,7 +28,7 @@ set backspace=indent,eol,start " バックスペース有効化
 set virtualedit=block " 矩形選択でカーソル位置の制限を解除
 set ambiwidth=single " 曖昧幅の文字幅をシングルにする (要: 端末設定と合わせる)
 set nofoldenable " 折りたたみ無効化
-set clipboard=unnamed " ヤンク時にクリップボードにコピー
+set clipboard=unnamed,unnamedplus " ヤンク時にクリップボードにコピー
 set spell " スペルチェック有効化
 set spelllang+=cjk " スペルチェックから日本語を除外
 set mouse=a " マウス有効化
