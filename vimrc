@@ -2,6 +2,8 @@
 filetype off " 一時的にファイルタイプ関連を無効化
 
 " _/_/_/_/ Common settings _/_/_/_/
+syntax enable
+
 set encoding=utf-8
 set fileencodings=utf-8,sjis,euc
 set fileformats=unix,dos,mac
@@ -156,6 +158,12 @@ call dein#add('scrooloose/syntastic')
 call dein#end()
 
 " >>>> Settings for my plug-ins >>>>
+" # vim-colors-solarized
+let g:solarized_termtrans=1
+
+set background=dark
+colorscheme solarized
+
 " # sudo.vim
 command SudoE :e sudo:%
 command SudoW :w sudo:%
@@ -253,9 +261,4 @@ if dein#check_install()
 endif
 
 " _/_/_/_/ Finalization _/_/_/_/
-syntax enable
-
-set background=dark
-colorscheme solarized
-
 filetype plugin indent on " ファイルタイプ関連を再度有効化
