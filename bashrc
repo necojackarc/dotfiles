@@ -1,18 +1,3 @@
-# Get the aliases and functions
-if [ -f ~/.bashrc ]; then
-  . ~/.bashrc
-fi
-
-# Locale
-export LANG="en_US.UTF-8"
-export LC_COLLATE="en_US.UTF-8"
-export LC_CTYPE="en_US.UTF-8"
-export LC_MESSAGES="en_US.UTF-8"
-export LC_MONETARY="en_US.UTF-8"
-export LC_NUMERIC="en_US.UTF-8"
-export LC_TIME="en_US.UTF-8"
-export LC_ALL="en_US.UTF-8"
-
 # Prompt
 source ~/dotfiles/git-prompt.sh
 source ~/dotfiles/git-completion.bash
@@ -39,7 +24,6 @@ alias la='ls -a'
 alias ll='ls -l'
 alias be='bundle exec'
 alias ctags-r='ctags --langmap=RUBY:.rb --exclude="*.js"  --exclude=".git*" -R .'
-
 
 # MacVim
 if [ `uname` = "Darwin" ]; then
