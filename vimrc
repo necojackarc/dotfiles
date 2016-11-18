@@ -29,12 +29,21 @@ set whichwrap+=hl<>[] " 行頭行末から次の行へ移動
 set backspace=indent,eol,start " バックスペース有効化
 set virtualedit=block " 矩形選択でカーソル位置の制限を解除
 set ambiwidth=single " 曖昧幅の文字幅をシングルにする (要: 端末設定と合わせる)
+set wrap " 長い行を折り返して表示する
 set nofoldenable " 折りたたみ無効化
 set clipboard=unnamed,unnamedplus " ヤンク時にクリップボードにコピー
 set spell " スペルチェック有効化
 set spelllang+=cjk " スペルチェックから日本語を除外
 set mouse=a " マウス有効化
 set vb t_vb= "ビープ音無効化
+
+" カーソルを表示行で移動する
+nnoremap j gj
+nnoremap k gk
+nnoremap <Down> gj
+nnoremap <Up>   gk
+inoremap <UP> <C-o>gk
+inoremap <DOWN> <C-o>gj
 
 "81-100文字目の範囲の色を変更
 execute "set colorcolumn=" . join(range(81,100), ',')
