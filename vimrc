@@ -162,6 +162,7 @@ call dein#add('slim-template/vim-slim')
 call dein#add('pangloss/vim-javascript')
 call dein#add('mxw/vim-jsx')
 call dein#add('scrooloose/syntastic')
+call dein#add('pmsorhaindo/syntastic-local-eslint.vim')
 " <<<< My plug-ins <<<<
 
 call dein#end()
