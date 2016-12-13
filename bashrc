@@ -25,6 +25,11 @@ alias ll='ls -l'
 alias be='bundle exec'
 alias ctags-r='ctags --langmap=RUBY:.rb --exclude="*.js"  --exclude=".git*" -R .'
 
+# Gvim
+if type gvim >/dev/null 2>&1; then
+  alias vim='gvim -v'
+fi
+
 # MacVim
 if [ `uname` = "Darwin" ]; then
   if [[ -d /Applications/MacVim.app ]]; then
