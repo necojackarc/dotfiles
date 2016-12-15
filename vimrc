@@ -37,6 +37,9 @@ set spelllang+=cjk " スペルチェックから日本語を除外
 set mouse=a " マウス有効化
 set vb t_vb= "ビープ音無効化
 
+" vimgrep 実行時に自動で QuickFix を開く
+autocmd QuickFixCmdPost *grep* cwindow
+
 " カーソルを表示行で移動する
 nnoremap j gj
 nnoremap k gk
@@ -150,6 +153,7 @@ call dein#add('Shougo/vimproc.vim', { 'build' : 'make' })
 call dein#add('altercation/vim-colors-solarized')
 call dein#add('vim-scripts/sudo.vim')
 call dein#add('tpope/vim-surround')
+call dein#add('thinca/vim-qfreplace')
 call dein#add('scrooloose/nerdtree')
 call dein#add('nathanaelkane/vim-indent-guides')
 call dein#add('kana/vim-smartinput')
