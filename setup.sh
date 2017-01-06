@@ -12,4 +12,3 @@ ln -sf ~/dotfiles/tmux.conf ~/.tmux.conf
 ln -sf ~/dotfiles/gemrc ~/.gemrc
 ln -sf ~/dotfiles/pryrc ~/.pryrc
 ln -sf ~/dotfiles/rspec ~/.rspec
-ln -sf ~/dotfiles/eslintrc ~/.eslintrc
