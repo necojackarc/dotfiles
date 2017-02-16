@@ -68,3 +68,6 @@ export PATH="/usr/local/heroku/bin:$PATH"
 
 # Nokogiri
 export NOKOGIRI_USE_SYSTEM_LIBRARIES=1
+
+# yarn
+export PATH="$HOME/.yarn/bin:$PATH"
