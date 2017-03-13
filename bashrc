@@ -34,3 +34,11 @@ alias la='ls -a'
 alias ll='ls -l'
 alias be='bundle exec'
 alias ctags-r='ctags --langmap=RUBY:.rb --exclude="*.js"  --exclude=".git*" -R .'
+
+# ghq list to peco
+function ghq-peco {
+    local dir="$( ghq list -p | peco )"
+    if [ ! -z "$dir" ] ; then
+        cd "$dir"
+    fi
+}
