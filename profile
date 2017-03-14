@@ -20,7 +20,8 @@ export PATH="/usr/local/sbin:$PATH"
 
 # Golang
 export GOPATH="$HOME/work/go"
-export PATH="$GOPATH/bin:$PATH"
+export GOBIN="$GOPATH/bin"
+export PATH="$GOBIN:$PATH"
 
 # yarn
 export PATH="$HOME/.yarn/bin:$PATH"
