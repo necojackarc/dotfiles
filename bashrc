@@ -36,8 +36,16 @@ alias be='bundle exec'
 alias ctags-r='ctags --langmap=RUBY:.rb --exclude="*.js"  --exclude=".git*" -R .'
 
 # ghq list to peco
-function ghq-peco {
+function ghqp {
     local dir="$( ghq list -p | peco )"
+    if [ ! -z "$dir" ] ; then
+        cd "$dir"
+    fi
+}
+
+# all directory under current one to peco
+function dirp {
+    local dir="$( find -type d | peco )"
     if [ ! -z "$dir" ] ; then
         cd "$dir"
     fi
