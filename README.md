@@ -28,6 +28,14 @@ $ chmod +x ~/dotfiles/setup.sh
 $ ~/dotfiles/setup.sh
 ```
 
+If you are on Windwos, run `setup.cmd` instead with administrator privilege:
+
+```cmd
+> setup.cmd
+```
+
+Note: On Windows, not all dotfiles will be deployed. See `setup.cmd` for details.
+
 ### Syntastic
 My `.vimrc` includes settings of `scrooloose/syntastic`.
 They require some external libraries and you can install them like this:
