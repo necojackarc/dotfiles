@@ -1,5 +1,5 @@
 " _/_/_/_/ Initialization  _/_/_/_/
-filetype off " 一時的にファイルタイプ関連を無効化
+filetype off " Disable filetype temporary
 
 " _/_/_/_/ Common settings _/_/_/_/
 syntax enable
@@ -8,65 +8,56 @@ set encoding=utf-8
 set fileencodings=utf-8,sjis,euc
 set fileformats=unix,dos,mac
 
-set directory=~/.vim/swap " スワップファイルディレクトリ
-set backupdir=~/.vim/backup " バックアップファイルディレクトリ
-set number " 行番号を表示
-set incsearch " インクリメンタルサーチ
-set hlsearch " サーチ対象をハイライト表示
-set ignorecase smartcase " 小文字のみの検索時に大文字小文字を無視
-set showmatch " 対応する括弧のハイライト表示
-set showmode " モード表示
-set title " 編集中のファイル名を表示
-set ruler " ルーラーを表示
-set expandtab " タブ入力を複数の空白入力に置き換え
-set tabstop=2 " 画面上でタブ文字が占める幅
-set shiftwidth=2 " 自動インデントの幅
-set softtabstop=2 " 連続した空白に対してタブキーやバックスペースキーでカーソルが動く幅
-set autoindent " 改行時に前の行のインデントを継続する
-set smartindent " 改行時に入力された行の末尾に合わせて次の行のインデントを増減
-set scrolloff=10 " スクロール時に表示を10行確保
-set whichwrap+=hl<>[] " 行頭行末から次の行へ移動
-set backspace=indent,eol,start " バックスペース有効化
-set virtualedit=block " 矩形選択でカーソル位置の制限を解除
-set ambiwidth=single " 曖昧幅の文字幅をシングルにする (要: 端末設定と合わせる)
-set wrap " 長い行を折り返して表示する
-set nofoldenable " 折りたたみ無効化
-set clipboard=unnamed,unnamedplus " ヤンク時にクリップボードにコピー
-set spell " スペルチェック有効化
-set spelllang+=cjk " スペルチェックから日本語を除外
-set mouse=a " マウス有効化
-set vb t_vb= "ビープ音無効化
+set directory=~/.vim/swap " Directory for swap files
+set backupdir=~/.vim/backup " Directory for backup files
+set number " Show line numbers
+set incsearch " Enable incremental search
+set hlsearch " Highlight search targets
+set ignorecase smartcase " Ignore case when searching only with small letters
+set showmatch " Highlight matching brackets
+set showmode " Show current mode of Vim
+set title " Show editing file title
+set ruler " Show ruler
+set expandtab " Put whitespace when type tab
+set tabstop=2 " Tab width
+set shiftwidth=2 " Indent width
+set softtabstop=2 " Moving width of cursor to consecutive spaces when type tab, backspace, etc.
+set autoindent " Follow indent width of the previous line when starting a new line
+set smartindent " Indent nicely for C-like programs when starting a new line
+set scrolloff=10 " Show 10 lines below cursor when scrolling
+set backspace=indent,eol,start " Enable backspace key
+set virtualedit=block " Remove the cursor restriction on rectangular selection
+set ambiwidth=single " Make ambiguous width single (Note: Coordinate settings of Vim and terminal)
+set wrap " Wrap long lines
+set nofoldenable " Disable text folding
+set clipboard=unnamed,unnamedplus " Copy it to clipboard on yanking text
+set spell " Enable spell check
+set spelllang+=cjk " Exclude Japanese on spell check
+set mouse=a " Enable mouse
+set vb t_vb= " Disable beep sound
 
-" vimgrep 実行時に自動で QuickFix を開く
+" Open QuickFix on running vimgrep
 autocmd QuickFixCmdPost *grep* cwindow
 
-" カーソルを表示行で移動する
-nnoremap j gj
-nnoremap k gk
-nnoremap <Down> gj
-nnoremap <Up>   gk
-inoremap <UP> <C-o>gk
-inoremap <DOWN> <C-o>gj
-
-"81-100文字目の範囲の色を変更
+" Change background color on 81-100 characters of lines
 execute "set colorcolumn=" . join(range(81,100), ',')
 
-" 言語別インデント幅の設定
+" Indent width by language
 augroup vimrc
 autocmd! FileType cpp setlocal tabstop=4 shiftwidth=4 softtabstop=4
 autocmd! FileType java setlocal tabstop=4 shiftwidth=4 softtabstop=4
 autocmd! FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4
 augroup END
 
-" 不可視文字の表示
+" Show invisible characters
 set list
 set listchars=tab:»-,trail:-,eol:¬,extends:»,precedes:«,nbsp:%
 
-" 全角スペースの表示
+" Show zenkaku whitespace
 highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=darkgray
 match ZenkakuSpace /　/
 
-" undofileの設定
+" Configure undo feature
 if has('persistent_undo')
   set undodir=~/.vim/undo
   set undofile
@@ -74,29 +65,24 @@ if has('persistent_undo')
   set undoreload=10000
 endif
 
-" matchitの有効化
+" Enable matchit
 if !exists('loaded_matchit')
   runtime macros/matchit.vim
 endif
 
-" キーワード補完を常時起動
+" Run keyword completion on inputting characters
 set completeopt=menuone
 for k in split("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_",'\zs')
   exec "inoremap " . k . " " . k . "<C-N><C-P>"
 endfor
 
-" # キーマッピング
-" ESC連打でサーチハイライトを解除
+" # Key mappings
+" Cancel search highlighting by typing ESC key twice
 nnoremap <silent> <Esc><Esc> :nohlsearch<LF>
-" Ctrl+pで常にヤンクしたものを貼り付け
-nnoremap <silent> <C-p> "0p
-" タグジャンプ先が複数ある場合は一覧を表示
+" Show a list when there are multiple targets of tag jumping
 nnoremap <C-]> g<c-]>
-" ノーマルモードとヴィジュアルモードではセミコロンをコロンとして扱う
-nnoremap ; :
-vnoremap ; :
 
-" # タブ関連を快適化
+" # Configure tab feature
 " Anywhere SID
 function! s:SID_PREFIX()
   return matchstr(expand('<sfile>'), '<SNR>\d\+_\zeSID_PREFIX$')
@@ -132,7 +118,7 @@ for n in range(1, 9)
   execute 'nnoremap <silent> [Tag]'.n ':<C-u>tabnext'.n.'<CR>'
 endfor
 
-set showtabline=2 " 常にタブラインを表示
+set showtabline=2 " Show tab line
 noremap <silent> [Tag]c :tablast <bar> tabnew<CR>
 noremap <silent> [Tag]x :tabclose<CR>
 noremap <silent> [Tag]n :tabnext<CR>
@@ -148,7 +134,7 @@ set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim
 call dein#begin(expand('~/.vim/dein'))
 call dein#add('Shougo/dein.vim')
 
-" >>>> My plug-ins >>>>
+" >>>> Plug-ins >>>>
 call dein#add('Shougo/vimproc.vim', { 'build' : 'make' })
 call dein#add('altercation/vim-colors-solarized')
 call dein#add('vim-scripts/sudo.vim')
@@ -167,11 +153,11 @@ call dein#add('pangloss/vim-javascript')
 call dein#add('mxw/vim-jsx')
 call dein#add('scrooloose/syntastic')
 call dein#add('pmsorhaindo/syntastic-local-eslint.vim')
-" <<<< My plug-ins <<<<
+" <<<< Plug-ins <<<<
 
 call dein#end()
 
-" >>>> Settings for my plug-ins >>>>
+" >>>> Settings for plug-ins >>>>
 " # vim-colors-solarized
 let g:solarized_termtrans=1
 
@@ -183,7 +169,7 @@ command SudoE :e sudo:%
 command SudoW :w sudo:%
 
 " # nerdtree
-let NERDTreeShowHidden = 1 " 隠しファイルの表示
+let NERDTreeShowHidden = 1 " Show hidden files
 
 " # vim-indent-guides
 let g:indent_guides_enable_on_vim_startup = 1
@@ -194,10 +180,10 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#444433 ctermbg=235
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#333344 ctermbg=236
 
 " # vim-smartimput
-" 括弧内のスペース処理を快適化
+" Handel spaces inside parentheses nicely
 call smartinput#map_to_trigger('i', '<Space>', '<Space>', '<Space>')
 
-" 括弧内へのスペース挿入の快適化
+" Insert spaces inside parentheses nicely
 call smartinput#define_rule({
 \ 'at'    : '(\%#)',
 \ 'char'  : '<Space>',
@@ -209,7 +195,7 @@ call smartinput#define_rule({
 \ 'input' : '<Space><Space><Left>'
 \})
 
-" 括弧内のスペース除去の快適化
+" Delete spaces inside parentheses nicely
 call smartinput#define_rule({
 \ 'at'    : '( \%# )',
 \ 'char'  : '<BS>',
@@ -221,7 +207,7 @@ call smartinput#define_rule({
 \ 'input' : '<Del><BS>'
 \})
 
-" 改行時に行末スペースを除去
+" Remove trailing spaces when starting a new line
 call smartinput#define_rule({
 \ 'at'    : '\s\+\%#',
 \ 'char'  : '<CR>',
@@ -250,12 +236,12 @@ let g:quickrun_config = {
 \ }
 \}
 
-" :r で QuickFix を閉じて QuickVim を実行
+" :r closes QuickFix then runs QuickVim
 let g:quickrun_no_default_key_mappings = 1
 nnoremap ,r :cclose<CR>:QuickRun -mode n<CR>
 xnoremap ,r :<C-U>cclose<CR>gv:QuickRun -mode v<CR>
 
-" QuickVim 実行時に <C-c> で強制終了
+" <C-c> kills running QuickVim forcibly
 nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
 
 " # vim2hs
@@ -268,11 +254,11 @@ let g:jsx_ext_required = 0
 let g:syntastic_mode_map = { 'mode' : 'passive' }
 let g:syntastic_ruby_checkers = ['rubocop']
 let g:syntastic_javascript_checkers = ['eslint']
-" <<<< Settings for my plug-ins <<<<
+" <<<< Settings for plug-ins <<<<
 
 if dein#check_install()
   call dein#install()
 endif
 
 " _/_/_/_/ Finalization _/_/_/_/
-filetype plugin indent on " ファイルタイプ関連を再度有効化
+filetype plugin indent on " Re-enable filetype
