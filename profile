@@ -51,3 +51,6 @@ if which scalaenv 2>/dev/null >/dev/null; then eval "$(scalaenv init -)"; fi
 
 # Nokogiri
 export NOKOGIRI_USE_SYSTEM_LIBRARIES=1
+
+# AWS CLI
+export PATH=~/.local/bin:$PATH
