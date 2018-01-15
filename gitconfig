@@ -3,6 +3,7 @@
 	email = necojackarc@gmail.com
 [core]
 	editor = vim
+	commentChar = ";"
 [merge]
 	tool = vimdiff
 [push]
