@@ -3,6 +3,11 @@ if [ -f ~/.bashrc ]; then
   . ~/.bashrc
 fi
 
+# Set private environment variables
+if [ -f ~/.env ]; then
+  . ~/.env
+fi
+
 # Gvim
 if type gvim >/dev/null 2>&1; then
   alias vim='gvim -v'
