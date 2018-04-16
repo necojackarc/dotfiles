@@ -153,6 +153,7 @@ call dein#add('pangloss/vim-javascript')
 call dein#add('mxw/vim-jsx')
 call dein#add('scrooloose/syntastic')
 call dein#add('pmsorhaindo/syntastic-local-eslint.vim')
+call dein#add('mustache/vim-mustache-handlebars')
 " <<<< Plug-ins <<<<
 
 call dein#end()
