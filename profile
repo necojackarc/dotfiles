@@ -30,6 +30,7 @@ export PATH="$GOBIN:$PATH"
 
 # yarn
 export PATH="$HOME/.yarn/bin:$PATH"
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
