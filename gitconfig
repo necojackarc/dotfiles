@@ -4,12 +4,19 @@
 [core]
 	editor = vim
 	commentChar = ";"
-[merge]
-	tool = vimdiff
 [push]
 	default = simple
 [alias]
 	co = checkout
 	st = status
+	dt = difftool
+	mt = mergetool
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
+	trustExitCode = true # abort all diffs by `:cq`
+[merge]
+	tool = vimdiff
 [ghq]
 	root = ~/work/ghq
