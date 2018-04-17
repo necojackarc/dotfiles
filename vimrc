@@ -110,19 +110,19 @@ endfunction
 let &tabline = '%!'. s:SID_PREFIX() . 'my_tabline()'
 
 " The prefix key.
-nnoremap [Tag] <Nop>
-nmap t [Tag]
+nnoremap [Tab] <Nop>
+nmap t [Tab]
 
-" Tab jump: from [Tag]1 to [Tag]2
+" Tab jump: from [Tab]1 to [Tab]2
 for n in range(1, 9)
-  execute 'nnoremap <silent> [Tag]'.n ':<C-u>tabnext'.n.'<CR>'
+  execute 'nnoremap <silent> [Tab]'.n ':<C-u>tabnext'.n.'<CR>'
 endfor
 
 set showtabline=2 " Show tab line
-noremap <silent> [Tag]c :tablast <bar> tabnew<CR>
-noremap <silent> [Tag]x :tabclose<CR>
-noremap <silent> [Tag]n :tabnext<CR>
-noremap <silent> [Tag]p :tabprevious<CR>
+noremap <silent> [Tab]c :tablast <bar> tabnew<CR>
+noremap <silent> [Tab]x :tabclose<CR>
+noremap <silent> [Tab]n :tabnext<CR>
+noremap <silent> [Tab]p :tabprevious<CR>
 
 " _/_/_/_/ Dein _/_/_/_/
 if &compatible
