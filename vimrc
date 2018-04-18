@@ -137,6 +137,7 @@ call dein#add('Shougo/dein.vim')
 " >>>> Plug-ins >>>>
 call dein#add('Shougo/vimproc.vim', { 'build' : 'make' })
 call dein#add('altercation/vim-colors-solarized')
+call dein#add('ctrlpvim/ctrlp.vim')
 call dein#add('vim-scripts/sudo.vim')
 call dein#add('tpope/vim-surround')
 call dein#add('thinca/vim-qfreplace')
