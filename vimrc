@@ -29,7 +29,8 @@ set backspace=indent,eol,start " Enable backspace key
 set virtualedit=block " Remove the cursor restriction on rectangular selection
 set ambiwidth=single " Make ambiguous width single (Note: Coordinate settings of Vim and terminal)
 set wrap " Wrap long lines
-set nofoldenable " Disable text folding
+set nofoldenable " Disable text folding (Note: can be enabled by `zi`)
+set foldmethod=indent " Create folds based on indent
 set clipboard=unnamed,unnamedplus " Copy it to clipboard on yanking text
 set spell " Enable spell check
 set spelllang+=cjk " Exclude Japanese on spell check
