@@ -164,6 +164,37 @@ let g:solarized_termtrans=1
 set background=dark
 colorscheme solarized
 
+" # ctrlp.vim
+let g:ctrlp_buffer_func = {
+\ 'enter': 'CtrlPEnter',
+\ 'exit': 'CtrlPLeave',
+\}
+
+" Hide status line on launching CtrlP
+function! CtrlPEnter()
+  set laststatus=0
+endfunction
+
+" Show status line on closing CtrlP
+function! CtrlPLeave()
+  set laststatus=2
+endfunction
+
+" Run CtrlP when opening Vim without specifying any files
+function CtrlPIfEmpty()
+  if @% == ""
+    CtrlP ./
+  endif
+endfunction
+
+augroup AutoCtrlP
+  autocmd!
+  autocmd VimEnter * call CtrlPIfEmpty()
+augroup END
+
+let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:10,results:50'
+let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist|tmp)|(\.(swp|ico|git|svn))$'
+
 " # sudo.vim
 command SudoE :e sudo:%
 command SudoW :w sudo:%
