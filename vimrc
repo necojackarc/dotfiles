@@ -160,8 +160,7 @@ call dein#add('dag/vim2hs')
 call dein#add('slim-template/vim-slim')
 call dein#add('pangloss/vim-javascript')
 call dein#add('mxw/vim-jsx')
-call dein#add('scrooloose/syntastic')
-call dein#add('pmsorhaindo/syntastic-local-eslint.vim')
+call dein#add('w0rp/ale')
 call dein#add('mustache/vim-mustache-handlebars')
 " <<<< Plug-ins <<<<
 
@@ -291,10 +290,12 @@ let g:haskell_conceal = 0
 " # vim-jsx
 let g:jsx_ext_required = 0
 
-" # syntastic
-let g:syntastic_mode_map = { 'mode' : 'passive' }
-let g:syntastic_ruby_checkers = ['rubocop']
-let g:syntastic_javascript_checkers = ['eslint']
+" # ale
+let g:ale_fixers = {
+\ 'javascript': ['eslint'],
+\ 'ruby': ['rubocop'],
+\}
+
 " <<<< Settings for plug-ins <<<<
 
 if dein#check_install()
