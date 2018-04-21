@@ -38,6 +38,9 @@ set mouse=a " Enable mouse
 set vb t_vb= " Disable beep sound
 set t_BE= " Prevent entering bracketed paste mode
 
+" Copy yanked text to the clipboard on exit
+autocmd VimLeave * call system("xsel -ib", getreg('+'))
+
 " Open QuickFix on running vimgrep
 autocmd QuickFixCmdPost *grep* cwindow
 
