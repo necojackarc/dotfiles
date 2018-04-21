@@ -36,6 +36,7 @@ set spell " Enable spell check
 set spelllang+=cjk " Exclude Japanese on spell check
 set mouse=a " Enable mouse
 set vb t_vb= " Disable beep sound
+set t_BE= " Prevent entering bracketed paste mode
 
 " Open QuickFix on running vimgrep
 autocmd QuickFixCmdPost *grep* cwindow
