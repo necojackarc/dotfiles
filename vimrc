@@ -158,6 +158,7 @@ call dein#add('kana/vim-smartinput')
 call dein#add('cohama/vim-smartinput-endwise')
 call dein#add('w0rp/ale')
 call dein#add('itchyny/lightline.vim')
+call dein#add('maximbaz/lightline-ale')
 call dein#add('thinca/vim-quickrun')
 call dein#add('dag/vim2hs')
 call dein#add('slim-template/vim-slim')
@@ -268,6 +269,23 @@ let g:ale_fixers = {
 " # lightline
 let g:lightline = {
 \ 'colorscheme': 'solarized'
+\}
+
+" # lightline-ale
+let g:lightline.component_expand = {
+\ 'linter_checking': 'lightline#ale#checking',
+\ 'linter_warnings': 'lightline#ale#warnings',
+\ 'linter_errors': 'lightline#ale#errors',
+\}
+
+let g:lightline.component_type = {
+\ 'linter_checking': 'left',
+\ 'linter_warnings': 'warning',
+\ 'linter_errors': 'error',
+\}
+
+let g:lightline.active = {
+\  'right': [[ 'linter_checking', 'linter_errors', 'linter_warnings' ]]
 \}
 
 " # thinca/vim-quickrun
