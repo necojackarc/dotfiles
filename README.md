@@ -38,13 +38,3 @@ Note: On Windows, not all dotfiles will be deployed. See `setup.cmd` for details
 
 ### tmux
 After initial run of tmux, do `Ctrl+T -> Shift+I` to install all plugins.
-
-
-### Syntastic
-My `.vimrc` includes settings of `scrooloose/syntastic`.
-They require some external libraries and you can install them like this:
-
-```sh
-$ gem install rubocop
-$ npm install -g eslint-config-airbnb eslint-plugin-import eslint-plugin-react eslint-plugin-jsx-a11y eslint
-```
