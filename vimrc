@@ -35,6 +35,7 @@ set clipboard=unnamed,unnamedplus " Copy it to clipboard on yanking text
 set spell " Enable spell check
 set spelllang+=cjk " Exclude Japanese on spell check
 set mouse=a " Enable mouse
+set laststatus=2 " Display status line always
 set vb t_vb= " Disable beep sound
 set t_BE= " Prevent entering bracketed paste mode
 
@@ -155,12 +156,13 @@ call dein#add('scrooloose/nerdtree')
 call dein#add('nathanaelkane/vim-indent-guides')
 call dein#add('kana/vim-smartinput')
 call dein#add('cohama/vim-smartinput-endwise')
+call dein#add('w0rp/ale')
+call dein#add('itchyny/lightline.vim')
 call dein#add('thinca/vim-quickrun')
 call dein#add('dag/vim2hs')
 call dein#add('slim-template/vim-slim')
 call dein#add('pangloss/vim-javascript')
 call dein#add('mxw/vim-jsx')
-call dein#add('w0rp/ale')
 call dein#add('mustache/vim-mustache-handlebars')
 " <<<< Plug-ins <<<<
 
@@ -257,6 +259,17 @@ call smartinput#define_rule({
 " # vim-smartinput-endwise
 call smartinput_endwise#define_default_rules()
 
+" # ale
+let g:ale_fixers = {
+\ 'javascript': ['eslint'],
+\ 'ruby': ['rubocop'],
+\}
+
+" # lightline
+let g:lightline = {
+\ 'colorscheme': 'solarized'
+\}
+
 " # thinca/vim-quickrun
 let g:quickrun_config = {
 \ "_" : {
@@ -289,12 +302,6 @@ let g:haskell_conceal = 0
 
 " # vim-jsx
 let g:jsx_ext_required = 0
-
-" # ale
-let g:ale_fixers = {
-\ 'javascript': ['eslint'],
-\ 'ruby': ['rubocop'],
-\}
 
 " <<<< Settings for plug-ins <<<<
 
