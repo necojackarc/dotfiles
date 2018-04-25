@@ -36,7 +36,8 @@ alias ls='ls -F'
 alias la='ls -a'
 alias ll='ls -l'
 alias be='bundle exec'
-alias ctags-r='ctags --langmap=RUBY:.rb --exclude="*.js"  --exclude=".git*" -R .'
+alias ctrb='ctags --langmap=RUBY:.rb --exclude="*.js"  --exclude=".git*" -R .'
+alias ctjs='ctags -R --exclude=node_modules --exclude=tmp --exclude=dist'
 
 # ghq list to peco
 function ghqp {
