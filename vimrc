@@ -261,7 +261,14 @@ call smartinput_endwise#define_default_rules()
 
 " # lightline
 let g:lightline = {
-\ 'colorscheme': 'solarized'
+\ 'colorscheme': 'solarized',
+\ 'active': {
+\   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'relativepath', 'modified' ] ],
+\   'right': [ [ 'lineinfo' ], [ 'percent' ], [ 'filetype' ] ],
+\ },
+\ 'inactive': {
+\   'left': [ [ 'relativepath' ] ],
+\ },
 \}
 
 " # ale
