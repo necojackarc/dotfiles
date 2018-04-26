@@ -18,5 +18,7 @@
 	trustExitCode = true # abort all diffs by `:cq`
 [merge]
 	tool = vimdiff
+[mergetool]
+	keepBackup = false
 [ghq]
 	root = ~/work/ghq
