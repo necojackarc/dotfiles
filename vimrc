@@ -163,6 +163,7 @@ call dein#add('dag/vim2hs')
 call dein#add('slim-template/vim-slim')
 call dein#add('pangloss/vim-javascript')
 call dein#add('mxw/vim-jsx')
+call dein#add('moll/vim-node')
 call dein#add('mustache/vim-mustache-handlebars')
 " <<<< Plug-ins <<<<
 
