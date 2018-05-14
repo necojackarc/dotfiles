@@ -8,11 +8,6 @@ if [ -f ~/.env ]; then
   . ~/.env
 fi
 
-# Gvim
-if type gvim >/dev/null 2>&1; then
-  alias vim='gvim -v'
-fi
-
 # MacVim
 if [ `uname` = "Darwin" ]; then
   if [[ -d /Applications/MacVim.app ]]; then
