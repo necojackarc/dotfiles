@@ -159,6 +159,7 @@ call dein#add('cohama/vim-smartinput-endwise')
 call dein#add('itchyny/lightline.vim')
 call dein#add('w0rp/ale')
 call dein#add('thinca/vim-quickrun')
+call dein#add('mileszs/ack.vim')
 call dein#add('dag/vim2hs')
 call dein#add('slim-template/vim-slim')
 call dein#add('pangloss/vim-javascript')
@@ -304,6 +305,9 @@ xnoremap ,r :<C-U>cclose<CR>gv:QuickRun -mode v<CR>
 
 " <C-c> kills running QuickVim forcibly
 nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
+
+" # ack.vim
+let g:ackprg = 'rg --vimgrep --no-heading'
 
 " # vim2hs
 let g:haskell_conceal = 0
