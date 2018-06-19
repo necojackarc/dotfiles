@@ -54,3 +54,6 @@ function gco {
     git checkout "$branch"
   fi
 }
+
+# direnv
+eval "$(direnv hook bash)"
