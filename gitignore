@@ -1,0 +1,6 @@
+.envrc
+.node-version
+.ruby-version
+node_modules
+npm-debug.log
+tags
