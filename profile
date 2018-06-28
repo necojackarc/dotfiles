@@ -32,10 +32,10 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 export RBENV_ROOT="$HOME/.rbenv"
 if which rbenv 2>/dev/null >/dev/null; then eval "$(rbenv init -)"; fi
 
-# ndenv
-export PATH="$HOME/.ndenv/bin:$PATH"
-export NDENV_ROOT="$HOME/.ndenv"
-if which ndenv 2>/dev/null >/dev/null; then eval "$(ndenv init -)"; fi
+# nodenv
+export PATH="$HOME/.nodenv/bin:$PATH"
+export NDENV_ROOT="$HOME/.nodenv"
+if which nodenv 2>/dev/null >/dev/null; then eval "$(nodenv init -)"; fi
 
 # pyenv
 export PATH="$HOME/.pyenv/bin:$PATH"
