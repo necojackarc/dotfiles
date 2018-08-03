@@ -274,6 +274,9 @@ let g:lightline = {
 \}
 
 " # ale
+let g:ale_linters = {
+\ 'javascript': ['eslint', 'tsserver'],
+\}
 let g:ale_fixers = {
 \ 'javascript': ['eslint'],
 \ 'ruby': ['rubocop'],
