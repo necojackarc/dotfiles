@@ -34,6 +34,7 @@ set foldmethod=indent " Create folds based on indent
 set clipboard=unnamed,unnamedplus " Copy it to clipboard on yanking text
 set spell " Enable spell check
 set spelllang+=cjk " Exclude Japanese on spell check
+set completeopt=menuone,noinsert " Prevent automatic selection in completion
 set mouse=a " Enable mouse
 set laststatus=2 " Display status line always
 set vb t_vb= " Disable beep sound
@@ -82,7 +83,6 @@ if !exists('loaded_matchit')
 endif
 
 " Run keyword completion on inputting characters
-set completeopt=menuone
 for k in split("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_",'\zs')
   exec "inoremap " . k . " " . k . "<C-N><C-P>"
 endfor
@@ -92,6 +92,8 @@ endfor
 nnoremap <silent> <Esc><Esc> :nohlsearch<LF>
 " Show a list when there are multiple targets of tag jumping
 nnoremap <C-]> g<c-]>
+" Enable omni completion by Ctrl+F
+inoremap <C-F> <C-X><C-O>
 
 " # Configure tab feature
 " Anywhere SID
@@ -277,6 +279,7 @@ let g:lightline = {
 let g:ale_linters = {
 \ 'javascript': ['eslint', 'tsserver'],
 \}
+
 let g:ale_fixers = {
 \ 'javascript': ['eslint'],
 \ 'ruby': ['rubocop'],
