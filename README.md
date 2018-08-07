@@ -36,7 +36,7 @@ $ ~/dotfiles/setup.sh
 ```
 
 ### Bash
-To make the most of it, install the follwoing packages:
+To make the most of it, install the following packages:
 
 * [direnv](https://github.com/direnv/direnv)
 * [ghq](https://github.com/motemen/ghq)
@@ -44,3 +44,8 @@ To make the most of it, install the follwoing packages:
 
 ### tmux
 After the initial run, do `Ctrl+T -> Shift+I` to install all plugins.
+
+### Vim
+
+* [TypeScrpt](https://github.com/Microsoft/TypeScript)
+  * TSServer is used by ALE
