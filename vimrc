@@ -148,6 +148,7 @@ call dein#begin(expand('~/.vim/dein'))
 call dein#add('Shougo/dein.vim')
 
 " >>>> Plug-ins >>>>
+" General
 call dein#add('Shougo/vimproc.vim', { 'build' : 'make' })
 call dein#add('altercation/vim-colors-solarized')
 call dein#add('ctrlpvim/ctrlp.vim')
@@ -162,6 +163,9 @@ call dein#add('itchyny/lightline.vim')
 call dein#add('w0rp/ale')
 call dein#add('thinca/vim-quickrun')
 call dein#add('mileszs/ack.vim')
+call dein#add('mbbill/undotree')
+
+" Language specific
 call dein#add('dag/vim2hs')
 call dein#add('slim-template/vim-slim')
 call dein#add('pangloss/vim-javascript')
