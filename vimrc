@@ -278,12 +278,18 @@ let g:lightline = {
 " # ale
 let g:ale_linters = {
 \ 'javascript': ['eslint', 'tsserver'],
+\ 'ruby': ['rubocop'],
 \}
 
 let g:ale_fixers = {
 \ 'javascript': ['eslint'],
 \ 'ruby': ['rubocop'],
 \}
+
+" Key mappings
+nnoremap R :ALEFindReferences<CR>
+nnoremap S :ALEHover<CR>
+nnoremap gd :ALEGoToDefinition<CR>
 
 " # thinca/vim-quickrun
 let g:quickrun_config = {
