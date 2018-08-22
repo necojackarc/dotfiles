@@ -37,6 +37,7 @@ set spelllang+=cjk " Exclude Japanese on spell check
 set completeopt=menuone,noinsert " Prevent automatic selection in completion
 set mouse=a " Enable mouse
 set laststatus=2 " Display status line always
+set iskeyword+=- " Treat a hyphenated word as a single word
 set vb t_vb= " Disable beep sound
 set t_BE= " Prevent entering bracketed paste mode
 
