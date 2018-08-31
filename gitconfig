@@ -6,7 +6,7 @@
 	commentChar = ";"
 	excludesfile = ~/.gitignore
 [push]
-	default = simple
+	default = current
 [alias]
 	co = checkout
 	st = status
