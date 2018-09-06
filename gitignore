@@ -1,6 +1,7 @@
 .envrc
 .node-version
 .ruby-version
+.vimrc
 node_modules
 npm-debug.log
 tags

@@ -338,5 +338,9 @@ if dein#check_install()
   call dein#install()
 endif
 
+" _/_/_/_/ Enable per-project .vimrc _/_/_/_/
+set exrc
+set secure
+
 " _/_/_/_/ Finalization _/_/_/_/
 filetype plugin indent on " Re-enable filetype
