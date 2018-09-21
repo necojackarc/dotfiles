@@ -173,6 +173,7 @@ call dein#add('pangloss/vim-javascript')
 call dein#add('mxw/vim-jsx')
 call dein#add('moll/vim-node')
 call dein#add('mustache/vim-mustache-handlebars')
+call dein#add('Vimjas/vim-python-pep8-indent')
 " <<<< Plug-ins <<<<
 
 call dein#end()
