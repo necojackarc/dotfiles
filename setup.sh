@@ -12,5 +12,7 @@ ln -sf ~/dotfiles/pryrc ~/.pryrc
 ln -sf ~/dotfiles/rspec ~/.rspec
 ln -sf ~/dotfiles/tmux.conf ~/.tmux.conf
 ln -sf ~/dotfiles/vimrc ~/.vimrc
+rm -rf ~/.tmux
 ln -sfn ~/dotfiles/tmux ~/.tmux
+rm -rf ~/.vim
 ln -sfn ~/dotfiles/vim ~/.vim
