@@ -8,13 +8,6 @@ if [ -f ~/.env ]; then
   . ~/.env
 fi
 
-# MacVim
-if [ `uname` = "Darwin" ]; then
-  if [[ -d /Applications/MacVim.app ]]; then
-    alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
-  fi
-fi
-
 # Homebrew
 export PATH="/usr/local/sbin:$PATH"
 
