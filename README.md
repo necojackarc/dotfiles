@@ -41,6 +41,7 @@ To make the most of it, install the following packages:
 * [direnv](https://github.com/direnv/direnv)
 * [ghq](https://github.com/motemen/ghq)
 * [peco](https://github.com/peco/peco)
+* [tig](https://github.com/jonas/tig)
 
 ### tmux
 After the initial run, do `Ctrl+T -> Shift+I` to install all plugins.
