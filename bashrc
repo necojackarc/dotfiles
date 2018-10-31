@@ -47,9 +47,6 @@ alias be='bundle exec'
 alias ctrb='ctags --langmap=RUBY:.rb --exclude="*.js"  --exclude=".git*" -R .'
 alias ctjs='ctags -R --exclude=node_modules --exclude=tmp --exclude=dist'
 
-# Completion
-bind '"\C-n":menu-complete' # Cycle candidates
-
 # cd to a repo listed with ghq using peco
 function cdr {
   local dir="$( ghq list -p | peco )"
