@@ -2,6 +2,7 @@
 .node-version
 .ruby-version
 .vimrc
+.python-version
 node_modules
 npm-debug.log
 tags
