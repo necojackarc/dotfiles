@@ -166,6 +166,7 @@ call dein#add('thinca/vim-quickrun')
 call dein#add('mileszs/ack.vim')
 call dein#add('mbbill/undotree')
 call dein#add('godlygeek/tabular')
+call dein#add('tpope/vim-fugitive')
 
 " Language specific
 call dein#add('dag/vim2hs')
