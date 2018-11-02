@@ -49,7 +49,7 @@ alias ctrb='ctags --langmap=RUBY:.rb --exclude="*.js"  --exclude=".git*" -R .'
 alias ctjs='ctags -R --exclude=node_modules --exclude=tmp --exclude=dist'
 
 # fzf setting to use rg
-export FZF_DEFAULT_COMMAND='rg --files --hidden'
+export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git/*"'
 
 # wrap tig to add aliases of subcommands
 function tig {
