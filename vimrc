@@ -154,7 +154,6 @@ call dein#add('Shougo/vimproc.vim', { 'build' : 'make' })
 call dein#add('altercation/vim-colors-solarized')
 call dein#add('junegunn/fzf', { 'merged': 0 })
 call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
-call dein#add('vim-scripts/sudo.vim')
 call dein#add('tpope/vim-surround')
 call dein#add('thinca/vim-qfreplace')
 call dein#add('scrooloose/nerdtree')
@@ -228,10 +227,6 @@ augroup AutoFzf
   autocmd!
   autocmd VimEnter * call FzfIfEmpty()
 augroup END
-
-" # sudo.vim
-command SudoE :e sudo:%
-command SudoW :w sudo:%
 
 " # nerdtree
 let NERDTreeShowHidden = 1 " Show hidden files
