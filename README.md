@@ -35,12 +35,17 @@ $ chmod +x ~/dotfiles/setup.sh
 $ ~/dotfiles/setup.sh
 ```
 
-### Bash
 To make the most of it, install the following packages:
+
+### Common
+
+* [ripgrep](https://github.com/BurntSushi/ripgrep)
+* [fzf](https://github.com/junegunn/fzf)
+
+### Bash
 
 * [direnv](https://github.com/direnv/direnv)
 * [ghq](https://github.com/motemen/ghq)
-* [peco](https://github.com/peco/peco)
 * [tig](https://github.com/jonas/tig)
 
 ### tmux
@@ -48,6 +53,5 @@ After the initial run, do `Ctrl+T -> Shift+I` to install all plugins.
 
 ### Vim
 
-* [ripgrep](https://github.com/BurntSushi/ripgrep)
 * [TypeScrpt](https://github.com/Microsoft/TypeScript)
   * TSServer is used by ALE

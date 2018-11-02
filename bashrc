@@ -41,11 +41,15 @@ alias cp='cp -i'
 alias ls='ls -F'
 alias la='ls -a'
 alias ll='ls -l'
-alias rg='rg -p'
 alias less='less -R'
+alias rg='rg -p' # Use pretty format when piping like 'rg -p foo | less -R'
+alias fzf='fzf --height 40% --reverse' # Use top-down layout
 alias be='bundle exec'
 alias ctrb='ctags --langmap=RUBY:.rb --exclude="*.js"  --exclude=".git*" -R .'
 alias ctjs='ctags -R --exclude=node_modules --exclude=tmp --exclude=dist'
+
+# fzf setting to use rg
+export FZF_DEFAULT_COMMAND='rg --files --hidden'
 
 # wrap tig to add aliases of subcommands
 function tig {
@@ -65,7 +69,7 @@ function tig {
 
 # cd to a repo listed with ghq using peco
 function cdr {
-  local dir="$( ghq list -p | peco )"
+  local dir="$(ghq list -p | fzf)"
   if [ ! -z "$dir" ] ; then
     cd "$dir"
   fi
@@ -73,7 +77,7 @@ function cdr {
 
 # git checkout a branch using peco
 function gco {
-  local branch="$( git branch | sed s/\*/\ /g | awk '{ print $1 }' | peco)"
+  local branch="$( git branch | sed s/\*/\ /g | awk '{ print $1 }' | fzf)"
   if [ ! -z "$branch" ] ; then
     git checkout "$branch"
   fi
