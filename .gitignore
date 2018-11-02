@@ -3,6 +3,7 @@
 .DS_Store
 .netrwhist
 /tmux/*
+/vim/fzf-history
 /vim/backup/*
 /vim/dein/*
 /vim/swap/*

@@ -152,7 +152,8 @@ call dein#add('Shougo/dein.vim')
 " General
 call dein#add('Shougo/vimproc.vim', { 'build' : 'make' })
 call dein#add('altercation/vim-colors-solarized')
-call dein#add('ctrlpvim/ctrlp.vim')
+call dein#add('junegunn/fzf', { 'merged': 0 })
+call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
 call dein#add('vim-scripts/sudo.vim')
 call dein#add('tpope/vim-surround')
 call dein#add('thinca/vim-qfreplace')
@@ -187,43 +188,46 @@ let g:solarized_termtrans=1
 set background=dark
 colorscheme solarized
 
-" # ctrlp.vim
-let g:ctrlp_buffer_func = {
-\ 'enter': 'CtrlPEnter',
-\ 'exit': 'CtrlPLeave',
+" # fzf.vim
+let g:fzf_action = {
+\ 'ctrl-b': 'tab split',
+\ 'ctrl-s': 'split',
+\ 'ctrl-v': 'vsplit'
 \}
 
-" Use rg when it's available
-if executable('rg')
-  set grepprg=rg\ --color=never
-  let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
-  let g:ctrlp_use_caching = 0
-endif
+let g:fzf_history_dir = '~/.vim/fzf-history'
 
-" Hide status line on launching CtrlP
-function! CtrlPEnter()
-  set laststatus=0
-endfunction
+let g:fzf_layout = { 'down': '~35%' }
+let g:fzf_colors = {
+\ 'fg':      ['fg', 'Normal'],
+\ 'bg':      ['bg', 'Normal'],
+\ 'hl':      ['fg', 'Comment'],
+\ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+\ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+\ 'hl+':     ['fg', 'Statement'],
+\ 'info':    ['fg', 'PreProc'],
+\ 'border':  ['fg', 'Ignore'],
+\ 'prompt':  ['fg', 'Conditional'],
+\ 'pointer': ['fg', 'Exception'],
+\ 'marker':  ['fg', 'Keyword'],
+\ 'spinner': ['fg', 'Label'],
+\ 'header':  ['fg', 'Comment']
+\}
 
-" Show status line on closing CtrlP
-function! CtrlPLeave()
-  set laststatus=2
-endfunction
+" Run fzf.vim by Ctrl+P
+noremap <C-p> :Files<CR>
 
-" Run CtrlP when opening Vim without specifying any files
-function CtrlPIfEmpty()
+" Run fzf.vim when opening Vim without specifying any files
+function FzfIfEmpty()
   if @% == ""
-    CtrlP ./
+    Files
   endif
 endfunction
 
-augroup AutoCtrlP
+augroup AutoFzf
   autocmd!
-  autocmd VimEnter * call CtrlPIfEmpty()
+  autocmd VimEnter * call FzfIfEmpty()
 augroup END
-
-let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:10,results:50'
-let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist|tmp)|(\.(swp|ico|git|svn))$'
 
 " # sudo.vim
 command SudoE :e sudo:%
