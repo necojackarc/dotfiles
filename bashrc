@@ -59,8 +59,6 @@ function tig {
     st)
       subcommand="status"
       ;;
-    *)
-      ;;
   esac
   shift 1
 
