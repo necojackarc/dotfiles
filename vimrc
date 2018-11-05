@@ -214,12 +214,12 @@ let g:fzf_colors = {
 \}
 
 " Run fzf.vim by Ctrl+P
-noremap <C-p> :Files<CR>
+noremap <C-p> :FZF<CR>
 
 " Run fzf.vim when opening Vim without specifying any files
 function FzfIfEmpty()
   if @% == ""
-    Files
+    FZF
   endif
 endfunction
 
