@@ -216,6 +216,18 @@ let g:fzf_colors = {
 " Run fzf.vim by Ctrl+P
 noremap <C-p> :Files<CR>
 
+" Run fzf.vim when opening Vim without specifying any files
+function FzfIfEmpty()
+  if @% == ""
+    Files
+  endif
+endfunction
+
+augroup AutoFzf
+  autocmd!
+  autocmd VimEnter * call FzfIfEmpty()
+augroup END
+
 " # nerdtree
 let NERDTreeShowHidden = 1 " Show hidden files
 
