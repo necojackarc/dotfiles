@@ -219,7 +219,8 @@ noremap <C-p> :FZF<CR>
 " Run fzf.vim when opening Vim without specifying any files
 function FzfIfEmpty()
   if @% == ""
-    FZF
+    " ref: https://github.com/junegunn/fzf.vim/issues/368#issuecomment-302150831
+    call feedkeys(":FZF!\<CR>", 'n')
   endif
 endfunction
 
