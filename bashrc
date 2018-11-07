@@ -65,7 +65,7 @@ function tig {
   command tig $subcommand "$@"
 }
 
-# cd to a repo listed with ghq using peco
+# cd to a repo listed with ghq using fzf
 function cdr {
   local dir="$(ghq list -p | fzf)"
   if [ ! -z "$dir" ] ; then
@@ -73,7 +73,7 @@ function cdr {
   fi
 }
 
-# git checkout a branch using peco
+# git checkout a branch using fzf
 function gco {
   local branch="$( git branch | sed s/\*/\ /g | awk '{ print $1 }' | fzf)"
   if [ ! -z "$branch" ] ; then
