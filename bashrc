@@ -30,7 +30,11 @@ export PS1+='\[\e[36;1m\]\t \[\e[0m\]\$ '
 export HISTSIZE=10000
 export HISTFILESIZE=10000
 
+# Append history when bash closes
 shopt -s histappend
+
+# Append history after each command
+export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 
 # aliases
 alias sudo='sudo -E'
