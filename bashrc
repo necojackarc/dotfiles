@@ -29,9 +29,11 @@ export PS1+='\[\e[36;1m\]\t \[\e[0m\]\$ '
 # History
 export HISTSIZE=10000
 export HISTFILESIZE=10000
+export HISTCONTROL=ignoredups
 
-# Append history when bash closes
 shopt -s histappend
+shopt -s cmdhist
+shopt -s lithist
 
 # Append history after each command
 export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
