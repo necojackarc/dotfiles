@@ -52,7 +52,8 @@ alias be='bundle exec'
 alias ctrb='ctags --langmap=RUBY:.rb --exclude="*.js"  --exclude=".git*" -R .'
 alias ctjs='ctags -R --exclude=node_modules --exclude=tmp --exclude=dist'
 
-# fzf setting to use rg
+# fzf settings
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git/*"'
 
 # wrap tig to add aliases of subcommands
