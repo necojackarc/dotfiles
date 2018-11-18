@@ -189,7 +189,7 @@ colorscheme solarized
 
 " # fzf.vim
 let g:fzf_action = {
-\ 'ctrl-c': 'tab split',
+\ 'ctrl-t': 'tab split',
 \ 'ctrl-s': 'split',
 \ 'ctrl-v': 'vsplit'
 \}
