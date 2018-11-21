@@ -56,7 +56,7 @@ autocmd QuickFixCmdPost *grep* cwindow
 execute "set colorcolumn=" . join(range(81,100), ',')
 
 " Indent width by language
-augroup vimrc
+augroup languageSpecific
 autocmd! FileType cpp setlocal tabstop=4 shiftwidth=4 softtabstop=4
 autocmd! FileType java setlocal tabstop=4 shiftwidth=4 softtabstop=4
 autocmd! FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4
