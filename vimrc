@@ -336,6 +336,14 @@ nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() 
 " # ack.vim
 let g:ackprg = 'rg --vimgrep --no-heading'
 
+" # tabular
+
+" align with =
+vnoremap <silent> a :Tabularize /=<CR>
+
+" align with :
+vnoremap <silent> <C-a> :Tabularize /:\zs/l0l1<CR>
+
 " # vim2hs
 let g:haskell_conceal = 0
 
