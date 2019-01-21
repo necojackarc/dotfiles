@@ -342,10 +342,10 @@ nnoremap <C-f> :Ack!
 " # tabular
 
 " align with =
-vnoremap <silent> a :Tabularize /=<CR>
+vnoremap <silent> ae :Tabularize /=<CR>
 
 " align with :
-vnoremap <silent> <C-a> :Tabularize /:\zs/l0l1<CR>
+vnoremap <silent> ac :Tabularize /:\zs/l0l1<CR>
 
 " # vim2hs
 let g:haskell_conceal = 0
