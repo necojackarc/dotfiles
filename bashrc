@@ -58,6 +58,13 @@ alias ctjs='ctags -R --exclude=node_modules --exclude=tmp --exclude=dist'
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git/*"'
 
+# find files by pattern for file paths and names
+function rgf {
+  local pattern=$1
+  shift 1
+  command rg --files -g *$pattern* "$@"
+}
+
 # wrap tig to add aliases of subcommands
 function tig {
   local subcommand=$1
