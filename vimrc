@@ -96,6 +96,12 @@ nnoremap <C-]> g<c-]>
 " Enable omni completion by Ctrl+F
 inoremap <C-F> <C-X><C-O>
 
+" Resize panes simply
+nnoremap < <C-w><
+nnoremap > <C-w>>
+nnoremap + <C-w>+
+nnoremap - <C-w>-
+
 " # Configure tab feature
 " Anywhere SID
 function! s:SID_PREFIX()
