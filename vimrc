@@ -144,6 +144,14 @@ noremap <silent> [Tab]x :tabclose<CR>
 noremap <silent> [Tab]n :tabnext<CR>
 noremap <silent> [Tab]p :tabprevious<CR>
 
+" Visual @
+xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
+
+function! ExecuteMacroOverVisualRange()
+  echo "@".getcmdline()
+  execute ":'<,'>normal @".nr2char(getchar())
+endfunction
+
 " _/_/_/_/ Dein _/_/_/_/
 if &compatible
   set nocompatible
