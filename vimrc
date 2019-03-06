@@ -317,7 +317,7 @@ let g:ale_fixers = {
 
 " Key mappings
 nnoremap R :ALEFindReferences<CR>
-nnoremap S :ALEHover<CR>
+nnoremap H :ALEHover<CR>
 nnoremap gd :ALEGoToDefinition<CR>
 
 " # thinca/vim-quickrun
