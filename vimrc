@@ -1,5 +1,5 @@
 " _/_/_/_/ Initialization  _/_/_/_/
-filetype off " Disable filetype temporary
+filetype off " Disable filetype temporary; re-enable it at the end
 
 " _/_/_/_/ Common settings _/_/_/_/
 syntax enable
@@ -18,7 +18,7 @@ set showmatch " Highlight matching brackets
 set showmode " Show current mode of Vim
 set title " Show editing file title
 set ruler " Show ruler
-set expandtab " Put whitespace when type tab
+set expandtab " Put white-spaces when type tab
 set tabstop=2 " Tab width
 set shiftwidth=2 " Indent width
 set softtabstop=2 " Moving width of cursor to consecutive spaces when type tab, backspace, etc.
@@ -46,7 +46,7 @@ if !has('gui_running')
   set t_Co=256
 endif
 
-" Copy yanked text to the clipboard on exit
+" Copy yanked text to the clipboard on exit (for Linux)
 autocmd VimLeave * call system("xsel -ib", getreg('+'))
 
 " Open QuickFix on running vimgrep
@@ -78,7 +78,7 @@ if has('persistent_undo')
   set undoreload=10000
 endif
 
-" Enable matchit
+" Enable matchit (enable to jump to matching keyword by '%')
 if !exists('loaded_matchit')
   runtime macros/matchit.vim
 endif
@@ -88,7 +88,11 @@ for k in split("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_",'\zs')
   exec "inoremap " . k . " " . k . "<C-N><C-P>"
 endfor
 
-" # Key mappings
+
+" **************************************
+" * Key mappings                       *
+" **************************************
+
 " Cancel search highlighting by typing ESC key twice
 nnoremap <silent> <Esc><Esc> :nohlsearch<LF>
 " Show a list when there are multiple targets of tag jumping
@@ -102,7 +106,11 @@ nnoremap > <C-w>>
 nnoremap + <C-w>+
 nnoremap - <C-w>-
 
-" # Configure tab feature
+
+" **************************************
+" * Configuration for tab feature      *
+" **************************************
+
 " Anywhere SID
 function! s:SID_PREFIX()
   return matchstr(expand('<sfile>'), '<SNR>\d\+_\zeSID_PREFIX$')
@@ -196,13 +204,21 @@ call dein#add('Vimjas/vim-python-pep8-indent')
 call dein#end()
 
 " >>>> Settings for plug-ins >>>>
-" # vim-colors-solarized
+
+" **************************************
+" * vim-colors-solarized               *
+" **************************************
+
 let g:solarized_termtrans=1
 
 set background=dark
 colorscheme solarized
 
-" # fzf.vim
+
+" **************************************
+" *  fzf.vim                           *
+" **************************************
+
 let g:fzf_action = {
 \ 'ctrl-t': 'tab split',
 \ 'ctrl-s': 'split',
@@ -244,10 +260,18 @@ augroup AutoFzf
   autocmd VimEnter * call FzfIfEmpty()
 augroup END
 
-" # nerdtree
+
+" **************************************
+" *  NERDTree                          *
+" **************************************
+
 let NERDTreeShowHidden = 1 " Show hidden files
 
-" # vim-indent-guides
+
+" **************************************
+" * vim-indent-guides                  *
+" **************************************
+
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_guide_size = 1
 let g:indent_guides_start_level = 2
@@ -255,7 +279,11 @@ let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#444433 ctermbg=235
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#333344 ctermbg=236
 
-" # lightline
+
+" **************************************
+" * lightline                          *
+" **************************************
+
 let g:lightline = {
 \ 'colorscheme': 'solarized',
 \ 'active': {
@@ -272,7 +300,11 @@ nnoremap R :ALEFindReferences<CR>
 nnoremap H :ALEHover<CR>
 nnoremap gd :ALEGoToDefinition<CR>
 
-" # thinca/vim-quickrun
+
+" **************************************
+" * vim-quickrun                       *
+" **************************************
+
 let g:quickrun_config = {
 \ "_" : {
 \   "runner" : "vimproc",
@@ -299,13 +331,20 @@ xnoremap ,r :<C-U>cclose<CR>gv:QuickRun -mode v<CR>
 " <C-c> kills running QuickVim forcibly
 nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
 
-" # ack.vim
+
+" **************************************
+" * ack.vim                            *
+" **************************************
+
 let g:ackprg = 'rg --vimgrep --no-heading'
 
 " <C-f> triggers ":Ack! " which doesn't open the first match
 nnoremap <C-f> :Ack! 
 
-" # tabular
+
+" **************************************
+" * Tabular                            *
+" **************************************
 
 " align with =
 vnoremap <silent> ae :Tabularize /=<CR>
@@ -313,7 +352,11 @@ vnoremap <silent> ae :Tabularize /=<CR>
 " align with :
 vnoremap <silent> ac :Tabularize /:\zs/l0l1<CR>
 
-" # ale
+
+" **************************************
+" * Ale                                *
+" **************************************
+
 let g:ale_linters = {
 \ 'javascript': ['eslint', 'tsserver'],
 \ 'ruby': ['rubocop'],
@@ -324,11 +367,12 @@ let g:ale_fixers = {
 \ 'ruby': ['rubocop'],
 \}
 
-" # vim2hs
-let g:haskell_conceal = 0
 
-" # vim-jsx
-let g:jsx_ext_required = 0
+" **************************************
+" * vim2hs                             *
+" **************************************
+
+let g:haskell_conceal = 0
 
 " <<<< Settings for plug-ins <<<<
 
