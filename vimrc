@@ -175,12 +175,14 @@ call dein#add('nathanaelkane/vim-indent-guides')
 call dein#add('kana/vim-smartinput')
 call dein#add('cohama/vim-smartinput-endwise')
 call dein#add('itchyny/lightline.vim')
-call dein#add('w0rp/ale')
 call dein#add('thinca/vim-quickrun')
 call dein#add('mileszs/ack.vim')
 call dein#add('mbbill/undotree')
 call dein#add('godlygeek/tabular')
 call dein#add('tpope/vim-fugitive')
+
+" Language general
+call dein#add('w0rp/ale')
 
 " Language specific
 call dein#add('dag/vim2hs')
@@ -304,17 +306,6 @@ let g:lightline = {
 \ },
 \}
 
-" # ale
-let g:ale_linters = {
-\ 'javascript': ['eslint', 'tsserver'],
-\ 'ruby': ['rubocop'],
-\}
-
-let g:ale_fixers = {
-\ 'javascript': ['eslint'],
-\ 'ruby': ['rubocop'],
-\}
-
 " Key mappings
 nnoremap R :ALEFindReferences<CR>
 nnoremap H :ALEHover<CR>
@@ -360,6 +351,17 @@ vnoremap <silent> ae :Tabularize /=<CR>
 
 " align with :
 vnoremap <silent> ac :Tabularize /:\zs/l0l1<CR>
+
+" # ale
+let g:ale_linters = {
+\ 'javascript': ['eslint', 'tsserver'],
+\ 'ruby': ['rubocop'],
+\}
+
+let g:ale_fixers = {
+\ 'javascript': ['eslint'],
+\ 'ruby': ['rubocop'],
+\}
 
 " # vim2hs
 let g:haskell_conceal = 0
