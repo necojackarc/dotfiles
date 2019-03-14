@@ -161,13 +161,21 @@ function! ExecuteMacroOverVisualRange()
 endfunction
 
 " _/_/_/_/ Dein _/_/_/_/
+let s:dein_dir = expand('~/.vim/dein')
+let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+
+" Clone if the dein repo doesn't exist
+if !isdirectory(s:dein_repo_dir)
+  execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
+endif
+
 if &compatible
   set nocompatible
 endif
 
-set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim
+execute 'set runtimepath+=' . fnamemodify(s:dein_repo_dir, ':p')
 
-call dein#begin(expand('~/.vim/dein'))
+call dein#begin(s:dein_dir)
 call dein#add('Shougo/dein.vim')
 
 " >>>> Plug-ins >>>>
