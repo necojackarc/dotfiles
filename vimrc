@@ -175,41 +175,50 @@ endif
 
 execute 'set runtimepath+=' . fnamemodify(s:dein_repo_dir, ':p')
 
-call dein#begin(s:dein_dir)
-call dein#add('Shougo/dein.vim')
+if dein#load_state(s:dein_dir)
+  call dein#begin(s:dein_dir)
 
-" >>>> Plug-ins >>>>
-" General
-call dein#add('Shougo/vimproc.vim', { 'build' : 'make' })
-call dein#add('altercation/vim-colors-solarized')
-call dein#add('junegunn/fzf', { 'merged': 0 })
-call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
-call dein#add('tpope/vim-surround')
-call dein#add('thinca/vim-qfreplace')
-call dein#add('scrooloose/nerdtree')
-call dein#add('nathanaelkane/vim-indent-guides')
-call dein#add('itchyny/lightline.vim')
-call dein#add('thinca/vim-quickrun')
-call dein#add('mileszs/ack.vim')
-call dein#add('mbbill/undotree')
-call dein#add('godlygeek/tabular')
-call dein#add('tpope/vim-fugitive')
-call dein#add('cohama/lexima.vim')
+  call dein#add(s:dein_repo_dir)
+  call dein#add('Shougo/dein.vim')
 
-" Language general
-call dein#add('w0rp/ale')
+  " >>>> Plug-ins >>>>
+  " General
+  call dein#add('Shougo/vimproc.vim', { 'build' : 'make' })
+  call dein#add('altercation/vim-colors-solarized')
+  call dein#add('junegunn/fzf', { 'merged': 0 })
+  call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
+  call dein#add('tpope/vim-surround')
+  call dein#add('thinca/vim-qfreplace')
+  call dein#add('scrooloose/nerdtree')
+  call dein#add('nathanaelkane/vim-indent-guides')
+  call dein#add('itchyny/lightline.vim')
+  call dein#add('thinca/vim-quickrun')
+  call dein#add('mileszs/ack.vim')
+  call dein#add('mbbill/undotree')
+  call dein#add('godlygeek/tabular')
+  call dein#add('tpope/vim-fugitive')
+  call dein#add('cohama/lexima.vim')
 
-" Language specific
-call dein#add('dag/vim2hs')
-call dein#add('slim-template/vim-slim')
-call dein#add('pangloss/vim-javascript')
-call dein#add('mxw/vim-jsx')
-call dein#add('moll/vim-node')
-call dein#add('mustache/vim-mustache-handlebars')
-call dein#add('Vimjas/vim-python-pep8-indent')
-" <<<< Plug-ins <<<<
+  " Language general
+  call dein#add('w0rp/ale')
 
-call dein#end()
+  " Language specific
+  call dein#add('dag/vim2hs')
+  call dein#add('slim-template/vim-slim')
+  call dein#add('pangloss/vim-javascript')
+  call dein#add('mxw/vim-jsx')
+  call dein#add('moll/vim-node')
+  call dein#add('mustache/vim-mustache-handlebars')
+  call dein#add('Vimjas/vim-python-pep8-indent')
+  " <<<< Plug-ins <<<<
+
+  call dein#end()
+  call dein#save_state()
+endif
+
+if dein#check_install()
+  call dein#install()
+endif
 
 " >>>> Settings for plug-ins >>>>
 
@@ -383,10 +392,6 @@ let g:ale_fixers = {
 let g:haskell_conceal = 0
 
 " <<<< Settings for plug-ins <<<<
-
-if dein#check_install()
-  call dein#install()
-endif
 
 " _/_/_/_/ Enable per-project .vimrc _/_/_/_/
 set exrc
