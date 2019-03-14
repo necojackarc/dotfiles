@@ -161,8 +161,13 @@ function! ExecuteMacroOverVisualRange()
 endfunction
 
 " _/_/_/_/ Dein _/_/_/_/
+" Constants (paths)
 let s:dein_dir = expand('~/.vim/dein')
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+
+" Useful commands to update plugins and repository
+command DeinUpdatePlugins call dein#update()
+command DeinUpdateRepo execute '!cd' s:dein_repo_dir '&& git pull'
 
 " Clone if the dein repo doesn't exist
 if !isdirectory(s:dein_repo_dir)
