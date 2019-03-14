@@ -166,6 +166,7 @@ let s:dein_dir = expand('~/.vim/dein')
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 
 " Useful commands to update plugins and repository
+command DeinCleanUp call map(dein#check_clean(), "delete(v:val, 'rf')")
 command DeinUpdatePlugins call dein#update()
 command DeinUpdateRepo execute '!cd' s:dein_repo_dir '&& git pull'
 
@@ -203,8 +204,6 @@ if dein#load_state(s:dein_dir)
   call dein#add('godlygeek/tabular')
   call dein#add('tpope/vim-fugitive')
   call dein#add('cohama/lexima.vim')
-
-  " Language general
   call dein#add('w0rp/ale')
 
   " Language specific
