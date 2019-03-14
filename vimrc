@@ -172,14 +172,13 @@ call dein#add('tpope/vim-surround')
 call dein#add('thinca/vim-qfreplace')
 call dein#add('scrooloose/nerdtree')
 call dein#add('nathanaelkane/vim-indent-guides')
-call dein#add('kana/vim-smartinput')
-call dein#add('cohama/vim-smartinput-endwise')
 call dein#add('itchyny/lightline.vim')
 call dein#add('thinca/vim-quickrun')
 call dein#add('mileszs/ack.vim')
 call dein#add('mbbill/undotree')
 call dein#add('godlygeek/tabular')
 call dein#add('tpope/vim-fugitive')
+call dein#add('cohama/lexima.vim')
 
 " Language general
 call dein#add('w0rp/ale')
@@ -255,44 +254,6 @@ let g:indent_guides_start_level = 2
 let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#444433 ctermbg=235
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#333344 ctermbg=236
-
-" # vim-smartimput
-" Handel spaces inside parentheses nicely
-call smartinput#map_to_trigger('i', '<Space>', '<Space>', '<Space>')
-
-" Insert spaces inside parentheses nicely
-call smartinput#define_rule({
-\ 'at'    : '(\%#)',
-\ 'char'  : '<Space>',
-\ 'input' : '<Space><Space><Left>'
-\})
-call smartinput#define_rule({
-\ 'at'    : '{\%#}',
-\ 'char'  : '<Space>',
-\ 'input' : '<Space><Space><Left>'
-\})
-
-" Delete spaces inside parentheses nicely
-call smartinput#define_rule({
-\ 'at'    : '( \%# )',
-\ 'char'  : '<BS>',
-\ 'input' : '<Del><BS>'
-\})
-call smartinput#define_rule({
-\ 'at'    : '{ \%# }',
-\ 'char'  : '<BS>',
-\ 'input' : '<Del><BS>'
-\})
-
-" Remove trailing spaces when starting a new line
-call smartinput#define_rule({
-\ 'at'    : '\s\+\%#',
-\ 'char'  : '<CR>',
-\ 'input' : "<C-o>:call setline('.', substitute(getline('.'), '\\s\\+$', '', ''))<CR><CR>"
-\})
-
-" # vim-smartinput-endwise
-call smartinput_endwise#define_default_rules()
 
 " # lightline
 let g:lightline = {
