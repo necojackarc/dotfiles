@@ -316,11 +316,6 @@ let g:lightline = {
 \ },
 \}
 
-" Key mappings
-nnoremap R :ALEFindReferences<CR>
-nnoremap H :ALEHover<CR>
-nnoremap gd :ALEGoToDefinition<CR>
-
 
 " **************************************
 " * vim-quickrun                       *
@@ -387,6 +382,11 @@ let g:ale_fixers = {
 \ 'javascript': ['eslint'],
 \ 'ruby': ['rubocop'],
 \}
+
+" Key mappings
+nnoremap R :ALEFindReferences<CR>
+nnoremap H :ALEHover<CR>
+nnoremap gd :ALEGoToDefinition<CR>
 
 
 " **************************************
