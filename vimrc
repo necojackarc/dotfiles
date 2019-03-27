@@ -316,22 +316,22 @@ let g:lightline = {
 \ },
 \}
 
-" Copied from lightline#tab#filename(n) in lightline.vim/autoload/lightline/tab.vim
-" except that it adds a relative path from the root (the same as relativepath above)
-function! CustomTabname(n) abort
-  let buflist = tabpagebuflist(a:n)
-  let winnr = tabpagewinnr(a:n)
-  let _ = expand('#'.buflist[winnr - 1].'%:t') " % is added here
-  return _ !=# '' ? _ : '[No Name]'
-endfunction
-
-" Copied from the default except for filename
-let g:lightline.tab_component_function = {
-\ 'filename': 'CustomTabname',
-\ 'modified': 'lightline#tab#modified',
-\ 'readonly': 'lightline#tab#readonly',
-\ 'tabnum': 'lightline#tab#tabnum'
-\}
+" " Copied from lightline#tab#filename(n) in lightline.vim/autoload/lightline/tab.vim
+" " except that it adds a relative path from the root (the same as relativepath above)
+" function! CustomTabname(n) abort
+"   let buflist = tabpagebuflist(a:n)
+"   let winnr = tabpagewinnr(a:n)
+"   let _ = expand('#'.buflist[winnr - 1].'%:t') " % is added here
+"   return _ !=# '' ? _ : '[No Name]'
+" endfunction
+" 
+" " Copied from the default except for filename
+" let g:lightline.tab_component_function = {
+" \ 'filename': 'CustomTabname',
+" \ 'modified': 'lightline#tab#modified',
+" \ 'readonly': 'lightline#tab#readonly',
+" \ 'tabnum': 'lightline#tab#tabnum'
+" \}
 
 
 " **************************************
