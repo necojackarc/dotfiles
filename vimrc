@@ -106,6 +106,9 @@ nnoremap > <C-w>>
 nnoremap + <C-w>+
 nnoremap - <C-w>-
 
+" Disable Ex mode
+map Q <Nop>
+
 
 " **************************************
 " * Configuration for tab feature      *
