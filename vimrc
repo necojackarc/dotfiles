@@ -217,6 +217,7 @@ if dein#load_state(s:dein_dir)
   call dein#add('moll/vim-node')
   call dein#add('mustache/vim-mustache-handlebars')
   call dein#add('Vimjas/vim-python-pep8-indent')
+  call dein#add('keith/swift.vim')
   " <<<< Plug-ins <<<<
 
   call dein#end()
