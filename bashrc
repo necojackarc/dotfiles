@@ -27,16 +27,16 @@ export PS1+=$'\n'
 export PS1+='\[\e[36;1m\]\t \[\e[0m\]\$ '
 
 # History
-export HISTSIZE=10000
-export HISTFILESIZE=10000
-export HISTCONTROL=ignoredups
+# ref: https://unix.stackexchange.com/questions/18212/bash-history-ignoredups-and-erasedups-setting-conflict-with-common-history
+export HISTSIZE=100000
+export HISTFILESIZE=100000
+export HISTCONTROL=ignoredups:erasedups
 
 shopt -s histappend
 shopt -s cmdhist
 shopt -s lithist
 
-# Append history after each command
-export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
+export PROMPT_COMMAND="history -n; history -w; history -c; history -r; $PROMPT_COMMAND"
 
 # aliases
 alias sudo='sudo -E'
