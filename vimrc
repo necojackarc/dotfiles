@@ -100,6 +100,10 @@ nnoremap <C-]> g<c-]>
 " Enable omni completion by Ctrl+F
 inoremap <C-F> <C-X><C-O>
 
+" Keep the cursor at the current word when * is pressed
+" ref: https://stackoverflow.com/questions/4256697/vim-search-and-highlight-but-do-not-jump
+nnoremap * :keepjumps normal! mi*`i<CR>
+
 " Resize panes simply
 nnoremap < <C-w><
 nnoremap > <C-w>>
