@@ -27,16 +27,24 @@ export PS1+=$'\n'
 export PS1+='\[\e[36;1m\]\t \[\e[0m\]\$ '
 
 # History
-# ref: https://unix.stackexchange.com/questions/18212/bash-history-ignoredups-and-erasedups-setting-conflict-with-common-history
 export HISTSIZE=100000
 export HISTFILESIZE=100000
 export HISTCONTROL=ignoredups:erasedups
 
-shopt -s histappend
+function share_history {
+  history -a # Append the previous command to .bash_history
+  history -c # Clear the history in memory
+  history -r # Load the history from .bash_history
+}
+
+shopt -u histappend # Disable histappend as history -a does this job
+
+# Save multi-line commands nicely
+# ref: https://unix.stackexchange.com/questions/109032/how-to-get-a-history-entry-to-properly-display-on-multiple-lines
 shopt -s cmdhist
 shopt -s lithist
 
-export PROMPT_COMMAND="history -n; history -w; history -c; history -r; $PROMPT_COMMAND"
+export PROMPT_COMMAND="share_history; $PROMPT_COMMAND"
 
 # aliases
 alias sudo='sudo -E'
