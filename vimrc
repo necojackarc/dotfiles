@@ -384,17 +384,6 @@ nnoremap <C-f> :Ack!
 
 
 " **************************************
-" * Tabular                            *
-" **************************************
-
-" align with =
-vnoremap <silent> ae :Tabularize /=<CR>
-
-" align with :
-vnoremap <silent> ac :Tabularize /:\zs/l0l1<CR>
-
-
-" **************************************
 " * Ale                                *
 " **************************************
 
