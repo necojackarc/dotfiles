@@ -49,7 +49,7 @@ To make the most of it, install the following packages:
 * [tig](https://github.com/jonas/tig)
 
 ### tmux
-After the initial run, do `Ctrl+T -> Shift+I` to install all plugins.
+After the initial run, do `Ctrl+B -> Shift+I` to install all plugins.
 
 ### Vim
 
