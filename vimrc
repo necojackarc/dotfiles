@@ -29,6 +29,8 @@ set backspace=indent,eol,start " Enable backspace key
 set virtualedit=block " Remove the cursor restriction on rectangular selection
 set ambiwidth=single " Make ambiguous width single (Note: Coordinate settings of Vim and terminal)
 set wrap " Wrap long lines
+set breakindent
+set breakindentopt=shift:2
 set nofoldenable " Disable text folding (Note: can be enabled by `zi`)
 set foldmethod=indent " Create folds based on indent
 set clipboard=unnamed,unnamedplus " Copy it to clipboard on yanking text
@@ -57,9 +59,9 @@ execute "set colorcolumn=" . join(range(81,100), ',')
 
 " Indent width by language
 augroup languageSpecific
-autocmd! FileType cpp setlocal tabstop=4 shiftwidth=4 softtabstop=4
-autocmd! FileType java setlocal tabstop=4 shiftwidth=4 softtabstop=4
-autocmd! FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4
+autocmd! FileType cpp setlocal tabstop=4 shiftwidth=4 softtabstop=4 breakindentopt=shift:4
+autocmd! FileType java setlocal tabstop=4 shiftwidth=4 softtabstop=4 breakindentopt=shift:4
+autocmd! FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 breakindentopt=shift:4
 augroup END
 
 " Show invisible characters
