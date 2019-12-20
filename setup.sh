@@ -2,7 +2,6 @@
 
 # Files
 ln -sf ~/dotfiles/bashrc ~/.bashrc
-ln -sf ~/dotfiles/editorconfig ~/.editorconfig
 ln -sf ~/dotfiles/gemrc ~/.gemrc
 ln -sf ~/dotfiles/gitconfig ~/.gitconfig
 ln -sf ~/dotfiles/gitignore ~/.gitignore
