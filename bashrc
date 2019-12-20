@@ -66,6 +66,11 @@ alias ctjs='ctags -R --exclude=node_modules --exclude=tmp --exclude=dist'
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git/*"'
 
+# PostgreSQL default settings
+export PGHOST="localhost"
+export PGDATABASE="postgres"
+export PGUSER="postgres"
+
 # find files by pattern for file paths and names
 function rgf {
   local pattern=$1

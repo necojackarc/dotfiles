@@ -23,3 +23,5 @@
 	keepBackup = false
 [ghq]
 	root = ~/work/ghq
+[fetch]
+	prune = true
