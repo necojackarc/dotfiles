@@ -36,6 +36,7 @@ set foldmethod=indent " Create folds based on indent
 set clipboard=unnamed,unnamedplus " Copy it to clipboard on yanking text
 set spell " Enable spell check
 set spelllang+=cjk " Exclude Japanese on spell check
+set complete-=i " Do not scan included filesin completion
 set completeopt=menuone,noinsert " Prevent automatic selection in completion
 set mouse=a " Enable mouse
 set laststatus=2 " Display status line always
