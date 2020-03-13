@@ -5,7 +5,7 @@ My dotfiles
 ## Supported OSs
 
 * Linux
-* macOS (not tested)
+* macOS
 
 ## Dependencies
 
@@ -55,3 +55,7 @@ After the initial run, do `Ctrl+B -> Shift+I` to install all plugins.
 
 * [TypeScrpt](https://github.com/Microsoft/TypeScript)
   * TSServer is used by ALE
+
+## Tips
+### Show `***DANGER***` in prompt
+Set `export IS_DANGER=true` in an `.envrc` where you'd like to display `***DANGER&***`.
