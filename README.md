@@ -64,5 +64,5 @@ When you'd like to set environent varilabs that you don't like to commit to the 
 ### Set directory-specific environment variables
 `direnv` allows you to set directory-specifi variables by placing `.envrc` in the target directory. That file is loaded and unloaded when you get into and get out of that directory.
 
-### Show `***DANGER***` in prompt
-Set `export IS_DANGER=true` in an `.envrc` where you'd like to display `***DANGER&***`.
+### Show `***DANGER***` in the prompt message
+Set `export IS_DANGER=true` in an `.envrc` where you'd like to display `***DANGER***`.
