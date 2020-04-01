@@ -1,4 +1,4 @@
-export TERM=xterm-256color
+xport TERM=xterm-256color
 
 
 # Locale settings
@@ -95,6 +95,8 @@ alias fzf='fzf --height 40% --reverse' # Use top-down layout
 alias be='bundle exec'
 alias ctrb='ctags --langmap=RUBY:.rb --exclude="*.js"  --exclude=".git*" -R .'
 alias ctjs='ctags -R --exclude=node_modules --exclude=tmp --exclude=dist'
+alias tmux='direnv exec / tmux' # Make sure direnv is loaded when tmux starts
+
 
 # find files by pattern for file paths and names
 function rgf {
