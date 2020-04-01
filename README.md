@@ -57,5 +57,12 @@ After the initial run, do `Ctrl+B -> Shift+I` to install all plugins.
   * TSServer is used by ALE
 
 ## Tips
-### Show `***DANGER***` in prompt
-Set `export IS_DANGER=true` in an `.envrc` where you'd like to display `***DANGER&***`.
+### Set computer-specific environment variables
+When you'd like to set environent varilabs that you don't like to commit to the repo but want to set as regular environment variables applied to the logged-in user, you can use a `~/.env` file.
+`~/.env` is loaded in .profile, so place `.env` in your home directory.
+
+### Set directory-specific environment variables
+`direnv` allows you to set directory-specifi variables by placing `.envrc` in the target directory. That file is loaded and unloaded when you get into and get out of that directory.
+
+### Show `***DANGER***` in the prompt message
+Set `export IS_DANGER=true` in an `.envrc` where you'd like to display `***DANGER***`.
