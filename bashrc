@@ -1,4 +1,4 @@
-xport TERM=xterm-256color
+export TERM=xterm-256color
 
 
 # Locale settings
