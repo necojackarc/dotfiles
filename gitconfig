@@ -12,6 +12,7 @@
 	st = status
 	dt = difftool
 	mt = mergetool
+	pl = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(blue)<%an>%Creset' --abbrev-commit
 [diff]
 	tool = vimdiff
 [difftool]
