@@ -56,6 +56,9 @@ After the initial run, do `Ctrl+B -> Shift+I` to install all plugins.
 * [TypeScrpt](https://github.com/Microsoft/TypeScript)
   * TSServer is used by ALE
 
+### Git
+* [delta](https://github.com/dandavison/delta)
+
 ## Tips
 ### Set computer-specific environment variables
 When you'd like to set environent varilabs that you don't like to commit to the repo but want to set as regular environment variables applied to the logged-in user, you can use a `~/.env` file.

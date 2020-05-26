@@ -5,6 +5,9 @@
 	editor = vim
 	commentChar = ";"
 	excludesfile = ~/.gitignore
+	pager = delta --theme='Solarized (dark)'
+[interactive]
+	diffFilter = delta --theme='Solarized (dark)'
 [push]
 	default = current
 [alias]
@@ -22,7 +25,7 @@
 	tool = vimdiff
 [mergetool]
 	keepBackup = false
-[ghq]
-	root = ~/work/ghq
 [fetch]
 	prune = true
+[ghq]
+	root = ~/work/ghq
