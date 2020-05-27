@@ -44,7 +44,7 @@ fi
 
 export PS1='\[\033[32m\]\u@\h\[\033[00m\]: \[\033[34m\]\w\[\033[31m\]$(__git_ps1)\[\033[00m\]'
 export PS1+=$'\n'
-export PS1+='\e[30m\e[101m$(_danger_message)\e[0m$(_whitespace_after_danger_message)'
+export PS1+='\[\e[30m\e[101m\]$(_danger_message)\[\e[0m\]$(_whitespace_after_danger_message)'
 export PS1+='\[\e[36;1m\]\t \[\e[0m\]\$ '
 
 
