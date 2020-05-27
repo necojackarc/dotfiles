@@ -43,11 +43,7 @@ set laststatus=2 " Display status line always
 set iskeyword+=- " Treat a hyphenated word as a single word
 set vb t_vb= " Disable beep sound
 set t_BE= " Prevent entering bracketed paste mode
-
-" Set color mode to 256
-if !has('gui_running')
-  set t_Co=256
-endif
+set t_Co=256 " Use 256 color mode
 
 " Copy yanked text to the clipboard on exit (for Linux)
 autocmd VimLeave * call system("xsel -ib", getreg('+'))
