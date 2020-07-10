@@ -9,7 +9,7 @@
 [interactive]
 	diffFilter = delta --color-only --theme='Solarized (dark)'
 [push]
-	default = current
+	default = simple
 [alias]
 	co = checkout
 	st = status
