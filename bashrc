@@ -27,19 +27,19 @@ GIT_PS1_SHOWUPSTREAM=auto
 
 # To display the danger message in the prompt, set `export IS_DANGER=true` in a .envrc file.
 function _danger_message {
-if [ ${IS_DANGER} ]; then
-  echo '***DANGER***'
-else
-  echo ''
-fi
+  if [ ${IS_DANGER} ]; then
+    echo '***DANGER***'
+  else
+    echo ''
+  fi
 }
 
 function _whitespace_after_danger_message {
-if [ ${IS_DANGER} ]; then
-  echo ' '
-else
-  echo ''
-fi
+  if [ ${IS_DANGER} ]; then
+    echo ' '
+  else
+    echo ''
+  fi
 }
 
 export PS1='\[\033[32m\]\u@\h\[\033[00m\]: \[\033[34m\]\w\[\033[31m\]$(__git_ps1)\[\033[00m\]'
