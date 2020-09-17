@@ -42,6 +42,10 @@ alias brew="env PATH=${PATH/\/Users\/${USER}\/\.pyenv\/shims:?/} brew"
 export PATH="$HOME/.tfenv/bin:$PATH"
 export TFENV_ROOT="$HOME/.tfenv"
 
+# tgenv
+export PATH="$HOME/.tgenv/bin:$PATH"
+export TGENV_ROOT="$HOME/.tgenv"
+
 # Nokogiri
 export NOKOGIRI_USE_SYSTEM_LIBRARIES=1
 

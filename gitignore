@@ -3,6 +3,7 @@
 .python-version
 .ruby-version
 .terraform-version
+.terragrunt-version
 .vimrc
 node_modules
 npm-debug.log
