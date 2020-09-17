@@ -1,8 +1,9 @@
 .envrc
 .node-version
-.ruby-version
-.vimrc
 .python-version
+.ruby-version
+.terraform-version
+.vimrc
 node_modules
 npm-debug.log
 tags
