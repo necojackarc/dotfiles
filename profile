@@ -38,10 +38,9 @@ if which pyenv 2>/dev/null >/dev/null; then eval "$(pyenv init -)"; fi
 # Suppress brew waring caused by pyenv
 alias brew="env PATH=${PATH/\/Users\/${USER}\/\.pyenv\/shims:?/} brew"
 
-# scalaenv
-export PATH="${HOME}/.scalaenv/bin:${PATH}"
-export SCALAENV_ROOT="$HOME/.scalaenv"
-if which scalaenv 2>/dev/null >/dev/null; then eval "$(scalaenv init -)"; fi
+# tfenv
+export PATH="$HOME/.tfenv/bin:$PATH"
+export TFENV_ROOT="$HOME/.tfenv"
 
 # Nokogiri
 export NOKOGIRI_USE_SYSTEM_LIBRARIES=1
