@@ -96,8 +96,8 @@ alias be='bundle exec'
 alias ctrb='ctags --langmap=RUBY:.rb --exclude="*.js"  --exclude=".git*" -R .'
 alias ctjs='ctags -R --exclude=node_modules --exclude=tmp --exclude=dist'
 alias tmux='direnv exec / tmux' # Make sure direnv is loaded when tmux starts
-# Use AWS CLI Docker image (https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-docker.html)
-alias aws='docker run --rm -it -v ~/.aws:/root/.aws -v $(pwd):/aws amazon/aws-cli'
+# Use AWS CLI Docker image (https://github.com/necojackarc/aws-cli-with-plugins)
+alias aws='docker run --rm -it -v ~/.aws:/root/.aws -v "$(pwd)":/aws necojackarc/aws-cli-with-plugins'
 
 
 # find files by pattern for file paths and names
