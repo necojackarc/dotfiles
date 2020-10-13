@@ -10,6 +10,7 @@ ln -sf ~/dotfiles/ignore ~/.ignore # for ripgrep
 ln -sf ~/dotfiles/inputrc ~/.inputrc
 ln -sf ~/dotfiles/profile ~/.profile
 ln -sf ~/dotfiles/pryrc ~/.pryrc
+ln -sf ~/dotfiles/psqlrc ~/.psqlrc
 ln -sf ~/dotfiles/rspec ~/.rspec
 ln -sf ~/dotfiles/tmux.conf ~/.tmux.conf
 ln -sf ~/dotfiles/vimrc ~/.vimrc
