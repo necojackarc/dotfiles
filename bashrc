@@ -102,6 +102,8 @@ alias aws='docker run --rm -it -v ~/.aws:/root/.aws -v "$(pwd)":/aws necojackarc
 #ref: https://stackoverflow.com/questions/592620/how-can-i-check-if-a-program-exists-from-a-bash-script
 if command -v powershell.exe &> /dev/null; then
   alias open='powershell.exe /c start'
+elif command -v xdg-open &> /dev/null; then
+  alias open='xdg-open'
 fi
 
 
