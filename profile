@@ -23,20 +23,23 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 # rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 export RBENV_ROOT="$HOME/.rbenv"
-if which rbenv 2>/dev/null >/dev/null; then eval "$(rbenv init -)"; fi
+eval "$(rbenv init -)"
 
 # nodenv
 export PATH="$HOME/.nodenv/bin:$PATH"
 export NDENV_ROOT="$HOME/.nodenv"
-if which nodenv 2>/dev/null >/dev/null; then eval "$(nodenv init -)"; fi
+eval "$(nodenv init -)"
 
 # pyenv
 export PATH="$HOME/.pyenv/bin:$PATH"
 export PYENV_ROOT="$HOME/.pyenv"
-if which pyenv 2>/dev/null >/dev/null; then eval "$(pyenv init -)"; fi
+eval "$(pyenv init -)"
 
 # Suppress brew waring caused by pyenv
 alias brew="env PATH=${PATH/\/Users\/${USER}\/\.pyenv\/shims:?/} brew"
+
+# pyenv-virtualenv
+eval "$(pyenv virtualenv-init -)"
 
 # tfenv
 export PATH="$HOME/.tfenv/bin:$PATH"
