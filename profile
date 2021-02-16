@@ -41,6 +41,9 @@ alias brew="env PATH=${PATH/\/Users\/${USER}\/\.pyenv\/shims:?/} brew"
 # pyenv-virtualenv
 eval "$(pyenv virtualenv-init -)"
 
+# Force Pipenv to create its own virtual environment for any project (allow nested virtual environments)
+export PIPENV_IGNORE_VIRTUALENVS=1
+
 # tfenv
 export PATH="$HOME/.tfenv/bin:$PATH"
 export TFENV_ROOT="$HOME/.tfenv"
