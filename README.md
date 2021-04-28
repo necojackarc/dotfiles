@@ -42,9 +42,10 @@ To make the most of it, install the following packages:
 * [direnv](https://github.com/direnv/direnv)
 * [fzf](https://github.com/junegunn/fzf)
 * [ghq](https://github.com/motemen/ghq)
+* [git-delta](https://github.com/dandavison/delta)
 * [ripgrep](https://github.com/BurntSushi/ripgrep)
 * [tig](https://github.com/jonas/tig)
-* [git-delta](https://github.com/dandavison/delta)
+* [tmux](https://github.com/tmux/tmux)
 
 ### Version managers
 
