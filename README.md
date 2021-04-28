@@ -44,6 +44,7 @@ To make the most of it, install the following packages:
 * [ghq](https://github.com/motemen/ghq)
 * [ripgrep](https://github.com/BurntSushi/ripgrep)
 * [tig](https://github.com/jonas/tig)
+* [git-delta](https://github.com/dandavison/delta)
 
 ### Version managers
 
