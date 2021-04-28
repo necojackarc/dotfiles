@@ -49,6 +49,7 @@ To make the most of it, install the following packages:
 
 ### Version managers
 
+* [node-build](https://github.com/nodenv/node-build)
 * [nodenv](https://github.com/nodenv/nodenv)
 * [pyenv-virtualenv](https://github.com/pyenv/pyenv-virtualenv)
 * [pyenv](https://github.com/pyenv/pyenv)
