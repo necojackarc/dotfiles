@@ -8,8 +8,8 @@ if [ -f ~/.env ]; then
   . ~/.env
 fi
 
-# Homebrew
-export PATH="/usr/local/sbin:$PATH"
+# Put /usr/local/bin and /usr/local/sbin in the PATH (e.g. Homebrew is installed in /usr/local/bin)
+export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 
 # Golang
 export GOPATH="$HOME/work/go"
