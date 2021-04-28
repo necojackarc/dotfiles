@@ -10,6 +10,8 @@
 	diffFilter = delta --color-only --theme='Solarized (dark)'
 [push]
 	default = simple
+[pull]
+	rebase = false
 [alias]
 	co = checkout
 	st = status
