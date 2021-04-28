@@ -64,9 +64,6 @@ After the initial run, do `Ctrl+B -> Shift+I` to install all plugins.
 * [TypeScrpt](https://github.com/Microsoft/TypeScript)
   * TSServer is used by ALE
 
-### Git
-* [delta](https://github.com/dandavison/delta)
-
 ## Tips
 
 ### Set computer-specific environment variables
