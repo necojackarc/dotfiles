@@ -99,11 +99,16 @@ alias tmux='direnv exec / tmux' # Make sure direnv is loaded when tmux starts
 # Use AWS CLI Docker image (https://github.com/necojackarc/aws-cli-with-plugins)
 alias aws='docker run --rm -it -v ~/.aws:/root/.aws -v "$(pwd)":/aws necojackarc/aws-cli-with-plugins'
 
-#ref: https://stackoverflow.com/questions/592620/how-can-i-check-if-a-program-exists-from-a-bash-script
+# ref: https://stackoverflow.com/questions/592620/how-can-i-check-if-a-program-exists-from-a-bash-script
 if command -v powershell.exe &> /dev/null; then
   alias open='powershell.exe /c start'
 elif command -v xdg-open &> /dev/null; then
   alias open='xdg-open'
+fi
+
+# VS Code
+if [ "$(uname)" == "Darwin" ]; then
+  alias code='/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code'
 fi
 
 
