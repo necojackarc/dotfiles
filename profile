@@ -59,6 +59,7 @@ export NOKOGIRI_USE_SYSTEM_LIBRARIES=1
 export PATH=~/.local/bin:$PATH
 
 # Suppress bash deprecation warning on MacOS
+# ref: https://support.apple.com/en-gb/HT208050
 if [ "$(uname)" == "Darwin" ]; then
   export BASH_SILENCE_DEPRECATION_WARNING=1
 fi
