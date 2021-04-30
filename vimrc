@@ -377,7 +377,7 @@ nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() 
 " * ack.vim                            *
 " **************************************
 
-let g:ackprg = 'rg --vimgrep --no-heading'
+let g:ackprg = 'rg --vimgrep --no-heading --hidden --glob "!.git/*"'
 
 " <C-f> triggers ":Ack! " which doesn't open the first match
 nnoremap <C-f> :Ack! 
