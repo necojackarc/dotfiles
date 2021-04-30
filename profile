@@ -58,5 +58,7 @@ export NOKOGIRI_USE_SYSTEM_LIBRARIES=1
 # AWS CLI
 export PATH=~/.local/bin:$PATH
 
-# PostgreSQL
-export PGUSER="postgres"
+# Suppress bash deprecation warning on MacOS
+if [ "$(uname)" == "Darwin" ]; then
+  export BASH_SILENCE_DEPRECATION_WARNING=1
+fi
