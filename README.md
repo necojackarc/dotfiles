@@ -46,6 +46,7 @@ To make the most of it, install the following packages:
 * [ripgrep](https://github.com/BurntSushi/ripgrep)
 * [tig](https://github.com/jonas/tig)
 * [tmux](https://github.com/tmux/tmux)
+* [gh](https://github.com/cli/cli)
 
 ### Version managers
 

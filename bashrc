@@ -149,5 +149,13 @@ function gco {
   fi
 }
 
+# git checkout a PR branch using fzf
+function prco {
+  local pr=`gh pr list | fzf --preview 'gh pr view {1}'`
+  if [ ! -z "$pr" ] ; then
+    gh pr checkout `echo "$pr" | cut -f1`
+  fi
+}
+
 # Enable direnv
 eval "$(direnv hook bash)"
