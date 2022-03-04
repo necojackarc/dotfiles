@@ -34,9 +34,10 @@ eval "$(nodenv init -)"
 export PATH="$HOME/.pyenv/bin:$PATH"
 export PYENV_ROOT="$HOME/.pyenv"
 eval "$(pyenv init -)"
+eval "$(pyenv init --path)"
 
 # Suppress brew waring caused by pyenv
-alias brew="env PATH=${PATH/\/Users\/${USER}\/\.pyenv\/shims:?/} brew"
+alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
 
 # pyenv-virtualenv
 eval "$(pyenv virtualenv-init -)"
