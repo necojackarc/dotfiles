@@ -40,20 +40,22 @@ To make the most of it, install the following packages:
 ### Git commit signing with GPG
 
 As Git with my configuration always attempts to sign a commit, you have to have a GPG key in your machine.
-Generate a new key if you don't have any, then set it via `GIT_CONFIG_PARAMETERS`:
+Generate a new key if you don't have any but make sure your name and email are the same as your Git ones.
 
 - [Checking for existing GPG keys](https://docs.github.com/en/authentication/managing-commit-signature-verification/checking-for-existing-gpg-keys)
 - [Generating a new GPG key](https://docs.github.com/en/authentication/managing-commit-signature-verification/generating-a-new-gpg-key) 
 - [Adding a new GPG key to your GitHub account](https://docs.github.com/en/authentication/managing-commit-signature-verification/adding-a-new-gpg-key-to-your-github-account)
 
 
-Add the following to `$HOME/.env`, which is not part of this repository but always loaded from 'profile':
+Set the generated GPG key ID by adding the following to `$HOME/.env`, which is not part of this repository but always loaded from 'profile':
 
 ```bash
 export GIT_CONFIG_PARAMETERS="'user.signingkey=<YOUR GPG KEY ID>'"
 ```
 
-N.B. You need to have `gpg` installed.
+If you see an error, you can debug with `GIT_TRACE=1`. If you find something wrong in your GPG key, you can edit it with `gpg --edit-key <KEY_ID>`.
+
+N.B. On Max, you need to have `gpg-suite` installed. 
 
 ### CLI tools
 
