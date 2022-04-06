@@ -31,3 +31,5 @@
 	prune = true
 [ghq]
 	root = ~/work/ghq
+[commit]
+	gpgsign = true

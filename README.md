@@ -37,6 +37,24 @@ $ ~/dotfiles/setup.sh
 
 To make the most of it, install the following packages:
 
+### Git commit signing with GPG
+
+As Git with my configuration always attempts to sign a commit, you have to have a GPG key in your machine.
+Generate a new key if you don't have any, then set it via `GIT_CONFIG_PARAMETERS`:
+
+- [Checking for existing GPG keys](https://docs.github.com/en/authentication/managing-commit-signature-verification/checking-for-existing-gpg-keys)
+- [Generating a new GPG key](https://docs.github.com/en/authentication/managing-commit-signature-verification/generating-a-new-gpg-key) 
+- [Adding a new GPG key to your GitHub account](https://docs.github.com/en/authentication/managing-commit-signature-verification/adding-a-new-gpg-key-to-your-github-account)
+
+
+Add the following to `$HOME/.env`, which is not part of this repository but always loaded from 'profile':
+
+```bash
+export GIT_CONFIG_PARAMETERS="'user.signingkey=<YOUR GPG KEY ID>'"
+```
+
+N.B. You need to have `gpg` installed.
+
 ### CLI tools
 
 * [direnv](https://github.com/direnv/direnv)
@@ -71,12 +89,12 @@ After the initial run, do `Ctrl+B -> Shift+I` to install all plugins.
 
 ### Set computer-specific environment variables
 
-When you'd like to set environent varilabs that you don't like to commit to the repo but want to set as regular environment variables applied to the logged-in user, you can use a `~/.env` file.
+When you'd like to set environment variables that you don't like to commit to the repo but want to set as regular environment variables applied to the logged-in user, you can use a `~/.env` file.
 `~/.env` is loaded in .profile, so place `.env` in your home directory.
 
 ### Set directory-specific environment variables
 
-`direnv` allows you to set directory-specifi variables by placing `.envrc` in the target directory. That file is loaded and unloaded when you get into and get out of that directory.
+`direnv` allows you to set directory-specific variables by placing `.envrc` in the target directory. That file is loaded and unloaded when you get into and get out of that directory.
 
 ### Show `***DANGER***` in the prompt message
 
