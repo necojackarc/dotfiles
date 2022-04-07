@@ -44,7 +44,6 @@ Generate a new key if you don't have any but make sure your name and email are t
 
 - [Managing commit signature verification](https://docs.github.com/en/authentication/managing-commit-signature-verification)
 
-
 Set the generated GPG key ID by adding the following to `$HOME/.env`, which is not part of this repository but always loaded from 'profile':
 
 ```bash
@@ -53,7 +52,15 @@ export GIT_CONFIG_PARAMETERS="'user.signingkey=<YOUR GPG KEY ID>'"
 
 If you see an error, you can debug with `GIT_TRACE=1`. If you find something wrong in your GPG key, you can edit it with `gpg --edit-key <KEY_ID>`.
 
-N.B. On Max, you need to have `gpg-suite` installed. 
+#### Mac
+
+On Max, you need to have `gpg-suite` installed. Plus, you also need to use `gpg2`:
+
+```bash
+export GIT_CONFIG_PARAMETERS="'user.signingkey=<YOUR GPG KEY ID>' 'gpg.program=gpg2'"
+```
+
+To enable this configuration, run `killall gpg-agent`.
 
 ### CLI tools
 
