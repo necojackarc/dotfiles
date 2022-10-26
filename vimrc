@@ -4,6 +4,8 @@ filetype off " Disable filetype temporary; re-enable it at the end
 " _/_/_/_/ Common settings _/_/_/_/
 syntax enable
 
+set background=dark
+
 set encoding=utf-8
 set fileencodings=utf-8,sjis,euc
 set fileformats=unix,dos,mac
@@ -196,7 +198,6 @@ if dein#load_state(s:dein_dir)
   " >>>> Plug-ins >>>>
   " General
   call dein#add('Shougo/vimproc.vim', { 'build' : 'make' })
-  call dein#add('altercation/vim-colors-solarized')
   call dein#add('junegunn/fzf', { 'merged': 0 })
   call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
   call dein#add('tpope/vim-surround')
@@ -233,16 +234,6 @@ if dein#check_install()
 endif
 
 " >>>> Settings for plug-ins >>>>
-
-" **************************************
-" * vim-colors-solarized               *
-" **************************************
-
-let g:solarized_termtrans=1
-
-set background=dark
-colorscheme solarized
-
 
 " **************************************
 " *  fzf.vim                           *
@@ -314,7 +305,6 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#333344 ctermbg=236
 " **************************************
 
 let g:lightline = {
-\ 'colorscheme': 'solarized',
 \ 'active': {
 \   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'relativepath', 'modified' ] ],
 \   'right': [ [ 'lineinfo' ], [ 'percent' ], [ 'filetype' ] ],
