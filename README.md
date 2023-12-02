@@ -71,17 +71,7 @@ To enable this configuration, run `killall gpg-agent`.
 * [tig](https://github.com/jonas/tig)
 * [tmux](https://github.com/tmux/tmux)
 * [gh](https://github.com/cli/cli)
-
-### Version managers
-
-* [node-build](https://github.com/nodenv/node-build)
-* [nodenv](https://github.com/nodenv/nodenv)
-* [pyenv-virtualenv](https://github.com/pyenv/pyenv-virtualenv)
-* [pyenv](https://github.com/pyenv/pyenv)
-* [rbenv-build](https://github.com/rbenv/ruby-build)
-* [rbenv](https://github.com/rbenv/rbenv)
-* [tfenv](https://github.com/tfutils/tfenv)
-* [tgenv](https://github.com/cunymatthieu/tgenv)
+* [asdf](https://github.com/asdf-vm/asdf)
 
 ### tmux
 After the initial run, do `Ctrl+B -> Shift+I` to install all plugins.

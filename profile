@@ -20,38 +20,11 @@ export PATH="$GOBIN:$PATH"
 export PATH="$HOME/.yarn/bin:$PATH"
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
-# rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
-export RBENV_ROOT="$HOME/.rbenv"
-eval "$(rbenv init -)"
-
-# nodenv
-export PATH="$HOME/.nodenv/bin:$PATH"
-export NDENV_ROOT="$HOME/.nodenv"
-eval "$(nodenv init -)"
-
-# pyenv
-export PATH="$HOME/.pyenv/bin:$PATH"
-export PYENV_ROOT="$HOME/.pyenv"
-eval "$(pyenv init -)"
-eval "$(pyenv init --path)"
-
 # Suppress brew waring caused by pyenv
 alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
 
-# pyenv-virtualenv
-eval "$(pyenv virtualenv-init -)"
-
 # Force Pipenv to create its own virtual environment for any project (allow nested virtual environments)
 export PIPENV_IGNORE_VIRTUALENVS=1
-
-# tfenv
-export PATH="$HOME/.tfenv/bin:$PATH"
-export TFENV_ROOT="$HOME/.tfenv"
-
-# tgenv
-export PATH="$HOME/.tgenv/bin:$PATH"
-export TGENV_ROOT="$HOME/.tgenv"
 
 # Nokogiri
 export NOKOGIRI_USE_SYSTEM_LIBRARIES=1
