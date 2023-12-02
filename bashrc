@@ -11,6 +11,8 @@ export LC_NUMERIC="en_US.UTF-8"
 export LC_TIME="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
+# TTY for GPG - https://stackoverflow.com/questions/57619460/trying-to-sign-commits-on-git-using-gpg-on-wsl-but-does-not-work
+export GPG_TTY=$(tty)
 
 # Configure the title of the terminal
 export PROMPT_COMMAND='echo -en "\033]0;$(whoami)@$(hostname): $(dirs +0)\a"'
