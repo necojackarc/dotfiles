@@ -75,9 +75,10 @@ To enable this configuration, run `killall gpg-agent`.
 * [vim-plug](https://github.com/junegunn/vim-plug)
 
 ### tmux
-Run `PlugInstall` to install all plugins.
+After the initial run, do `Ctrl+B -> Shift+I` to install all plugins.
 
 ### Vim
+Run `PlugInstall` to install all plugins.
 
 * [TypeScrpt](https://github.com/Microsoft/TypeScript)
   * TSServer is used by ALE
