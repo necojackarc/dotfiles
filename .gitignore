@@ -4,7 +4,8 @@
 .netrwhist
 /tmux/*
 /vim/backup/*
-/vim/dein/*
+/vim/autoload/*
+/vim/plugged/*
 /vim/fzf-history
 /vim/swap/*
 /vim/undo/*

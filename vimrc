@@ -168,70 +168,40 @@ function! ExecuteMacroOverVisualRange()
   execute ":'<,'>normal @".nr2char(getchar())
 endfunction
 
-" _/_/_/_/ Dein _/_/_/_/
-" Constants (paths)
-let s:dein_dir = expand('~/.vim/dein')
-let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+" _/_/_/_/ Vim Plug _/_/_/_/
+call plug#begin()
 
-" Useful commands to update plugins and repository
-command DeinCleanUp call map(dein#check_clean(), "delete(v:val, 'rf')")
-command DeinUpdatePlugins call dein#update()
-command DeinUpdateRepo execute '!cd' s:dein_repo_dir '&& git pull'
+" >>>> Plug-ins >>>>
+" General
+Plug 'Shougo/vimproc.vim', { 'do' : 'make' }
+Plug 'junegunn/fzf', { 'merged': 0 }
+Plug 'junegunn/fzf.vim', { 'depends': 'fzf' }
+Plug 'tpope/vim-surround'
+Plug 'thinca/vim-qfreplace'
+Plug 'scrooloose/nerdtree'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'itchyny/lightline.vim'
+Plug 'thinca/vim-quickrun'
+Plug 'mileszs/ack.vim'
+Plug 'mbbill/undotree'
+Plug 'godlygeek/tabular'
+Plug 'tpope/vim-fugitive'
+Plug 'cohama/lexima.vim'
+Plug 'w0rp/ale'
 
-" Clone if the dein repo doesn't exist
-if !isdirectory(s:dein_repo_dir)
-  execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
-endif
+" Language specific
+Plug 'dag/vim2hs'
+Plug 'slim-template/vim-slim'
+Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
+Plug 'mxw/vim-jsx'
+Plug 'moll/vim-node'
+Plug 'mustache/vim-mustache-handlebars'
+Plug 'Vimjas/vim-python-pep8-indent'
+Plug 'keith/swift.vim'
+" <<<< Plug-ins <<<<
 
-if &compatible
-  set nocompatible
-endif
-
-execute 'set runtimepath+=' . fnamemodify(s:dein_repo_dir, ':p')
-
-if dein#load_state(s:dein_dir)
-  call dein#begin(s:dein_dir)
-
-  call dein#add(s:dein_repo_dir)
-  call dein#add('Shougo/dein.vim')
-
-  " >>>> Plug-ins >>>>
-  " General
-  call dein#add('Shougo/vimproc.vim', { 'build' : 'make' })
-  call dein#add('junegunn/fzf', { 'merged': 0 })
-  call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
-  call dein#add('tpope/vim-surround')
-  call dein#add('thinca/vim-qfreplace')
-  call dein#add('scrooloose/nerdtree')
-  call dein#add('nathanaelkane/vim-indent-guides')
-  call dein#add('itchyny/lightline.vim')
-  call dein#add('thinca/vim-quickrun')
-  call dein#add('mileszs/ack.vim')
-  call dein#add('mbbill/undotree')
-  call dein#add('godlygeek/tabular')
-  call dein#add('tpope/vim-fugitive')
-  call dein#add('cohama/lexima.vim')
-  call dein#add('w0rp/ale')
-
-  " Language specific
-  call dein#add('dag/vim2hs')
-  call dein#add('slim-template/vim-slim')
-  call dein#add('pangloss/vim-javascript')
-  call dein#add('leafgarland/typescript-vim')
-  call dein#add('mxw/vim-jsx')
-  call dein#add('moll/vim-node')
-  call dein#add('mustache/vim-mustache-handlebars')
-  call dein#add('Vimjas/vim-python-pep8-indent')
-  call dein#add('keith/swift.vim')
-  " <<<< Plug-ins <<<<
-
-  call dein#end()
-  call dein#save_state()
-endif
-
-if dein#check_install()
-  call dein#install()
-endif
+call plug#end()
 
 " >>>> Settings for plug-ins >>>>
 
