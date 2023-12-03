@@ -4,8 +4,6 @@ filetype off " Disable filetype temporary; re-enable it at the end
 " _/_/_/_/ Common settings _/_/_/_/
 syntax enable
 
-set background=dark
-
 set encoding=utf-8
 set fileencodings=utf-8,sjis,euc
 set fileformats=unix,dos,mac
@@ -172,7 +170,9 @@ endfunction
 call plug#begin()
 
 " >>>> Plug-ins >>>>
+
 " General
+Plug 'joshdick/onedark.vim'
 Plug 'Shougo/vimproc.vim', { 'do' : 'make' }
 Plug 'junegunn/fzf', { 'merged': 0 }
 Plug 'junegunn/fzf.vim', { 'depends': 'fzf' }
@@ -376,4 +376,5 @@ set exrc
 set secure
 
 " _/_/_/_/ Finalization _/_/_/_/
+colorscheme onedark " Installed via the plugin
 filetype plugin indent on " Re-enable filetype
