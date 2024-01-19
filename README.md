@@ -67,6 +67,7 @@ To enable this configuration, run `killall gpg-agent`.
 * [direnv](https://github.com/direnv/direnv)
 * [fzf](https://github.com/junegunn/fzf)
 * [ghq](https://github.com/motemen/ghq)
+* [git-delta](https://github.com/dandavison/delta)
 * [ripgrep](https://github.com/BurntSushi/ripgrep)
 * [tig](https://github.com/jonas/tig)
 * [tmux](https://github.com/tmux/tmux)

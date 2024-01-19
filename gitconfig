@@ -5,6 +5,9 @@
 	editor = vim
 	commentChar = ";"
 	excludesfile = ~/.gitignore
+	pager = delta --color-only --theme='Solarized (dark)'
+[interactive]
+	diffFilter = delta --color-only --theme='Solarized (dark)'
 [push]
 	default = simple
 [pull]
