@@ -20,11 +20,14 @@ export PATH="$GOBIN:$PATH"
 export PATH="$HOME/.yarn/bin:$PATH"
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
-# Suppress brew waring caused by pyenv
-alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
+if command -v pyenv >/dev/null 2>&1; then
+  # Suppress brew waring caused by pyenv
+  alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
 
-# Force Pipenv to create its own virtual environment for any project (allow nested virtual environments)
-export PIPENV_IGNORE_VIRTUALENVS=1
+  # Force Pipenv to create its own virtual environment for any project (allow nested virtual environments)
+  export PIPENV_IGNORE_VIRTUALENVS=1
+fi
+
 
 # Nokogiri
 export NOKOGIRI_USE_SYSTEM_LIBRARIES=1
