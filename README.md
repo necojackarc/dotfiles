@@ -66,13 +66,13 @@ To enable this configuration, run `killall gpg-agent`.
 
 * [direnv](https://github.com/direnv/direnv)
 * [fzf](https://github.com/junegunn/fzf)
+* [gh](https://github.com/cli/cli)
 * [ghq](https://github.com/motemen/ghq)
 * [git-delta](https://github.com/dandavison/delta)
+* [mise](https://github.com/jdx/mise)
 * [ripgrep](https://github.com/BurntSushi/ripgrep)
 * [tig](https://github.com/jonas/tig)
 * [tmux](https://github.com/tmux/tmux)
-* [gh](https://github.com/cli/cli)
-* [asdf](https://github.com/asdf-vm/asdf) *alwasy install using the official git method
 * [vim-plug](https://github.com/junegunn/vim-plug)
 
 ### tmux
@@ -80,9 +80,6 @@ After the initial run, do `Ctrl+B -> Shift+I` to install all plugins.
 
 ### Vim
 Run `PlugInstall` to install all plugins.
-
-* [TypeScrpt](https://github.com/Microsoft/TypeScript)
-  * TSServer is used by ALE
 
 ## Tips
 

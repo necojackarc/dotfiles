@@ -71,11 +71,6 @@ export PGDATABASE="postgres"
 export PGUSER="postgres"
 
 
-# asdf
-. "$HOME/.asdf/asdf.sh"
-. "$HOME/.asdf/completions/asdf.bash"
-
-
 # aliases
 alias sudo='sudo -E'
 alias vi='vim'

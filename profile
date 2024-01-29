@@ -11,6 +11,9 @@ fi
 # Put /usr/local/bin and /usr/local/sbin in the PATH
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 
+# mise (https://mise.jdx.dev/)
+export PATH="$HOME/.local/share/mise/shims:$PATH"
+
 # Golang
 export GOPATH="$HOME/work/go"
 export GOBIN="$GOPATH/bin"
@@ -28,7 +31,6 @@ if command -v pyenv >/dev/null 2>&1; then
   export PIPENV_IGNORE_VIRTUALENVS=1
 fi
 
-
 # Nokogiri
 export NOKOGIRI_USE_SYSTEM_LIBRARIES=1
 
@@ -41,9 +43,11 @@ if [ "$(uname)" == "Darwin" ]; then
   export BASH_SILENCE_DEPRECATION_WARNING=1
 fi
 
+# Enable Homebrew only on MacOS
 if [ "$(uname)" == "Darwin" ]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
 # Enable direnv
 eval "$(direnv hook bash)"
+
