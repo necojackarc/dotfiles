@@ -153,5 +153,3 @@ function prco {
   fi
 }
 
-# Enable direnv
-eval "$(direnv hook bash)"

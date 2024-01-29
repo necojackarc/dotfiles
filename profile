@@ -44,3 +44,6 @@ fi
 if [ "$(uname)" == "Darwin" ]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
+
+# Enable direnv
+eval "$(direnv hook bash)"
