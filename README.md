@@ -72,7 +72,7 @@ To enable this configuration, run `killall gpg-agent`.
 * [tig](https://github.com/jonas/tig)
 * [tmux](https://github.com/tmux/tmux)
 * [gh](https://github.com/cli/cli)
-* [asdf](https://github.com/asdf-vm/asdf)
+* [asdf](https://github.com/asdf-vm/asdf) *alwasy install using the official git method
 * [vim-plug](https://github.com/junegunn/vim-plug)
 
 ### tmux
