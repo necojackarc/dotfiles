@@ -8,7 +8,7 @@ if [ -f ~/.env ]; then
   . ~/.env
 fi
 
-# Put /usr/local/bin and /usr/local/sbin in the PATH (e.g. Homebrew is installed in /usr/local/bin)
+# Put /usr/local/bin and /usr/local/sbin in the PATH
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 
 # Golang
@@ -39,4 +39,8 @@ export PATH=~/.local/bin:$PATH
 # ref: https://support.apple.com/en-gb/HT208050
 if [ "$(uname)" == "Darwin" ]; then
   export BASH_SILENCE_DEPRECATION_WARNING=1
+fi
+
+if [ "$(uname)" == "Darwin" ]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
