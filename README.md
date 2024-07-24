@@ -81,6 +81,15 @@ After the initial run, do `Ctrl+B -> Shift+I` to install all plugins.
 ### Vim
 Run `PlugInstall` to install all plugins.
 
+### mise
+You can install commonly used tools easily such as:
+
+- `mise install node`
+- `mise install postgres`
+- `mise install awscli`
+
+You can check the installed versions with `mise ls`.
+
 ## Tips
 
 ### Set computer-specific environment variables

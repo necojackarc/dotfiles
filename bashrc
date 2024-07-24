@@ -87,8 +87,6 @@ alias be='bundle exec'
 alias ctrb='ctags --langmap=RUBY:.rb --exclude="*.js"  --exclude=".git*" -R .'
 alias ctjs='ctags -R --exclude=node_modules --exclude=tmp --exclude=dist'
 alias tmux='direnv exec / tmux' # Make sure direnv is loaded when tmux starts
-# Use AWS CLI Docker image (https://github.com/necojackarc/aws-cli-with-plugins)
-alias aws='docker run --rm --env-file <(env | grep AWS) -it -v ~/.aws:/root/.aws -v "$(pwd)":/aws necojackarc/aws-cli-with-plugins'
 
 # ref: https://stackoverflow.com/questions/592620/how-can-i-check-if-a-program-exists-from-a-bash-script
 if command -v powershell.exe &> /dev/null; then
