@@ -87,6 +87,8 @@ You can install commonly used tools easily such as:
 - `mise install node`
 - `mise install postgres`
 - `mise install awscli`
+- `mise install granted`
+  - See [AWS Switch Roles](https://github.com/necojackarc/til/blob/master/aws/switch-roles.md)
 
 You can check the installed versions with `mise ls`.
 
