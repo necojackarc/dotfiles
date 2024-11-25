@@ -45,7 +45,7 @@ fi
 
 # Enable Homebrew only on MacOS
 if [ "$(uname)" == "Darwin" ]; then
-  eval "$(/opt/homebrew/bin/brew shellenv)"
+  eval "$(/usr/local/bin/brew shellenv)"
 fi
 
 # Enable direnv
