@@ -37,6 +37,9 @@ export NOKOGIRI_USE_SYSTEM_LIBRARIES=1
 # AWS CLI
 export PATH=~/.local/bin:$PATH
 
+# Granted (AWS Role Switcher)
+alias assume='source $(mise which assume)'
+
 # Suppress bash deprecation warning on MacOS
 # ref: https://support.apple.com/en-gb/HT208050
 if [ "$(uname)" == "Darwin" ]; then
@@ -50,4 +53,3 @@ fi
 
 # Enable direnv
 eval "$(direnv hook bash)"
-
