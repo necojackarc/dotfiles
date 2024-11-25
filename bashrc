@@ -87,6 +87,7 @@ alias be='bundle exec'
 alias ctrb='ctags --langmap=RUBY:.rb --exclude="*.js"  --exclude=".git*" -R .'
 alias ctjs='ctags -R --exclude=node_modules --exclude=tmp --exclude=dist'
 alias tmux='direnv exec / tmux' # Make sure direnv is loaded when tmux starts
+alias docker-compose='docker compose' # For compatibility; but make sure it uses the docker command
 
 # ref: https://stackoverflow.com/questions/592620/how-can-i-check-if-a-program-exists-from-a-bash-script
 if command -v powershell.exe &> /dev/null; then
