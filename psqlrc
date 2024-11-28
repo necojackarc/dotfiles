@@ -2,5 +2,3 @@
 \set PROMPT2 '(psql) %`date +%H:%M:%S`%R%#%x '
 
 \set HISTSIZE 100000
-
-\set AUTOCOMMIT off
