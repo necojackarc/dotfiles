@@ -108,7 +108,7 @@ When you'd like to set environment variables that you don't like to commit to th
 Set `export IS_DANGER=true` in an `.envrc` where you'd like to display `***DANGER***`.
 
 ### Docker Compose
-In some environments, they still refer to the old command `docker-compose`. To copse with that, I'd recommend adding the following executable instead of adding an alias:
+In some environments, they still refer to the old command `docker-compose`. To cope with that, I'd recommend adding the following executable instead of adding an alias:
 
 ```bash
 #!/bin/bash
