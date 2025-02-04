@@ -19,6 +19,11 @@ export GOPATH="$HOME/work/go"
 export GOBIN="$GOPATH/bin"
 export PATH="$GOBIN:$PATH"
 
+# Node
+# Fix FATAL ERROR: Reached heap limit Allocation failed - JavaScript heap out of memory
+# https://stackoverflow.com/questions/53230823/fatal-error-ineffective-mark-compacts-near-heap-limit-allocation-failed-javas
+export NODE_OPTIONS="--max-old-space-size=8192"
+
 # yarn
 export PATH="$HOME/.yarn/bin:$PATH"
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
