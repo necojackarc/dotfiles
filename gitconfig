@@ -10,8 +10,10 @@
 	diffFilter = delta --color-only
 [push]
 	default = simple
+	autoSetupRemote = true
+	followTags = true
 [pull]
-	rebase = false
+	rebase = true
 [alias]
 	co = checkout
 	st = status
@@ -20,16 +22,41 @@
 	pl = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(blue)<%an>%Creset' --abbrev-commit
 [diff]
 	tool = vimdiff
+	algorithm = histogram
+	colorMoved = plain
+	mnemonicPrefix = true
+	renames = true
 [difftool]
 	prompt = false
 	trustExitCode = true # abort all diffs by `:cq`
 [merge]
 	tool = vimdiff
+	conflictstyle = zdiff3
 [mergetool]
 	keepBackup = false
 [fetch]
 	prune = true
+	pruneTags = true
+	all = true
 [ghq]
 	root = ~/work/ghq
 [commit]
 	gpgsign = true
+	verbose = true
+[column]
+	ui = auto
+[branch]
+	sort = -committerdate
+[tag]
+	sort = version:refname
+[branch]
+	defaultBranch = main
+[help]
+	autocorrect = prompt
+[rerere]
+	enabled = true
+	autoupdate = true
+[rebase]
+	autoSquash = true
+	autoStash = true
+	updateRefs = true
