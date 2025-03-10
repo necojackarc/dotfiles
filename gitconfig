@@ -47,10 +47,9 @@
 	ui = auto
 [branch]
 	sort = -committerdate
+	defaultBranch = main
 [tag]
 	sort = version:refname
-[branch]
-	defaultBranch = main
 [help]
 	autocorrect = prompt
 [rerere]
