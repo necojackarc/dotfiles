@@ -43,8 +43,6 @@
 [commit]
 	gpgsign = true
 	verbose = true
-[column]
-	ui = auto
 [branch]
 	sort = -committerdate
 	defaultBranch = main
