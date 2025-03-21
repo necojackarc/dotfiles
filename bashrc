@@ -108,6 +108,20 @@ function rgf {
   command rg --files -g *$pattern* "$@"
 }
 
+# wrap git to add aliases of subcommands
+function git {
+  local subcommand=$1
+
+  case $1 in
+    add)
+      subcommand="add -p"
+      ;;
+  esac
+  shift 1
+
+  command git $subcommand "$@"
+}
+
 # wrap tig to add aliases of subcommands
 function tig {
   local subcommand=$1
