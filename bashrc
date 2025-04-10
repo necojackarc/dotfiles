@@ -147,14 +147,36 @@ function cdr {
 # git checkout a branch using fzf
 function gco {
   local branch="$( git branch | sed s/\*/\ /g | awk '{ print $1 }' | fzf)"
+
   if [ ! -z "$branch" ] ; then
     git checkout "$branch"
   fi
 }
 
+# git branch -D a branch using fzf
+function gbd {
+  local -a protected_branches=("main" "master")
+  local branch="$( git branch | sed s/\*/\ /g | awk '{ print $1 }' | fzf)"
+
+  # Do nothing if a branch was not selected
+  if [ -z "$branch" ]; then
+    return
+  fi
+
+  for protected in "${protected_branches[@]}"; do
+    if [[ "$branch" == "$protected" ]]; then
+      echo "Error: '$branch' is a protected branch and cannot be deleted." >&2
+      return 1
+    fi
+  done
+
+  git branch -D "$branch"
+}
+
 # git checkout a PR branch using fzf
 function prco {
   local pr=`gh pr list | fzf --preview 'gh pr view {1}'`
+
   if [ ! -z "$pr" ] ; then
     gh pr checkout `echo "$pr" | cut -f1`
   fi
