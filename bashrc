@@ -146,7 +146,7 @@ function cdr {
 
 # git checkout a branch using fzf
 function gco {
-  local branch="$( git branch | sed s/\*/\ /g | awk '{ print $1 }' | fzf)"
+  local branch="$(git branch --format='%(refname:short)' | awk '{ print $1 }' | fzf)"
 
   if [ ! -z "$branch" ] ; then
     git checkout "$branch"
@@ -156,7 +156,7 @@ function gco {
 # git branch -D a branch using fzf
 function gbd {
   local -a protected_branches=("main" "master")
-  local branch="$( git branch | sed s/\*/\ /g | awk '{ print $1 }' | fzf)"
+  local branch="$(git branch --format='%(refname:short)' | grep -vE '^(main|master)$' | fzf)"
 
   # Do nothing if a branch was not selected
   if [ -z "$branch" ]; then
