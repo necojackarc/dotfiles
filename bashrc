@@ -110,16 +110,11 @@ function rgf {
 
 # wrap git to add aliases of subcommands
 function git {
-  local subcommand=$1
-
-  case $1 in
-    add)
-      subcommand="add -p"
-      ;;
-  esac
-  shift 1
-
-  command git $subcommand "$@"
+  if [[ "$1" == "add" && "$2" == "." && $# -eq 2 ]]; then
+    command git add -p
+  else
+    command git "$@"
+  fi
 }
 
 # wrap tig to add aliases of subcommands
