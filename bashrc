@@ -150,10 +150,19 @@ function gco {
 
 # git branch -D a branch using fzf
 function gbd {
-  local -a protected_branches=("main" "master")
-  local branch="$(git branch --format='%(refname:short)' | grep -vE '^(main|master)$' | fzf)"
+  local current_branch
+  current_branch="$(git symbolic-ref --short HEAD)"
+  local -a protected_branches=("main" "master" "$current_branch")
 
-  # Do nothing if a branch was not selected
+  # Build a regex pattern for protected branches
+  local protected_pattern="$(IFS='|'; echo "${protected_branches[*]}")"
+
+  # Show only deletable branches via fzf
+  local branch
+  branch="$(git branch --format='%(refname:short)' \
+    | grep -vE "^(${protected_pattern})$" \
+    | fzf)"
+
   if [ -z "$branch" ]; then
     return
   fi
