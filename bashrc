@@ -65,6 +65,10 @@ export PROMPT_COMMAND="_share_history_between_terminals; $PROMPT_COMMAND"
 export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git/*"'
 
 
+# Enable mise (https://mise.jdx.dev/)
+eval "$($HOME/.local/bin/mise activate bash)"
+
+
 # PostgreSQL default settings
 export PGHOST="localhost"
 export PGDATABASE="postgres"
@@ -185,4 +189,3 @@ function prco {
     gh pr checkout `echo "$pr" | cut -f1`
   fi
 }
-

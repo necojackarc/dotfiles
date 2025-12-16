@@ -1,18 +1,5 @@
-# Get the aliases and functions
-if [ -f ~/.bashrc ]; then
-  . ~/.bashrc
-fi
-
-# Set private environment variables
-if [ -f ~/.env ]; then
-  . ~/.env
-fi
-
 # Put /usr/local/bin and /usr/local/sbin in the PATH
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
-
-# mise (https://mise.jdx.dev/)
-export PATH="$HOME/.local/share/mise/shims:$PATH"
 
 # Golang
 export GOPATH="$HOME/work/go"
@@ -62,3 +49,13 @@ fi
 
 # Enable direnv
 eval "$(direnv hook bash)"
+
+# Set private environment variables
+if [ -f ~/.env ]; then
+  . ~/.env
+fi
+
+# Load bashrc on login, too
+if [ -f ~/.bashrc ]; then
+  . ~/.bashrc
+fi
