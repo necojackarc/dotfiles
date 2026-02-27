@@ -47,9 +47,6 @@ if [ "$(uname)" == "Darwin" ]; then
   fi
 fi
 
-# Enable direnv
-eval "$(direnv hook bash)"
-
 # Set private environment variables
 if [ -f ~/.env ]; then
   . ~/.env
@@ -59,3 +56,6 @@ fi
 if [ -f ~/.bashrc ]; then
   . ~/.bashrc
 fi
+
+# Enable direnv
+eval "$(direnv hook bash)"
