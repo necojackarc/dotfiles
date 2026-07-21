@@ -189,3 +189,19 @@ function prco {
     gh pr checkout `echo "$pr" | cut -f1`
   fi
 }
+
+# Copy a container file's contents to the macOS clipboard:
+# dcclip <container> <path>
+dcclip() {
+  if [ $# -lt 2 ]; then echo "usage: dcclip <container> <path>" >&2; return 1; fi
+  docker exec "$1" cat "$2" | pbcopy
+  echo "clipped: $2 (from $1)"
+}
+
+# Pull a container file out to the host:
+# dcpull <container> <path> [dest]
+dcpull() {
+  if [ $# -lt 2 ]; then echo "usage: dcpull <container> <path> [dest]" >&2; return 1; fi
+  docker cp "$1:$2" "${3:-.}"
+  echo "pulled: $2 -> ${3:-.}"
+}
