@@ -92,6 +92,18 @@ You can install commonly used tools easily such as:
 
 You can check the installed versions with `mise ls`.
 
+## AI agent instructions
+
+Canonical file: `~/dotfiles/ai/AGENTS.md` (`setup.sh` wires Claude Code).
+
+Cursor User Rules are manual. Paste this into Cursor → Settings / Customize → Rules → User Rules:
+
+```
+Read and follow ~/dotfiles/ai/AGENTS.md on every task.
+```
+
+Do not paste the file. `@AGENTS.md` would hit the current project, not this one.
+
 ## Tips
 
 ### Set computer-specific environment variables
