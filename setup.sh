@@ -1,4 +1,16 @@
 #!/bin/sh
+set -e
+
+# ln -sfn cannot replace a real directory. Do not rm -rf it.
+link_dir() {
+  dest=$1
+  src=$2
+  if [ -e "$dest" ] && [ ! -L "$dest" ]; then
+    echo "skip $dest: exists and is not a symlink" >&2
+    return 1
+  fi
+  ln -sfn "$src" "$dest"
+}
 
 # bash
 ln -sf ~/dotfiles/bashrc ~/.bashrc
@@ -12,13 +24,11 @@ ln -sf ~/dotfiles/gitignore ~/.gitignore
 # vim
 ln -sf ~/dotfiles/vimrc ~/.vimrc
 ln -sf ~/dotfiles/gvimrc ~/.gvimrc
-rm -rf ~/.vim
-ln -sfn ~/dotfiles/vim ~/.vim
+link_dir ~/.vim ~/dotfiles/vim
 
 # tmux
 ln -sf ~/dotfiles/tmux.conf ~/.tmux.conf
-rm -rf ~/.tmux
-ln -sfn ~/dotfiles/tmux ~/.tmux
+link_dir ~/.tmux ~/dotfiles/tmux
 
 # tig
 ln -sf ~/dotfiles/tigrc ~/.tigrc
@@ -34,6 +44,7 @@ ln -sf ~/dotfiles/rspec ~/.rspec
 # postgres
 ln -sf ~/dotfiles/psqlrc ~/.psqlrc
 
-# claude
+# claude — copy, not symlink: a host-path link is broken in the Dev Container
 mkdir -p ~/.claude
-ln -sf ~/dotfiles/ai/AGENTS.md ~/.claude/CLAUDE.md
+rm -f ~/.claude/CLAUDE.md
+cp ~/dotfiles/ai/AGENTS.md ~/.claude/CLAUDE.md

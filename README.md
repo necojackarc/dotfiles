@@ -27,6 +27,7 @@ $ git clone --recursive git@github.com:necojackarc/dotfiles.git ~/dotfiles
 ```
 
 In case you don't want to overwrite some of your dotfiles in `$HOME`, edit `setup.sh`.
+If `~/.vim` or `~/.tmux` already exists as a real directory, `setup.sh` leaves it and exits.
 
 Execute the following commands to create symlinks to the dotfiles:
 
@@ -94,7 +95,9 @@ You can check the installed versions with `mise ls`.
 
 ## AI agent instructions
 
-Canonical file: `~/dotfiles/ai/AGENTS.md` (`setup.sh` wires Claude Code).
+Canonical file: `~/dotfiles/ai/AGENTS.md`.
+
+`setup.sh` copies it to `~/.claude/CLAUDE.md`. Re-run `setup.sh` after you edit `AGENTS.md`.
 
 Cursor User Rules are manual. Paste this into Cursor → Settings / Customize → Rules → User Rules:
 
