@@ -74,27 +74,48 @@ Code comment: say why, not what. Delete any comment a reader gets from the line 
 
 ## PR description
 
-For a reviewer with no context on this task, not for me. Grounding still governs what you may claim here; it does not govern citation format. Use these names as the headings, in this order. Omit a conditional section entirely when it does not apply; never write the heading and say "none".
+For a reviewer with no context on this task, not for me. Grounding still governs what you may claim here; it does not govern citation format. Write the sections in this order.
 
-- **Summary** — what changed, in one sentence, and a link to the ticket.
-- **Why** — the problem or trigger, 3 sentences or fewer.
-- **How** — the shape of the change and the decisions behind it. Name any alternative you rejected, one line.
-- **Not in scope** — conditional. One line, when a reviewer would reasonably expect something this change does not do.
-- **Endpoints** — conditional. When the change touches a route: a table of method, path, auth, and changed status code.
-- **Deploy notes** — conditional. When the change adds a migration, a feature flag, or a new config or environment variable.
-- **Where to start** — the files to read, in reading order, one clause each on why. Paths only, no line numbers; they shift before merge. Match this order to the diagram.
-- **Checks** — what you ran and what you did not cover. Name only checks you ran yourself or saw pass in CI, and say which. If you ran none, say so. No command output.
-- **Diagram** — last.
+- What changed, in one sentence.
+- Why — the problem or trigger, 3 sentences or fewer.
+- How — the decisions, as bullets. See the rules below.
+- Not in scope — what a reviewer might reasonably expect to find here and won't, one clause each on why not. Omit the section when nothing qualifies.
+- Endpoints, only when the change touches a route — a table of method, path, auth, and changed status code.
+- Where to start — the files to read, in reading order, one clause each on why. Paths only, no line numbers; they shift before merge. The clause says why the file is on the path, not what it decides; decisions live in How.
+- How you verified it — the checks you ran and what you did not cover. Name only checks you ran yourself or saw pass in CI, and say which. If you ran none, say so. No command output.
+- The diagram, last.
 
-Match length to scope. A one-file fix needs a few sentences. Nothing needs more than a page, diagram excluded.
+Under a page, diagram excluded.
 Describe the end state. No commit narration, no review rounds, no chronology of what you tried. On re-push or after review, rewrite the description; never append to it.
 The execution report is for me and cites verification output. The PR description is for the reviewer and carries paths only. Do not merge them.
+What belongs here is what the reviewer must check before approving. A durable convention that outlives this diff is not that — if the repo documents it in-tree, do not restate it here; if it does not, this is still the wrong place for it.
 No [inference], [opinion], or [unverified] here. Say "not tested against staging" in plain words instead.
+
+### PR description → How
+
+- One bullet per decision: `<decision> — <what forced it> — <what it rules out>`. At most 5.
+- A decision qualifies only when the reviewer could reasonably have expected the other choice, and the diff alone will not tell them which you picked. Everything else is noise, however much work it took.
+- Order by blast radius, not by layer. Anything that changes code outside the files you added leads: a renamed or re-signatured symbol, a new required dependency, a module that now exposes or mounts something it did not, a widened or narrowed query, a new lint or coverage exclusion. Local, reversible choices inside the new files go last, or get cut.
+- Write-semantics belong here, never only in Where to start or the API spec: replace vs merge, explicit null vs omitted, what re-validates on update, which failure is a 400 and which is a 404.
+- State asymmetries. When two similar inputs get different treatment, the reviewer will ask why — answer it in one line before they do.
+- Name a rejected alternative by the behavior you needed, never by another module's name. The reviewer does not know your repo's precedents and cannot check one.
+- Optional first line, only when the change adds a request path: `A -> B -> C`.
+- Last line, only when it applies: what could break that the diff does not show, or the reason nothing can.
+
+Calibrate to these:
+
+Bad: "`create`/`update` follow `subsidiary`'s pattern — one file per operation, a `Command`/`Query` class plus a handler calling the repository directly — rather than `gamification`'s full CQRS-with-domain-events layer, since this aggregate emits no events."
+Good: "The module now mounts an HTTP router and takes a partner API as a required dependency — every existing caller of its compose function had to pass one."
+
+Bad: "`criteria` is validated by a `.strict()` zod schema requiring at least one field set at every level."
+Good: "Tag ids are existence-checked on write but NTEE codes are only format-checked — the NTEE map covers under half of ingested prefixes, so a dictionary check would reject most real criteria."
 
 ### PR description → Diagram
 
 - Diagram the business logic or data flow the change touches. Not CI, not file structure, not git flow.
 - Draw an edge only for a call or transition you found in the diff or the source. Never infer one from a name, an import, or a route string. If you cannot point at the code behind an edge, skip the diagram.
+- When the change adds more than one flow, diagram the one with the most branching, not the first one you wrote.
+- Draw the early exits the change adds. A validation or guard that terminates the flow is a transition, not an omission — an `alt` with no depicted consequence is worse than no `alt`.
 - Every node is code you read, except an external actor and a boundary node that collapses untouched code.
 - Include the diagram when the change spans a call chain of three or more files, or adds or moves a conditional branch. Skip it for config and infra changes, and when it would only restate the prose. Skip wins when both apply.
 - `sequenceDiagram` for request or response flows between actors and services.
