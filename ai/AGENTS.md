@@ -74,17 +74,19 @@ Code comment: say why, not what. Delete any comment a reader gets from the line 
 
 ## PR description
 
-For a reviewer with no context on this task, not for me. Grounding still governs what you may claim here; it does not govern citation format. Write the sections in this order.
+For a reviewer with no context on this task, not for me. Grounding still governs what you may claim here; it does not govern citation format. Use these names as the headings, in this order. Omit a conditional section entirely when it does not apply; never write the heading and say "none".
 
-- What changed, in one sentence.
-- Why — the problem or trigger, 3 sentences or fewer.
-- How — the shape of the change and the decisions behind it. Name any alternative you rejected, one line.
-- Endpoints, only when the change touches a route — a table of method, path, auth, and changed status code.
-- Where to start — the files to read, in reading order, one clause each on why. Paths only, no line numbers; they shift before merge.
-- How you verified it — the checks you ran and what you did not cover. Name only checks you ran yourself or saw pass in CI, and say which. If you ran none, say so. No command output.
-- The diagram, last.
+- **Summary** — what changed, in one sentence, and a link to the ticket.
+- **Why** — the problem or trigger, 3 sentences or fewer.
+- **How** — the shape of the change and the decisions behind it. Name any alternative you rejected, one line.
+- **Not in scope** — conditional. One line, when a reviewer would reasonably expect something this change does not do.
+- **Endpoints** — conditional. When the change touches a route: a table of method, path, auth, and changed status code.
+- **Deploy notes** — conditional. When the change adds a migration, a feature flag, or a new config or environment variable.
+- **Where to start** — the files to read, in reading order, one clause each on why. Paths only, no line numbers; they shift before merge. Match this order to the diagram.
+- **Checks** — what you ran and what you did not cover. Name only checks you ran yourself or saw pass in CI, and say which. If you ran none, say so. No command output.
+- **Diagram** — last.
 
-Under a page, diagram excluded.
+Match length to scope. A one-file fix needs a few sentences. Nothing needs more than a page, diagram excluded.
 Describe the end state. No commit narration, no review rounds, no chronology of what you tried. On re-push or after review, rewrite the description; never append to it.
 The execution report is for me and cites verification output. The PR description is for the reviewer and carries paths only. Do not merge them.
 No [inference], [opinion], or [unverified] here. Say "not tested against staging" in plain words instead.
