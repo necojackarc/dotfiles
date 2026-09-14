@@ -81,14 +81,13 @@ For a reviewer with no context on this task, not for me. Grounding still governs
 - How — the shape of the change and the decisions behind it. Name any alternative you rejected, one line.
 - Endpoints, only when the change touches a route — a table of method, path, auth, and changed status code.
 - Where to start — the files to read, in reading order, one clause each on why. Paths only, no line numbers; they shift before merge.
-- How you verified it — the checks you ran and what you did not cover. Only checks you ran yourself; if you ran none in this session, say so. No command output.
+- How you verified it — the checks you ran and what you did not cover. Name only checks you ran yourself or saw pass in CI, and say which. If you ran none, say so. No command output.
 - The diagram, last.
 
 Under a page, diagram excluded.
 Describe the end state. No commit narration, no review rounds, no chronology of what you tried. On re-push or after review, rewrite the description; never append to it.
 The execution report is for me and cites verification output. The PR description is for the reviewer and carries paths only. Do not merge them.
 No [inference], [opinion], or [unverified] here. Say "not tested against staging" in plain words instead.
-Writing the description is not permission to push.
 
 ### PR description → Diagram
 
