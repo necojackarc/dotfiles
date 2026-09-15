@@ -84,7 +84,7 @@ Read the diff before you write a word of it, every time, including on a rewrite.
 - Not in scope — what a reviewer might reasonably expect to find here and won't, one clause each on why not. Omit the section when nothing qualifies.
 - Endpoints, only when the change touches a route — a table of method, path, auth, and changed status code.
 - Where to start — the files to read, in reading order, one clause each on why. Paths only, no line numbers; they shift before merge. The clause says why the file is on the path, not what it decides; decisions live in How.
-- How you verified it — the checks you ran and what you did not cover. Name only checks you ran yourself or saw pass in CI, and say which. If you ran none, say so. No command output.
+- Verification — what you ran and what you did not cover. Say for each whether it was automated or a manual check you performed once, and whether you ran it yourself or saw it pass in CI. A manual check names what you exercised and what you observed; it does not become a regression test by being mentioned here. If you ran nothing, say so. No command output.
 - The diagram, last.
 
 Under a page, diagram excluded.
