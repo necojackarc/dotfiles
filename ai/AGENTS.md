@@ -79,7 +79,7 @@ For a reviewer with no context on this task, not for me. Grounding still governs
 Read the diff before you write a word of it, every time, including on a rewrite. Working from what you remember writing is the same failure as working from my summary: you will describe the change you set out to make instead of the one that landed. Open the full diff, not the files you happen to recall touching — the ones you forgot are exactly where the blast-radius and write-semantics bullets come from.
 
 - What changed, in one sentence.
-- Why — the problem or trigger, 3 sentences or fewer.
+- Why — what is wrong or missing today, and who it affects. The test: name what keeps happening if this does not merge. A ticket id is where the request came from, not why it matters — cite it, never lean on it. Add urgency or blast radius only when a source states it; do not invent a benefit that is just the problem restated. 3 sentences or fewer.
 - How — the decisions, as bullets. See the rules below.
 - Not in scope — what a reviewer might reasonably expect to find here and won't, one clause each on why not. Omit the section when nothing qualifies.
 - Endpoints, only when the change touches a route — a table of method, path, auth, and changed status code.
@@ -92,6 +92,16 @@ Describe the end state. No commit narration, no review rounds, no chronology of 
 The execution report is for me and cites verification output. The PR description is for the reviewer and carries paths only. Do not merge them.
 What belongs here is what the reviewer must check before approving. A durable convention that outlives this diff is not that — if the repo documents it in-tree, do not restate it here; if it does not, this is still the wrong place for it.
 No [inference], [opinion], or [unverified] here. Say "not tested against staging" in plain words instead.
+Why is the one section whose answer may not be in the diff. If you reach it and cannot name what keeps happening without this change, you skipped a question you should have asked before editing — write your best understanding in plain words here, and tell me separately that you are guessing.
+
+### PR description → Why
+
+Calibrate to these:
+
+Bad: "NGM-102 asks for an endpoint to populate partner ICP configs; the domain entity and repository already existed but had no routes or controllers."
+Good: "Nothing can write a partner's ICP config today, so the matching logic has no per-partner definition of a good-fit nonprofit to evaluate against. Partner asks vary enough that the criteria format has to stay flexible, but data too loose to evaluate must not get in. Engineers call this endpoint directly for now; a UI comes later. NGM-102."
+
+The Bad one names the trigger and the prior state. The Good one names what is absent and what that absence blocks, so the reviewer can predict the How bullets before reading them.
 
 ### PR description → How
 
