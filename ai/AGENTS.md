@@ -76,6 +76,8 @@ Code comment: say why, not what. Delete any comment a reader gets from the line 
 
 For a reviewer with no context on this task, not for me. Grounding still governs what you may claim here; it does not govern citation format. Write the sections in this order.
 
+Read the diff before you write a word of it, every time, including on a rewrite. Working from what you remember writing is the same failure as working from my summary: you will describe the change you set out to make instead of the one that landed. Open the full diff, not the files you happen to recall touching — the ones you forgot are exactly where the blast-radius and write-semantics bullets come from.
+
 - What changed, in one sentence.
 - Why — the problem or trigger, 3 sentences or fewer.
 - How — the decisions, as bullets. See the rules below.
@@ -97,7 +99,7 @@ No [inference], [opinion], or [unverified] here. Say "not tested against staging
 - A decision qualifies only when the reviewer could reasonably have expected the other choice, and the diff alone will not tell them which you picked. Everything else is noise, however much work it took.
 - If more than about seven qualify, the PR is doing too many things. Say so in one line at the top of How rather than picking five and hiding the rest.
 - Order by blast radius, not by layer. Anything that changes code outside the files you added leads: a renamed or re-signatured symbol, a new required dependency, a module that now exposes or mounts something it did not, a widened or narrowed query, a new lint or coverage exclusion. Local, reversible choices inside the new files go last, or get cut.
-- Write-semantics belong here, never only in Where to start or the API spec: replace vs merge, explicit null vs omitted, what re-validates on update, which failure is a 400 and which is a 404.
+- Write-semantics belong here, never only in Where to start or the API spec. Before you finish How, open every write path the change adds and answer these in a bullet: on a partial update, which fields merge and which replace wholesale; whether an explicit null differs from an omitted field; what re-validates and what does not. If the answer lives in the API spec or a test name but not in How, it is missing from How.
 - State asymmetries. When two similar inputs get different treatment, the reviewer will ask why — answer it in one line before they do.
 - Name a rejected alternative by the behavior you needed, never by another module's name. The reviewer does not know your repo's precedents and cannot check one.
 - Optional first line, only when the change adds a request path: `A -> B -> C`.
@@ -115,9 +117,9 @@ Good: "Tag ids are existence-checked on write but NTEE codes are only format-che
 
 - Diagram the business logic or data flow the change touches. Not CI, not file structure, not git flow.
 - Draw an edge only for a call or transition you found in the diff or the source. Never infer one from a name, an import, or a route string. If you cannot point at the code behind an edge, skip the diagram.
-- A reply arrow is an edge and needs the same evidence as a call arrow. Draw one only when the caller waits for the value and does something with it. Symmetry in the notation is not evidence.
+- A reply arrow is an edge and needs the same evidence as a call arrow. Before you draw one, name the variable the caller assigns it to. If there is none, or it is assigned and never read, there is no arrow. Symmetry in the notation is not evidence.
 - When the change adds more than one flow, diagram the one with the most branching, not the first one you wrote.
-- Draw the early exits the change adds. A validation or guard that terminates the flow is a transition, not an omission — an `alt` with no depicted consequence is worse than no `alt`.
+- Draw the early exits the change adds. A validation or guard that terminates the flow is a transition, not an omission — a branch with no depicted consequence is worse than no branch.
 - `opt` for a branch with no `else`. `alt` implies an alternative the reader will look for.
 - Every node is code you read, except an external actor and a boundary node that collapses untouched code.
 - Include the diagram when the change spans a call chain of three or more files, or adds or moves a conditional branch. Skip it for config and infra changes, and when it would only restate the prose. Skip wins when both apply.
