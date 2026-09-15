@@ -76,7 +76,7 @@ Code comment: say why, not what. Delete any comment a reader gets from the line 
 
 For a reviewer with no context on this task, not for me. Grounding still governs what you may claim here; it does not govern citation format. Write the sections in this order.
 
-Read the diff before you write a word of it, every time, including on a rewrite. Working from what you remember writing is the same failure as working from my summary: you will describe the change you set out to make instead of the one that landed. Open the full diff, not the files you happen to recall touching — the ones you forgot are exactly where the blast-radius and write-semantics bullets come from.
+Read the diff before you write a word of it, every time, including on a rewrite. Working from what you remember writing is the same failure as working from my summary: you will describe the change you set out to make instead of the one that landed. Open the full diff, not the files you happen to recall touching — the ones you forgot are exactly where the blast-radius and write-semantics bullets come from, and where the flow worth diagramming changes.
 
 - What changed, in one sentence.
 - Why — what is wrong or missing today, and who it affects. The test: name what keeps happening if this does not merge. A ticket id is where the request came from, not why it matters — cite it, never lean on it. Add urgency or blast radius only when a source states it; do not invent a benefit that is just the problem restated. 3 sentences or fewer.
@@ -128,7 +128,7 @@ Good: "Tag ids are existence-checked on write but NTEE codes are only format-che
 - Diagram the business logic or data flow the change touches. Not CI, not file structure, not git flow.
 - Draw an edge only for a call or transition you found in the diff or the source. Never infer one from a name, an import, or a route string. If you cannot point at the code behind an edge, skip the diagram.
 - A reply arrow is an edge and needs the same evidence as a call arrow. Before you draw one, name the variable the caller assigns it to. If there is none, or it is assigned and never read, there is no arrow. Symmetry in the notation is not evidence.
-- When the change adds more than one flow, diagram the one with the most branching, not the first one you wrote.
+- When the change adds more than one flow, diagram the one with the most branching, not the first one you wrote. Re-run that choice on every rewrite — a flow added after the first draft can outrank the one you drew, and updating the old diagram's details is not the same as re-picking its subject.
 - Draw the early exits the change adds. A validation or guard that terminates the flow is a transition, not an omission — a branch with no depicted consequence is worse than no branch.
 - `opt` for a branch with no `else`. `alt` implies an alternative the reader will look for.
 - Every node is code you read, except an external actor and a boundary node that collapses untouched code.
