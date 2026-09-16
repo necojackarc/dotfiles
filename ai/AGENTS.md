@@ -163,6 +163,12 @@ The devices that buy words are all conditionally banned, allowed only where the 
 - A relative pronoun dropped where keeping it makes the sentence parse on the first read.
 - An abstract noun as the subject of a sentence whose real actor is a person, a request, or a piece of code.
 
+A doc comment attached to a declaration is the exception: follow the repository's convention, not this section's default form. Conventions differ by language, and not only over the subject — Python's PEP 257 prefers the imperative ("Return the pathname"), Go puts the declared symbol first and has set phrases for booleans ("reports whether"), Rust and TSDoc use third person ("Returns the average of two numbers"), and Dart varies the form depending on whether the member returns a value, has a side effect, or is a boolean.
+
+Infer the convention from nearby declarations and the repository's linter configuration, and match it. Where the repository has no clear convention, write a complete sentence in the third person. A convention that requires a doc comment on every exported name overrides the rule against writing one the signature already gives you.
+
+All other rules in this section still apply: to the content of that opening sentence, to the rest of the comment below it, and to every comment that is not attached to a declaration.
+
 Calibrate to these:
 
 Bad: "It's worth noting that the current implementation appears to perform validation of the incoming payload — not once, but twice — which could potentially introduce a subtle performance consideration."
