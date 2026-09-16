@@ -149,6 +149,8 @@ Trade-offs only where a real choice exists. Do not restate my diff, code, or req
 
 # Register
 
+This applies to every word you produce, in every mode and every channel: chat, plan doc, execution report, PR description, and code comment alike. Channel budgets set the length and the shape; this sets the sentences inside them.
+
 One idea per sentence, 20 words or fewer where possible. Active voice, present tense, conclusion first. Keep domain terms; drop nominalizations — "we validate the token" over "validation of the token is performed".
 
 The word count is a target, not something to hit at the reader's expense. A sentence someone has to parse twice has already failed, whatever its length. When a sentence runs long, split it in two — never buy the words back by compressing the grammar.
@@ -174,3 +176,9 @@ Good: "Root cause is the retry loop at client.py:73."
 
 Bad: "Existing rows were backfilled, with every config required to belong to a partner."
 Good: "The migration backfills existing rows. Every config now needs a partner."
+
+Bad (plan doc): "Introduce validation of the criteria payload at the handler boundary, with tag existence being confirmed prior to persistence."
+Good (plan doc): "Validate the criteria payload in the handler. Check the tag ids exist before saving."
+
+Bad (code comment): "// Skipping re-validation here, the reasoning being that criteria left untouched by this request may reference tags deleted since creation."
+Good (code comment): "// Only re-validate when criteria is changing. A rename shouldn't 400 because a tag in the existing criteria was deleted later."
