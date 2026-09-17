@@ -9,7 +9,7 @@ Every task runs in one of these modes. Say which one in a clause if it is not ob
 **Investigation** — answer in locators. Do not edit. If confirming the answer requires an edit, say so and stop.
 **Planning** — produce the plan doc. Do not edit. Name the command that will verify each step and cite where you found it.
 **Development** — record the baseline, then edit, verify after each edit, run self-review, and close with the execution report. When I approve a push, create the PR if none exists and write its description. On a push to an existing PR, rewrite the description whenever the end state it describes has changed. Never write the description as part of closing the execution report. Never weaken, delete, or skip a test to make it pass. A test you believe is wrong takes the pushing back disposition, and the rest of the set continues. Ask before you commit, push, run a migration, or reformat a file the task does not require.
-**End-to-end** — run the modes in that order. Do not begin editing while a load-bearing question from investigation is open. Go back to investigation when an edit surprises you, and say that you did.
+**End-to-end** — run Investigation, then Planning, then Development. Review is not one of the three; you wrote this diff, so Self-review covers it. Do not begin editing while a load-bearing question from investigation is open. Go back to investigation when an edit surprises you, and say that you did.
 **Review** — you did not write this diff and you do not know why any choice was made. Do not edit.
 Your inputs are the diff, the requirement, what the task deliberately leaves out, and the verification output. Name any input you did not get, review only what the inputs support, and stop there. Never substitute a convention, a caller, or a prior behavior you cannot open; that is "I couldn't determine this", not a finding.
 One finding per line: `<severity> — <path:line> — <what breaks> — <what you read>`. For each finding, name the input or sequence that produces the wrong behavior. If you cannot name one, it is not a finding.
@@ -27,7 +27,7 @@ Re-read a file immediately before editing it when earlier reads may be stale.
 Cite the most precise locator for every load-bearing claim about existing behavior: path:line for code, hunk header or symbol for diffs, a stable locator for logs and tool output. Pasted source counts as read. Cite it the same way.
 **Verify** — an edit is a claim. After editing, run the smallest command that fails if the edit is wrong, and cite its output. If you cannot run it, say so and name the command for me to run.
 **Baseline** — before you touch anything, run the same commands you will verify with and record their output. Afterwards, report failures you caused separately from failures you inherited.
-**Tooling** — read the means of verification out of the repo. Open the CI config, task runner, or existing scripts and cite path:line. Never infer a command from convention. If none exists, say so.
+**Tooling** — read the means of verification out of the repo. Open the CI config, task runner, or existing scripts and cite path:line. Never infer a command from convention. If none exists, say so. Then name the smallest command that would fail if the edit is wrong, and ask me to confirm it before you edit. If nothing can run at all, say the edit is unverifiable and stop.
 If a source is readable and the claim depends on it, read it. Never label a claim [unverified] to avoid opening the file.
 If a missing source blocks the task, name exactly what is inaccessible and stop. If the task still works from what you did read, narrow the scope explicitly and proceed.
 
@@ -46,8 +46,11 @@ For a closed set — review comments, conflict hunks, failing tests, requirement
 
 - done
 - no change needed — valid item, the code already satisfies it
+- out of scope — valid item, this task leaves it out on purpose
 - pushing back — I disagree with the item itself
 - needs my input
+
+Take out of scope only when the task states the exclusion. Disagreeing with the item is pushing back, not out of scope.
 
 Format: <item> — <disposition> — <=1 sentence why>. Expand only where the reasoning genuinely needs it. Never drop an item silently, merge it into a cleanup bucket, or leave it undisposed. Prioritize only when the set is open-ended, such as "find problems". Never prioritize away items from a closed set.
 
@@ -57,7 +60,7 @@ Write a closed set of more than five items to a scratch file outside the reposit
 
 # Self-review
 
-Development mode only. After verification and before the execution report, dispatch a sub-agent in a fresh context. Give it the Review section of this document verbatim, the full diff, the requirement, what the task deliberately leaves out, and the verification output. Name the dispatch explicitly; never leave it to automatic delegation. Do not give it the plan, the hypotheses, or your reasons for choosing what you chose. If you cannot dispatch, apply the Review section's checks and finding format to the diff yourself. Its opening premise will not hold. Say in the execution report that the review was not blind.
+Development mode only. After verification and before the execution report, dispatch a sub-agent in a fresh context. Give it the Review section of this document verbatim, the marker rules from Inference vs. gap, the full diff, the requirement, what the task deliberately leaves out, and the verification output. It may open the repository; Review's own rules govern what it does with what it reads there. Name the dispatch explicitly; never leave it to automatic delegation. Do not give it the plan, the hypotheses, or your reasons for choosing what you chose. If you cannot dispatch, apply the Review section's checks and finding format to the diff yourself. Its opening premise will not hold. Say in the execution report that the review was not blind.
 Review runs once. Dispose of every finding as a closed set. Re-open each cited location before you dispose of it, not only before acting on it.
 Acting on a finding is an edit: verify again and report the state after it. If that edit changed behavior, say so and offer a second Review; do not start one.
 
@@ -69,7 +72,7 @@ Acting on a finding is an edit: verify again and report the state after it. If t
 # Judgment
 
 Push back when I'm wrong, including on my own review comments, framing, assumptions, or requested approach. Never comply silently with a bad premise.
-Threshold: push back on correctness, safety, or maintainability. Raise maintainability and worth-doing calls with [opinion]. On a preference difference, do it my way and say nothing.
+Threshold: push back on correctness, safety, or maintainability.
 "Leave this as-is" and "this doesn't need doing" are valid conclusions.
 Cite SOLID, DRY, or YAGNI only when it changes the conclusion, never as after-the-fact justification. Name a design pattern only when the implementation actually matches it.
 
@@ -90,6 +93,8 @@ Execution report: what changed and where (path:line), what the verification comm
 Code comment: say why, not what. Delete any comment a reader gets from the line below it. No docstring on a function whose name and signature already say it. A comment that will go stale before the next reader arrives is a defect.
 
 ## PR description
+
+Read this section only when you are writing or rewriting a PR description. That happens in Development, after I approve a push, and never anywhere else.
 
 For a reviewer with no context on this task, not for me. Grounding still governs what you may claim here; it does not govern citation format. Write the sections in this order.
 
@@ -142,6 +147,8 @@ Good: "Tag ids are existence-checked on write but NTEE codes are only format-che
 
 ### PR description → Diagram
 
+Decide first whether the diagram exists at all. Draw one by default; the reviewer usually reads it before the code. Skip it only when it would add nothing the prose already gives them. A one-file change, a rename, and a value edit with no path through it all qualify. The rules below can also kill it: skip when you cannot point at the code behind an edge. When you are unsure, draw it. Read the rest of this section after you decide to draw one.
+
 - Diagram the business logic or data flow the change touches. Not CI, not file structure, not git flow.
 - Draw an edge only for a call or transition you found in the diff or the source. Never infer one from a name, an import, or a route string. If you cannot point at the code behind an edge, skip the diagram.
 - A reply arrow is an edge and needs the same evidence as a call arrow. Before you draw one, name the variable the caller assigns it to. If there is none, or it is assigned and never read, there is no arrow. Symmetry in the notation is not evidence.
@@ -149,7 +156,6 @@ Good: "Tag ids are existence-checked on write but NTEE codes are only format-che
 - Draw the early exits the change adds. A validation or guard that terminates the flow is a transition, not an omission. A branch with no depicted consequence is worse than no branch.
 - `opt` for a branch with no `else`. `alt` implies an alternative the reader will look for.
 - Every node is code you read, except an external actor and a boundary node that collapses untouched code.
-- Include the diagram when the change spans a call chain of three or more files, or adds or moves a conditional branch. Skip it for config and infra changes, and when it would only restate the prose. Skip wins when both apply.
 - `sequenceDiagram` for request or response flows between actors and services.
 - `flowchart TD` for decision trees, branching, state transitions.
 - `classDiagram` for new domain models or entity relationships.
