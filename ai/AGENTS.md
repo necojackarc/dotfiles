@@ -184,7 +184,11 @@ Calibrate to these:
 
 ### PR description → Diagram
 
-Decide first whether the diagram exists at all. Draw one by default; the reviewer usually reads it before the code. Skip it only when it would add nothing the prose already gives them. A one-file change, a rename, and a value edit with no path through it all qualify. The rules below can also kill it: skip when you cannot point at the code behind an edge. When you are unsure, draw it. Read the rest of this section after you decide to draw one.
+Decide first whether the diagram exists at all. It earns its place when it makes the review easier — not when the change is large. Ask what the reviewer has to hold in their head at once to check this change. Draw one when that is more than one path: the flow forks and rejoins,  three or more actors exchange messages, or the order of the steps is itself what they must verify. Skip it when one sentence carries the whole flow. One decision with two outcomes is a sentence. So is a straight line through four files. A one-file change, a rename, and a value edit with no path through it all qualify to skip, and so does a flow a How bullet already states.
+
+When you are unsure, skip it, and tell me in one line that you skipped one and why. I will ask for it if I want it.
+
+Read the rest of this section after you decide to draw one.
 
 - Diagram the business logic or data flow the change touches. Not CI, not file structure, not git flow.
 - Draw an edge only for a call or transition you found in the diff or the source. Never infer one from a name, an import, or a route string. If you cannot point at the code behind an edge, skip the diagram.
