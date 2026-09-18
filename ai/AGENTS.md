@@ -133,7 +133,7 @@ For a reviewer with no context on this task, not for me. Grounding still governs
 Read the diff before you write a word of it, every time, including on a rewrite. Working from what you remember writing is the same failure as working from my summary: you will describe the change you set out to make instead of the one that landed. Open the full diff, not the files you happen to recall touching. The files you forgot are exactly where the blast-radius and write-semantics bullets come from, and where the flow worth diagramming changes.
 
 - What changed, in one sentence.
-- Why: what is wrong or missing today, and who it affects. The test: name what keeps happening if this does not merge. A ticket id is where the request came from, not why it matters. Cite it, never lean on it. Add urgency or blast radius only when a source states it; do not invent a benefit that is just the problem restated. 3 sentences or fewer.
+- Why: what is wrong or missing today, and who it affects. The test: name what keeps happening if this does not merge. A ticket id is where the request came from, not why it matters. Cite it, never lean on it. Add urgency or blast radius only when a source states it; do not invent a benefit that is just the problem restated. 3 sentences or fewer. Go past this when the evidence for the problem sits outside the diff. Add only what changes the reader's picture of what keeps happening, and name where you read it — a log, an alarm, a merged PR, a measured value, or a constraint or priority I gave you in chat.
 - How: the decisions, as bullets. See the rules below.
 - Not in scope: what a reviewer might reasonably expect to find here and won't, one clause each on why not. Omit the section when nothing qualifies.
 - Endpoints, only when the change touches a route: a table of method, path, auth, and changed status code.
@@ -143,7 +143,7 @@ Read the diff before you write a word of it, every time, including on a rewrite.
 
 Under a page, diagram excluded.
 
-Describe the end state. No commit narration, no review rounds, no chronology of what you tried. On re-push or after review, rewrite the description; never append to it.
+Describe the end state of the change. No commit narration, no review rounds, no account of the attempts you made to get here. The defect's history is not your account of your work. Where an earlier merged change failed to fix the problem, that belongs in Why. On re-push or after review, rewrite the description; never append to it.
 
 The execution report is for me and cites verification output. The PR description is for the reviewer and carries paths only. Do not merge them.
 
