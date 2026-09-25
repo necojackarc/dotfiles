@@ -168,7 +168,7 @@ Describe the end state of the change. No commit narration, no review rounds, no 
 
 The execution report is for me and cites verification output. The PR description is for the reviewer and carries paths only. Do not merge them.
 
-What belongs here is what the reviewer must check before approving. A durable convention that outlives this diff is not that. If the repo documents it in-tree, do not restate it here; if it does not, this is still the wrong place for it.
+What belongs here is what the reviewer must check before approving, or what saves them a lookup outside the diff. Cut a sentence the diff already shows when it asks nothing of them. State each fact once across the description; a deferral lives only in Not in scope. A durable convention that outlives this diff does not belong here. If the repo documents it in-tree, do not restate it; if it does not, this is still the wrong place for it.
 
 No [inference], [opinion], or [unverified] here. Say "not tested against staging" in plain words instead.
 
@@ -185,7 +185,7 @@ The Bad one names the trigger and the prior state. The Good one names what is ab
 
 ### PR description → How
 
-- One bullet per decision: `<decision> — <what forced it> — <what it rules out>`. No fixed count. The qualifying rule below decides how many there are, and the page budget decides how long each gets.
+- One bullet per decision. Lead with the decision. Then add what forced it, what it rules out, or both, but only the parts the reviewer could not predict from the decision itself. These are slots, not obligations; most bullets need one of the two, not both.
 - A decision qualifies only when the reviewer could reasonably have expected the other choice, and the diff alone will not tell them which you picked. Everything else is noise, however much work it took.
 - If more than about seven qualify, the PR is doing too many things. Say so in one line at the top of How rather than picking five and hiding the rest.
 - Order by blast radius, not by layer. Anything that changes code outside the files you added leads: a renamed or re-signatured symbol, a new required dependency, a module that now exposes or mounts something it did not, a widened or narrowed query, a new lint or coverage exclusion. Local, reversible choices inside the new files go last, or get cut.
@@ -203,9 +203,14 @@ Calibrate to these:
 - Bad: "`criteria` is validated by a `.strict()` zod schema requiring at least one field set at every level."
 - Good: "Tag ids are existence-checked on write but NTEE codes are only format-checked — the NTEE map covers under half of ingested prefixes, so a dictionary check would reject most real criteria."
 
+- Bad: "The in-memory broker re-throws subscriber errors to the emitter. Without the catch, a saved claim would come back as a 500. The catch rules out that outcome. The one test that built the service without a broker now passes a mock."
+- Good: "The in-memory broker re-throws subscriber errors, so without the catch a saved claim would come back as a 500."
+
+The Bad one fills the "rules out" slot with a restatement, and reports a test fixture the diff already shows. The Good one keeps the cause and the consequence the reviewer must weigh.
+
 ### PR description → Diagram
 
-Decide first whether the diagram exists at all. It earns its place when it makes the review easier — not when the change is large. Ask what the reviewer has to hold in their head at once to check this change. Draw one when that is more than one path: the flow forks and rejoins,  three or more actors exchange messages, or the order of the steps is itself what they must verify. Skip it when one sentence carries the whole flow. One decision with two outcomes is a sentence. So is a straight line through four files. A one-file change, a rename, and a value edit with no path through it all qualify to skip, and so does a flow a How bullet already states.
+Decide first whether the diagram exists at all. It earns its place when it makes the review easier — not when the change is large. Ask what the reviewer has to hold in their head at once to check this change. Draw one when that is more than one path: the flow forks and rejoins, three or more actors exchange messages, or the order of the steps is itself what they must verify. Skip it when one sentence carries the whole flow. One decision with two outcomes is a sentence. So is a straight line through four files. A one-file change, a rename, and a value edit with no path through it all qualify to skip, and so does a flow a How bullet already states.
 
 When you are unsure, skip it, and tell me in one line that you skipped one and why. I will ask for it if I want it.
 
@@ -240,6 +245,8 @@ This applies to every word you produce, in every mode and every channel: chat, p
 One idea per sentence, 20 words or fewer where possible. Active voice, present tense, conclusion first. Keep domain terms; drop nominalizations — "we validate the token" over "validation of the token is performed".
 
 The word count is a target, not something to hit at the reader's expense. A sentence someone has to parse twice has already failed, whatever its length. When a sentence runs long, split it in two. Never buy the words back by compressing the grammar.
+
+Splitting a sentence must not add one that only links or restates the halves. Never follow a sentence with one that says it again.
 
 The devices below buy words by compressing the grammar. Do not use them unless the compressed version genuinely reads more easily than the plain one. For a clause that carries an actor and an action, it almost never does. Name the actor and use a verb.
 
