@@ -156,7 +156,7 @@ For a reviewer with no context on this task, not for me. Grounding still governs
 Read the diff before you write a word of it, every time, including on a rewrite. Working from what you remember writing is the same failure as working from my summary: you will describe the change you set out to make instead of the one that landed. Open the full diff, not the files you happen to recall touching. The files you forgot are exactly where the blast-radius and write-semantics bullets come from, and where the flow worth diagramming changes.
 
 - What changed, in one sentence.
-- Why: who is worse off today, and how, in the words they would use. The subject is a person or role — a customer, an admin, an ops engineer, whoever is on call, a team building on this change — never a module, function, endpoint, or "the frontend". Lead with the end user whenever a source names one. When the first role you find is a team building on this change, follow it one step further. Name who that team serves and what that person gets. The test: name what that person keeps failing to do, or keeps seeing wrong, if this does not merge. The mechanism behind it belongs in How. Take the affected person and the value from the ticket, the linked issue, or what I told you in chat. A ticket id is where the request came from, not why it matters. Cite it, never lean on it. Add urgency or blast radius only when a source states it; do not invent a benefit that is just the problem restated. 3 sentences or fewer. Go past this when the evidence for the problem sits outside the diff. Add only what changes the reader's picture of who is worse off and how, and name where you read it — a log, an alarm, a merged PR, a measured value, or a constraint or priority I gave you in chat.
+- Why: who is worse off today, and how, in the words they would use. The subject is the end user: whoever finally uses what this change enables, such as a customer, an admin, or whoever is on call. It is never a module, function, endpoint, or "the frontend". A team that builds on this change is not the subject either. Find who that team serves and what that person gets, and write about that person. The mechanism behind it belongs in How. Apply one test to every sentence: what does that person keep failing to do, or keep seeing wrong, if this does not merge? A sentence that fails the test does not belong in Why. When it explains a design decision, such as a drift that happens only if each team builds its own check, move it to the How bullet for that decision. Otherwise cut it. A defect that no one can hit until this change lands fails the test too. On a rewrite, write Why from scratch. Keep no sentence from the old Why just because it was there. Take the affected person and the value from the ticket, the linked issue, or what I told you in chat. A ticket id is where the request came from, not why it matters. Cite it, never lean on it. Add urgency or blast radius only when a source states it; do not invent a benefit that is just the problem restated. 3 sentences or fewer. Go past this when the evidence for the problem sits outside the diff. Add only what changes the reader's picture of who is worse off and how, and name where you read it — a log, an alarm, a merged PR, a measured value, or a constraint or priority I gave you in chat.
 - How: the decisions, as bullets. See the rules below.
 - Not in scope: what a reviewer might reasonably expect to find here and won't, one clause each on why not. Omit the section when nothing qualifies.
 - Endpoints, only when the change touches a route: a table of method, path, auth, and changed status code.
@@ -174,7 +174,7 @@ What belongs here is what the reviewer must check before approving, or what save
 
 No [inference], [opinion], or [unverified] here. Say "not tested against staging" in plain words instead.
 
-Why is the one section whose answer may not be in the diff. If you reach it without knowing who the change ultimately serves, you skipped a question you should have asked at the end of investigation. Ask it now, before you write Why. If no source and no answer from me names the end user or what they get, stop at the last person a source does name. Do not fill the gap with a plausible benefit. Tell me separately which link is missing, so I can add it to the ticket.
+Why is the one section whose answer may not be in the diff. If you reach it without knowing who the change ultimately serves, you skipped a question you should have asked at the end of investigation. Ask it now, before you write Why. If no source and no answer from me names the end user or what they get, stop at the last person a source does name, even when that is a team building on this change. Do not fill the gap with a plausible benefit. Tell me separately which link is missing, so I can add it to the ticket.
 
 ### PR description → Why
 
@@ -183,9 +183,11 @@ Calibrate to these:
 - Bad: "The checkout page cannot ask which coupons a customer can use, because the eligibility function has no caller."
 - Bad: "Teams building coupon features have no way to ask which coupons a customer can use."
 - Bad: "SHOP-142 asks for a coupon eligibility endpoint; the rules engine already existed but had no routes or controllers."
-- Good: "Customers can't be shown the coupons they can actually use. Feature teams have no single way to ask which coupons a customer is eligible for. If each feature checked on its own, a coupon could look valid on one page and fail at checkout. SHOP-142."
+- Bad: "Customers can't be shown the coupons they can actually use. Feature teams have no single way to ask which coupons a customer is eligible for. If each feature checked on its own, a coupon could look valid on one page and fail at checkout."
+- Bad: "Customers can't be shown the coupons they can actually use. Eligibility also counted expired coupons, so a customer could be offered one that no longer works."
+- Good: "Customers can't see which of their coupons will work until they try one at checkout. SHOP-142."
 
-The first Bad names a component as the one affected. The second stops at the team and never says who that team serves. The third names the trigger and the prior state. The Good one leads with the customer and what they miss out on. The reviewer can predict the How bullets from it before reading them.
+The first Bad names a component as the one affected. The second stops at the team and never says who that team serves. The third names the trigger and the prior state. The fourth starts right, then adds the team's problem and a drift that happens only if each team builds its own check. No customer hits either one if this does not merge. The drift explains why the check is shared, so it belongs in the How bullet for that decision. The fifth adds a defect that no customer can hit yet, because nothing shows coupons today. It is a property of the new path, so it belongs in How too. The Good one says what the customer keeps failing to do, and nothing else.
 
 ### PR description → How
 
@@ -206,6 +208,9 @@ Calibrate to these:
 
 - Bad: "`criteria` is validated by a `.strict()` zod schema requiring at least one field set at every level."
 - Good: "Tag ids are existence-checked on write but NTEE codes are only format-checked — the NTEE map covers under half of ingested prefixes, so a dictionary check would reject most real criteria."
+
+- Bad: "Eligibility is computed in a shared `checkEligibility` function that the endpoint wraps."
+- Good: "Eligibility lives in one shared function, not in each feature, so a coupon cannot pass on one page and fail at checkout."
 
 - Bad: "The in-memory broker re-throws subscriber errors to the emitter. Without the catch, a saved claim would come back as a 500. The catch rules out that outcome. The one test that built the service without a broker now passes a mock."
 - Good: "The in-memory broker re-throws subscriber errors, so without the catch a saved claim would come back as a 500."
