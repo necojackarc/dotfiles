@@ -133,6 +133,8 @@ Ask only what blocks you. Every question must be specific and necessary to conti
 
 The end of investigation is the last cheap moment to ask: a question that would change the plan costs one exchange there and a rework later. This is a deadline, not a prompt. If nothing is undecidable, say nothing and proceed.
 
+Who the change ultimately serves, and what they get from it, is one of these questions when no ticket, linked issue, or chat message says. The PR's Why depends on the answer.
+
 # Channel budgets
 
 - **Chat**: the answer lands in the first 3 sentences. Detail after that only if it changes what I would do. No headers under ~200 words.
@@ -154,7 +156,7 @@ For a reviewer with no context on this task, not for me. Grounding still governs
 Read the diff before you write a word of it, every time, including on a rewrite. Working from what you remember writing is the same failure as working from my summary: you will describe the change you set out to make instead of the one that landed. Open the full diff, not the files you happen to recall touching. The files you forgot are exactly where the blast-radius and write-semantics bullets come from, and where the flow worth diagramming changes.
 
 - What changed, in one sentence.
-- Why: what is wrong or missing today, and who it affects. The test: name what keeps happening if this does not merge. A ticket id is where the request came from, not why it matters. Cite it, never lean on it. Add urgency or blast radius only when a source states it; do not invent a benefit that is just the problem restated. 3 sentences or fewer. Go past this when the evidence for the problem sits outside the diff. Add only what changes the reader's picture of what keeps happening, and name where you read it — a log, an alarm, a merged PR, a measured value, or a constraint or priority I gave you in chat.
+- Why: who is worse off today, and how, in the words they would use. The subject is a person or role — a customer, an admin, an ops engineer, whoever is on call, a team building on this change — never a module, function, endpoint, or "the frontend". Lead with the end user whenever a source names one. When the first role you find is a team building on this change, follow it one step further. Name who that team serves and what that person gets. The test: name what that person keeps failing to do, or keeps seeing wrong, if this does not merge. The mechanism behind it belongs in How. Take the affected person and the value from the ticket, the linked issue, or what I told you in chat. A ticket id is where the request came from, not why it matters. Cite it, never lean on it. Add urgency or blast radius only when a source states it; do not invent a benefit that is just the problem restated. 3 sentences or fewer. Go past this when the evidence for the problem sits outside the diff. Add only what changes the reader's picture of who is worse off and how, and name where you read it — a log, an alarm, a merged PR, a measured value, or a constraint or priority I gave you in chat.
 - How: the decisions, as bullets. See the rules below.
 - Not in scope: what a reviewer might reasonably expect to find here and won't, one clause each on why not. Omit the section when nothing qualifies.
 - Endpoints, only when the change touches a route: a table of method, path, auth, and changed status code.
@@ -172,16 +174,18 @@ What belongs here is what the reviewer must check before approving, or what save
 
 No [inference], [opinion], or [unverified] here. Say "not tested against staging" in plain words instead.
 
-Why is the one section whose answer may not be in the diff. If you reach it and cannot name what keeps happening without this change, you skipped a question you should have asked before editing. Write your best understanding in plain words here, and tell me separately that you are guessing.
+Why is the one section whose answer may not be in the diff. If you reach it without knowing who the change ultimately serves, you skipped a question you should have asked at the end of investigation. Ask it now, before you write Why. If no source and no answer from me names the end user or what they get, stop at the last person a source does name. Do not fill the gap with a plausible benefit. Tell me separately which link is missing, so I can add it to the ticket.
 
 ### PR description → Why
 
 Calibrate to these:
 
-- Bad: "NGM-102 asks for an endpoint to populate partner ICP configs; the domain entity and repository already existed but had no routes or controllers."
-- Good: "Nothing can write a partner's ICP config today, so the matching logic has no per-partner definition of a good-fit nonprofit to evaluate against. Partner asks vary enough that the criteria format has to stay flexible, but data too loose to evaluate must not get in. Engineers call this endpoint directly for now; a UI comes later. NGM-102."
+- Bad: "The checkout page cannot ask which coupons a customer can use, because the eligibility function has no caller."
+- Bad: "Teams building coupon features have no way to ask which coupons a customer can use."
+- Bad: "SHOP-142 asks for a coupon eligibility endpoint; the rules engine already existed but had no routes or controllers."
+- Good: "Customers can't be shown the coupons they can actually use. Feature teams have no single way to ask which coupons a customer is eligible for. If each feature checked on its own, a coupon could look valid on one page and fail at checkout. SHOP-142."
 
-The Bad one names the trigger and the prior state. The Good one names what is absent and what that absence blocks, so the reviewer can predict the How bullets before reading them.
+The first Bad names a component as the one affected. The second stops at the team and never says who that team serves. The third names the trigger and the prior state. The Good one leads with the customer and what they miss out on. The reviewer can predict the How bullets from it before reading them.
 
 ### PR description → How
 
