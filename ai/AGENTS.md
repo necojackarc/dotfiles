@@ -133,7 +133,7 @@ Ask only what blocks you. Every question must be specific and necessary to conti
 
 The end of investigation is the last cheap moment to ask: a question that would change the plan costs one exchange there and a rework later. This is a deadline, not a prompt. If nothing is undecidable, say nothing and proceed.
 
-Who the change ultimately serves, and what they get from it, is one of these questions when no ticket, linked issue, or chat message says. The PR's Why depends on the answer.
+Who the change ultimately serves, and what they get from it, is one of these questions when no ticket, linked issue, or chat message says.
 
 # Channel budgets
 
@@ -149,7 +149,7 @@ Who the change ultimately serves, and what they get from it, is one of these que
 
 ## PR description
 
-Read this section only when you are writing or rewriting a PR description. That happens in Development, after I approve a push, and never anywhere else.
+Read this section only when you are writing or rewriting a PR description.
 
 For a reviewer with no context on this task, not for me. Grounding still governs what you may claim here; it does not govern citation format. Write the sections in this order.
 
@@ -157,29 +157,25 @@ Read the diff before you write a word of it, every time, including on a rewrite.
 
 - What changed, in one sentence.
 - Why: who is worse off today, and how, in the words they would use. 3 sentences or fewer.
-  - Subject: the end user — whoever finally uses what this change enables, such as a customer, an admin, or whoever is on call. It is never a module, function, endpoint, or "the frontend". A team that builds on this change is not the subject either. Find who that team serves and what that person gets, and write about that person. The mechanism behind it belongs in How.
-  - Test: apply it to every sentence. What does that person keep failing to do, or keep seeing wrong, if this does not merge? A sentence that fails it does not belong in Why. Move it to the How bullet it explains, or cut it.
-  - Sources: take the affected person and the value from the ticket, the linked issue, or what I told you in chat. A ticket id is where the request came from, not why it matters. Cite it, never lean on it. Add urgency or blast radius only when a source states it; do not invent a benefit that is just the problem restated.
-  - Rewrites: write Why from scratch. Keep no sentence from the old Why just because it was there.
-  - Evidence outside the diff: this is the only reason to go past 3 sentences. Add only what changes the reader's picture of who is worse off and how, and name where you read it — a log, an alarm, a merged PR, a measured value, or a constraint or priority I gave you in chat.
-- How: the decisions, as bullets. See the rules below.
+  - Subject: the end user — whoever finally uses what this change enables, such as a customer, an admin, or whoever is on call. Never a module, function, endpoint, or "the frontend", and never a team that builds on this change. Find who that team serves, and write about that person. The mechanism belongs in How.
+  - Test: apply it to every sentence. What does that person keep failing to do, or keep seeing wrong, if this does not merge? Move a sentence that fails to the How bullet it explains or to Not in scope, or cut it.
+  - Sources: take the person and the value from the ticket, the linked issue, or what I told you in chat. If none of them says, ask me before you write Why. If I cannot say either, stop at the last person a source names, and tell me separately which link is missing. Never invent a benefit, and never restate the problem as one. A ticket id is where the request came from, not why it matters; cite it, never lean on it. Add urgency or blast radius only when a source states it.
+  - Evidence outside the diff: the only reason to go past 3 sentences. Add only what changes the reader's picture of who is worse off, and name where you read it — a log, an alarm, a merged PR, a measured value, or something I told you in chat.
+- How: the diagram first, when the change has a flow, then the decisions as bullets. See the rules below.
 - Not in scope: what a reviewer might reasonably expect to find here and won't, one clause each on why not. That includes work that still has to land before the end user sees this change. Omit the section when nothing qualifies.
-- Endpoints, only when the change touches a route: a table of method, path, auth, and changed status code.
+- Endpoints, only when the change adds or changes a route: a table of method, path, auth, and changed status codes. Below the table, show the request and response of each route whose contract changed, as short JSON trimmed to the fields that matter. A route with no body shows its query parameters instead of a request. When more than three routes changed, keep only the table, and name the API spec file in Where to start if the repo has one.
 - Where to start: the files to read, in reading order, one clause each on why. Paths only, no line numbers; they shift before merge. The clause says why the file is on the path, not what it decides; decisions live in How.
 - Verification: what you ran and what you did not cover. Say for each whether it was automated or a manual check you performed once, and whether you ran it yourself or saw it pass in CI. A manual check names what you exercised and what you observed. You do not turn it into a regression test by naming it here. If you ran nothing, say so. No command output.
-- The diagram, last.
 
-Under a page, diagram excluded.
+Under a page, diagram and endpoint examples excluded.
 
-Describe the end state of the change. No commit narration, no review rounds, no account of the attempts you made to get here. The defect's history is not your account of your work. Where an earlier merged change failed to fix the problem, that belongs in Why. On re-push or after review, rewrite the description; never append to it.
+Describe the end state of the change. No commit narration, no review rounds, no account of the attempts you made to get here. The defect's history is not your account of your work. Where an earlier merged change failed to fix the problem, that belongs in Why. On re-push or after review, rewrite the description from scratch. Never append to it, and keep no sentence just because it was there.
 
 The execution report is for me and cites verification output. The PR description is for the reviewer and carries paths only. Do not merge them.
 
 What belongs here is what the reviewer must check before approving, or what saves them a lookup outside the diff. Cut a sentence the diff already shows when it asks nothing of them. State each fact once across the description; a deferral lives only in Not in scope. A durable convention that outlives this diff does not belong here. If the repo documents it in-tree, do not restate it; if it does not, this is still the wrong place for it.
 
 No [inference], [opinion], or [unverified] here. Say "not tested against staging" in plain words instead.
-
-Why is the one section whose answer may not be in the diff. If you reach it without knowing who the change ultimately serves, you skipped a question you should have asked at the end of investigation. Ask it now, before you write Why. If no source and no answer from me names the end user or what they get, stop at the last person a source does name, even when that is a team building on this change. Do not fill the gap with a plausible benefit. Tell me separately which link is missing, so I can add it to the ticket.
 
 ### PR description → Why
 
@@ -188,53 +184,54 @@ Calibrate to these:
 - Bad: "The checkout page cannot ask which coupons a customer can use, because the eligibility function has no caller."
 - Bad: "Teams building coupon features have no way to ask which coupons a customer can use."
 - Bad: "SHOP-142 asks for a coupon eligibility endpoint; the rules engine already existed but had no routes or controllers."
-- Bad: "Customers can't be shown the coupons they can actually use. Feature teams have no single way to ask which coupons a customer is eligible for. If each feature checked on its own, a coupon could look valid on one page and fail at checkout."
-- Bad: "Customers can't be shown the coupons they can actually use. Eligibility also counted expired coupons, so a customer could be offered one that no longer works."
+- Bad: "Customers can't be shown the coupons they can actually use. If each feature checked on its own, a coupon could look valid on one page and fail at checkout. Eligibility also counted expired coupons."
 - Bad: "Customers can't see which of their coupons will work until they try one at checkout. Nothing changes for them until the cart page calls this endpoint."
 - Good: "Customers can't see which of their coupons will work, so they only find out when one fails at checkout. SHOP-142."
 
-The first Bad names a component as the one affected. The second stops at the team and never says who that team serves. The third names the trigger and the prior state. The fourth starts right, then adds the team's problem and a drift that happens only if each team builds its own check. No customer hits either one if this does not merge. The drift explains why the check is shared, so it belongs in the How bullet for that decision. The fifth adds a defect that no customer can hit yet, because nothing shows coupons today. It is a property of the new path, so it belongs in How too. The sixth starts right, then says what still has to land. That belongs in Not in scope, and in Why it reads as if this change does nothing. The Good one says what the customer can't do and what that costs them.
+The first Bad makes a component the one affected. The second stops at the team. The third gives the trigger and the prior state. The fourth starts right, then adds a drift and a defect that no customer hits if this does not merge. Both explain How decisions, so they belong there. The fifth starts right, then says what still has to land. That belongs in Not in scope, and in Why it reads as if this change does nothing. The Good one says what the customer can't do and what that costs them.
 
 ### PR description → How
 
-- One bullet per decision. Lead with the decision. Then add what forced it, what it rules out, or both, but only the parts the reviewer could not predict from the decision itself. These are slots, not obligations; most bullets need one of the two, not both.
+- One bullet per decision. Lead with the decision, then give the one reason the reviewer needs to approve it: what forced it, or what it rules out. Cut a supporting fact the reviewer would not ask about before approving.
 - A decision qualifies only when the reviewer could reasonably have expected the other choice, and the diff alone will not tell them which you picked. Everything else is noise, however much work it took.
+- Do not repeat what the diagram or Endpoints already show: a branch, an early exit, a status code, the order of steps, or a request or response shape. A bullet about a drawn branch carries only why the branch exists.
 - If more than about seven qualify, the PR is doing too many things. Say so in one line at the top of How rather than picking five and hiding the rest.
 - Order by blast radius, not by layer. Anything that changes code outside the files you added leads: a renamed or re-signatured symbol, a new required dependency, a module that now exposes or mounts something it did not, a widened or narrowed query, a new lint or coverage exclusion. Local, reversible choices inside the new files go last, or get cut.
 - Write-semantics belong here, never only in Where to start or the API spec. Before you finish How, open every write path the change adds and answer these in a bullet: on a partial update, which fields merge and which replace wholesale; whether an explicit null differs from an omitted field; what re-validates and what does not. If the answer lives in the API spec or a test name but not in How, it is missing from How.
 - State asymmetries. When two similar inputs get different treatment, the reviewer will ask why — answer it in one line before they do.
 - Name a rejected alternative by the behavior you needed, never by another module's name. The reviewer does not know your repo's precedents and cannot check one.
-- Optional first line, only when the change adds a request path: `A -> B -> C`.
+- Optional first line, only when there is no diagram and the change adds a request path: `A -> B -> C`.
 - Last line, only when it applies: what could break that the diff does not show, or the reason nothing can.
 
 Calibrate to these:
 
 - Bad: "`create`/`update` follow `subsidiary`'s pattern — one file per operation, a `Command`/`Query` class plus a handler calling the repository directly — rather than `gamification`'s full CQRS-with-domain-events layer, since this aggregate emits no events."
-- Good: "The module now mounts an HTTP router and takes a partner API as a required dependency — every existing caller of its compose function had to pass one."
+- Good: "The module now mounts an HTTP router and takes a partner API as a required dependency. Every existing caller of its compose function had to pass one."
 
 - Bad: "`criteria` is validated by a `.strict()` zod schema requiring at least one field set at every level."
-- Good: "Tag ids are existence-checked on write but NTEE codes are only format-checked — the NTEE map covers under half of ingested prefixes, so a dictionary check would reject most real criteria."
+- Good: "Tag ids are existence-checked on write, but NTEE codes are only format-checked. The NTEE map covers under half of ingested prefixes, so a dictionary check would reject most real criteria."
 
 - Bad: "Eligibility is computed in a shared `checkEligibility` function that the endpoint wraps."
 - Good: "Eligibility lives in one shared function, not in each feature, so a coupon cannot pass on one page and fail at checkout."
 
+- Bad: "When the coupon lookup fails, the controller does not catch the error, so the global handler logs it and returns 500."
+- Good: "A failed coupon lookup returns 500, not an empty list. An empty list would tell the customer they have no coupons."
+
 - Bad: "The in-memory broker re-throws subscriber errors to the emitter. Without the catch, a saved claim would come back as a 500. The catch rules out that outcome. The one test that built the service without a broker now passes a mock."
 - Good: "The in-memory broker re-throws subscriber errors, so without the catch a saved claim would come back as a 500."
 
-The Bad one fills the "rules out" slot with a restatement, and reports a test fixture the diff already shows. The Good one keeps the cause and the consequence the reviewer must weigh.
+The fourth Bad describes a branch the diagram already draws. Its Good keeps only why the branch exists. The last Bad restates its own consequence and reports a test fixture the diff already shows. Its Good keeps the cause and the consequence the reviewer must weigh.
 
-### PR description → Diagram
+### PR description → How → Diagram
 
-Decide first whether the diagram exists at all. It earns its place when it makes the review easier — not when the change is large. Ask what the reviewer has to hold in their head at once to check this change. Draw one when that is more than one path: the flow forks and rejoins, three or more actors exchange messages, or the order of the steps is itself what they must verify. Skip it when one sentence carries the whole flow. One decision with two outcomes is a sentence. So is a straight line through four files. A one-file change, a rename, and a value edit with no path through it all qualify to skip, and so does a flow a How bullet already states.
-
-When you are unsure, skip it, and tell me in one line that you skipped one and why. I will ask for it if I want it.
+Decide first whether the change has a flow. A reviewer reads branches faster in a picture than in prose. Draw one when the change adds or alters a path with a branch, an early exit, or three or more actors. Skip it when there is no path through the change: a rename, a value edit, a config change, or a straight line through files with no branch. When you are unsure, draw it, as long as you can point at the code behind every edge.
 
 Read the rest of this section after you decide to draw one.
 
 - Diagram the business logic or data flow the change touches. Not CI, not file structure, not git flow.
 - Draw an edge only for a call or transition you found in the diff or the source. Never infer one from a name, an import, or a route string. If you cannot point at the code behind an edge, skip the diagram.
 - A reply arrow is an edge and needs the same evidence as a call arrow. Before you draw one, name the variable the caller assigns it to. If there is none, or it is assigned and never read, there is no arrow. Symmetry in the notation is not evidence.
-- When the change adds more than one flow, diagram the one with the most branching, not the first one you wrote. Re-run that choice on every rewrite. A flow added after the first draft can outrank the one you drew. Updating the old diagram's details is not the same as re-picking its subject.
+- When the change adds more than one flow, diagram the one with the most branching. Re-pick it on every rewrite; a flow added later can outrank the one you drew.
 - Draw the early exits the change adds. A validation or guard that terminates the flow is a transition, not an omission. A branch with no depicted consequence is worse than no branch.
 - `opt` for a branch with no `else`. `alt` implies an alternative the reader will look for.
 - Every node is code you read, except an external actor and a boundary node that collapses untouched code.
