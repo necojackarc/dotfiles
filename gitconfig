@@ -57,3 +57,5 @@
 	autoSquash = true
 	autoStash = true
 	updateRefs = true
+[include]
+	path = ~/.gitconfig.local
